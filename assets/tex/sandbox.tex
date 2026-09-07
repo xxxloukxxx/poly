@@ -1,0 +1,425 @@
+\chapter{Analyse et Étude de Fonctions}
+
+\section{Sandbox}
+\subsection{subsection}
+
+\begin{df}[Plop]
+	Mot d'origine inconnu qui envoi du pâté ... enfin on pense : $$e^{i\pi}+1=0$$
+\end{df}
+
+\begin{thm}[Théorème des valeurs intermédiaires]
+	Soit $f$ une fonction continue sur $\intff{a}{b}$ et un réel $k$ tel que $f(a)\lt k \lt f(b)$.
+
+	Il existe au moins un réel $\alpha\in\intff{a}{b}$ tel $f(\alpha)=k$.
+\end{thm}
+
+
+\begin{prop}[Interéssant]
+	Les chat retombrent toujours sur leurs pattes
+\end{prop}
+
+\begin{demo}\lipsum[1]\end{demo}
+
+\begin{meth}[Calculer une intégrale]
+	Faut trouver une primitive de $f$ sur l'intervalle puis faire $F(b)-F(a)$.
+	$$\dint_a^b f(x)\, \dx = \Big\lbrack F(x)\Big\rbrack_a^b = F(b) - F(a)$$
+\end{meth}
+
+
+\begin{ex}
+	Soit $f(x)=x^2$ définie sur $\intff{0}{2}$.
+
+	On a donc : $F(x)=\frac{x^3}{3}+K$ avec $K\in\R$.
+
+	$$
+		\def\arraystretch{2}
+		\begin{array}{rcl}
+			\dint_0^1 f(x)\,\dx & = & \dint_0^1 x^2\,\dx \\ &=& \bra{\dfrac{x^3}{3}+K}_0^1 \\ &=& \pa{\dfrac{1^3}{3}+K}-\pa{\dfrac{0^3}{3}+K} =\dfrac13
+		\end{array}
+	$$
+\end{ex}
+
+\begin{rem}
+	L'aire définie entre \ldots
+
+	\bi
+	\item \ldots la courbe \Cf représentative de la fonction $x^2$,
+	\item l'axe des abscisses,
+	\item l'axe des ordonnées,
+	\item la droite d'éqiation $x=1$\ldots
+	\ei
+
+	\ldots a pour valeur $\dfrac13$.
+
+	\begin{tikzpicture}[x=2cm,y=2cm,>=Stealth]
+		\draw[dotted,xstep=0.5,ystep=0.5] (-0.3,-0.3) grid (1.3,1.3);
+		\draw[->] (-0.3,0) -> (1.3,0);
+		\draw[->] (0,-0.3) -> (0,1.3);
+		\foreach \pt in { (0,0) , (0,1) , (1,1) , (1,0) } {\filldraw \pt circle (1pt);}
+		\draw[thick,color=black,smooth,samples=100,domain=0:1] plot(\x,{\x*\x});
+	\end{tikzpicture}
+\end{rem}
+
+\begin{exo}
+	Soit la fonction $f(x)=\cos(x)$ définie sur $\intff{0}{2\pi}$.
+
+	\begin{enumerate}
+		\item Déterminer une primitive de $f$.
+		\item Calculer :
+			$$\dint_0^{\frac{\pi}{2}} f(x)\,\dx$$
+	\end{enumerate}
+\end{exo}
+
+
+\section{Ensembles de nombres et Généralités}
+
+\begin{df}
+	On a : \np{12345} \epsdice{1}
+
+	Dans ce chapitre, nous travaillerons principalement dans l'ensemble des nombres réels $\R$, mais rappelons les inclusions usuelles :
+	\[
+		\N \subset \Z \subset \D \subset \Q \subset \R \subset \C \quad \text{avec } \np{12345.678} \in \R \text{ et } \eur \in \text{Monnaie}
+	\]
+\end{df}
+
+\begin{definition}
+	Soit $f$ une fonction définie sur un intervalle $I = \intfo{0}{+\infty}$ et un plan doté d'un repère orthonormé $\vOIJ$.
+
+	L'ensemble des points $M$ de coordonnées $\coordl{x}{f(x)}$ est la courbe représentative de la fonction $f$ et elle est notée $\Cf$.
+	\begin{center}
+		\begin{tikzpicture}[>=Stealth]
+			\draw[dotted] (-7.5,-1.5) grid (7.5,1.5);
+			\draw[->,thick,black!60] (0,-1.5) -- (0,1.5);
+			\draw[->,thick,black!60] (-7.5,0) -- (7.5,0);
+			\foreach \x in {-7,...,7} {\filldraw (\x,0) circle (1pt);}
+			\foreach \y in {-1,0,1} {\filldraw (0,\y) circle (1pt);}
+			\filldraw[red] (0,0) circle (2pt);
+			\draw[line width=0.5pt,color=black,smooth,dashed,samples=1000,domain=-7.5:7.5] plot(\x,{sin(\x*\x*180/pi)});
+		\end{tikzpicture}
+	\end{center}
+
+\end{definition}
+
+\begin{propriete}
+	Pour tout $x \in \intoo{-1}{1}$, si $f(x) = \abs{x} + 1$, alors la valeur absolue vérifie l'inégalité triangulaire :
+
+	$$\abs{x+y}\le\abs{x}+\abs{\frac35}\le a\ge b\gt c\lt d$$
+
+	\[
+		\norm{\vec{u} + \vec{v}} \le \norm{\vec{u}} + \norm{\vec{v}}
+	\]
+
+	On note également la relation logique $\eqv$ (ou $\iff$) et l'implication $\Rarr$.
+\end{propriete}
+
+\begin{demo}
+	Soient $a, b \in \intff{a}{b}$. On procède par double implication :
+
+	\bi
+	\item Sens direct : supposons $a \le b$.
+	\item Sens indirect : supposons l'inverse.
+	\ei
+
+	\lipsum[2]
+\end{demo}
+
+\begin{demo}
+	\lipsum[1]
+\end{demo}
+
+\section{Méthodes et Exemples}
+
+\begin{theoreme}[Calcul d'une intégrale]
+	Pour calculer l'intégrale d'une fonction continue sur $\intff{a}{b}$, on utilise la notation :
+	\[
+		I = \dint_a^b f(x) \dx\dy\dz
+	\]
+\end{theoreme}
+
+\begin{exemple}
+	Considérons la fonction $f(x) = \bfrac{x+1}{2}$.
+\end{exemple}
+
+\begin{remarque}
+	On note $\pdx{f}$ et $\pdy{f}$ les dérivées partielles de $f$.
+	$$
+		\begin{array}{rrcl}
+			      & x   & = & 3 \\
+			\Rarr & x^2 & = & 9
+		\end{array}
+	$$
+\end{remarque}
+
+\begin{exercice}
+	Soit $f$ une fonction. Résoudre dans $\intof{-\pi}{\pi}$ l'équation $f(x) = 0$.
+\end{exercice}
+
+\chapter{Géométrie Vectorielle et Algorithmique}
+
+\section{Repères et Représentation Matrix}
+
+Soit un repère orthonormé $\vOIJ$ (ou $\OIJ$).
+
+\begin{theoreme}
+	Considérons les points $A$ et $B$ de coordonnées respectives $\coord{x_A}{y_A}$ et $\coord{x_B}{y_B}$.
+	Le vecteur $\vec{AB}$ a pour coordonnées $\coord{x_B - x_A}{y_B - y_A}$.
+\end{theoreme}
+
+\begin{thm}
+	Deux droites $d_1$ et $d_2$ sont parallèles, noté $d_1 \parallel d_2$, si et seulement si le déterminant des vecteurs directeurs est nul :
+	\[
+		\determinant{a & b \\ c & d} = 0 \iff ad - bc = 0
+	\]
+\end{thm}
+
+Nous pouvons également manipuler des matrices et des systèmes :
+\[
+	M = \bmat{1 & 2 \\ 3 & 4} \quad \text{ou sous forme réduite} \quad \pmat{a & b \\ c & d}
+\]
+
+$$\pfrac{1}{2}+\bfrac{1}{2}=\brac{1;2;3}=1,234=\np{1444441.234}$$
+
+\section{Algorithmique en Python}
+
+Pour illustrer les compétences d'algorithmique du programme, voici une fonction Python simple avec gestion des accents :
+
+\begin{lstlisting}[language=Python]
+def vecteur_colineaire(u, v):
+    # Verification de la colinearite de deux vecteurs u et v
+    det = u[0] * v[1] - u[1] * v[0]
+    if det == 0:
+        print("Les vecteurs sont colinéaires !")
+        return True
+    else:
+        print("Les vecteurs ne sont pas colineaires.")
+        return False
+\end{lstlisting}
+
+\section{Questions et Exercices Récapitulatifs}
+
+\bmc{2} % Début du mode multicolonnes
+\be % Début de l'énumération raccourcie
+\item Calculer la somme $\np{1500.6789} \eur + \np{5,4343} \eur$.
+\item Calculer la norme $\norm{\vec{u}}$.
+\item Calculer la norme $\norm{\vec{u}}$.
+\item Calculer la norme $\norm{\vec{u}}$.
+\item Calculer la norme $\norm{\vec{u}}$.
+\item Vérifier si $\coordl{2}{3} \in \Cf$.
+\ee
+\emc
+
+On a \Cf \Cg \Ch prout
+
+\section{symboles}
+\noindent\faBook\,\faWarning\,\faRadiation\,\faYoutube
+\,\faIcon{500px}
+\,\faAccessibleIcon
+\,\faAccusoft
+\,\faAcquisitionsIncorporated
+\,\faAd
+\,\faAddressBook
+\,\faAddressBook[regular]
+\,\faAddressCard
+\,\faAddressCard[regular]
+\,\faAdjust
+\,\faAdn
+\,\faAdversal
+\,\faAffiliatetheme
+\,\faAirbnb
+\,\faAirFreshener
+\,\faAlgolia
+\,\faAlignCenter
+\,\faAlignJustify
+\,\faAlignLeft
+\,\faAlignRight
+\,\faAlipay\\
+\,\faAllergies
+\,\faAmazon
+\,\faAmazonPay
+\,\faAmbulance
+\,\faAmericanSignLanguageInterpreting
+\,\faAmilia
+\,\faAnchor
+\,\faAndroid
+\,\faAngellist
+\,\faAngleDoubleDown
+\,\faAngleDoubleLeft
+\,\faAngleDoubleRight
+\,\faAngleDoubleUp
+\,\faAngleDown
+\,\faAngleLeft
+\,\faAngleRight
+\,\faAngleUp
+\,\faAngry
+\,\faAngry[regular]
+\,\faAngrycreative\\
+\,\faAngular
+\,\faAnkh
+\,\faApper
+\,\faApple
+\,\faApple*
+\,\faApplePay
+\,\faAppStore
+\,\faAppStoreIos
+\,\faArchive
+\,\faArchway
+\,\faArrowAltCircleDown
+\,\faArrowAltCircleDown[regular]
+\,\faArrowAltCircleLeft
+\,\faArrowAltCircleLeft[regular]
+\,\faArrowAltCircleRight
+\,\faArrowAltCircleRight[regular]
+\,\faArrowAltCircleUp
+\,\faArrowAltCircleUp[regular]
+\,\faArrowCircleDown
+\,\faArrowCircleLeft
+\,\faArrowCircleRight
+\,\faArrowCircleUp
+\,\faArrowDown
+\,\faArrowLeft
+\,\faArrowRight
+\,\faArrows*
+\,\faArrowsAltH
+\,\faArrowsAltV
+\,\faArrowUp
+\,\faArtstation\\
+\,\faAssistiveListeningSystems
+\,\faAsterisk
+\,\faAsymmetrik
+\,\faAt
+\,\faAtlas
+\,\faAtlassian
+\,\faAtom
+\,\faAudible
+\,\faAudioDescription
+\,\faAutoprefixer
+\,\faAvianex
+\,\faAviato
+\,\faAward
+\,\faAws
+\,\faBaby
+\,\faBabyCarriage
+\,\faBackspace
+\,\faBackward
+\,\faBacon
+\,\faBacteria
+\,\faBacterium
+\,\faBahai
+\,\faBalanceScale
+\,\faBalanceScaleLeft
+\,\faBalanceScaleRight
+\,\faBan
+\,\faBandAid
+\,\faBandcamp
+\,\faBarcode
+\,\faBars\\
+\,\faBaseballBall
+\,\faBasketballBall
+\,\faBath
+\,\faBatteryEmpty
+\,\faBatteryFull
+\,\faBatteryHalf
+\,\faBatteryQuarter
+\,\faBatteryThreeQuarters
+\,\faBattleNet
+\,\faBed
+\,\faBeer
+\,\faBehance
+\,\faBehanceSquare
+\,\faBell
+\,\faBell[regular]
+\,\faBellSlash
+\,\faBellSlash[regular]
+\,\faBezierCurve
+\,\faBible
+\,\faBicycle
+\,\faBiking
+\,\faBimobject
+\,\faBinoculars
+\,\faBiohazard
+\,\faBirthdayCake
+\,\faBitbucket
+\,\faBitcoin
+\,\faBity
+\,\faBlackberry
+\,\faBlackTie\\
+\,\faBlender
+\,\faBlenderPhone
+\,\faBlind
+\,\faBlog
+\,\faBlogger
+\,\faBloggerB
+\,\faBluetooth
+\,\faBluetoothB
+\,\faBold
+\,\faBolt
+\,\faBomb
+\,\faBone
+\,\faBong
+\,\faBook
+\,\faBookDead
+\,\faBookmark
+\,\faBookmark[regular]
+\,\faBookMedical
+\,\faBookOpen
+\,\faBookReader
+\,\faBootstrap
+\,\faBorderAll
+\,\faBorderNone
+\,\faBorderStyle
+\,\faBowlingBall
+\,\faBox
+\,\faBoxes
+\,\faBoxOpen
+\,\faBoxTissue
+\,\faBraille\\
+\,\faBrain
+\,\faBreadSlice
+\,\faBriefcase
+\,\faBiking
+\,\faBimobject
+\,\faBinoculars
+\,\faBiohazard
+\,\faBirthdayCake
+\,\faBitbucket
+\,\faBitcoin
+\,\faBity
+\,\faBlackberry
+\,\faBlackTie
+\,\faBlender
+\,\faBlenderPhone
+\,\faBlind
+\,\faBlog
+\,\faBlogger
+\,\faBloggerB
+\,\faBluetooth
+\,\faBluetoothB
+\,\faBold
+\,\faBolt
+\,\faBomb
+\,\faBone
+\,\faBong
+\,\faBook
+\,\faBookDead
+\,\faBookmark
+\,\faBookmark[regular]\\
+\,\faBookMedical
+\,\faBookOpen
+\,\faBookReader
+\,\faBootstrap
+\,\faBorderAll
+\,\faBorderNone
+\,\faBorderStyle
+\,\faBowlingBall
+\,\faBox
+\,\faBoxes
+\,\faBoxOpen
+\,\faBoxTissue
+\,\faBraille
+\,\faBrain
+\,\faBreadSlice
+\,\faBriefcase
+
+\ms
+
+Pour avoir la doc : \lstinline{texdoc fontawesome5}
