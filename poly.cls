@@ -14,7 +14,7 @@
 \addtokomafont{disposition}{\rmfamily}
 \RequirePackage{setspace}
 \setstretch{1.2}
-\setlength{\parindent}{7mm}
+\setlength{\parindent}{5mm}
 % ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{amsmath, amssymb, amsthm}
 \newtheoremstyle{plain}{\topsep}{\topsep}{\itshape}{0pt}{\bfseries}{\newline\indent}{0pt}{}
@@ -31,6 +31,7 @@
 \newtheorem*{demonstration}{Démonstration}
 \newtheorem*{exemple}{Exemple}
 \newtheorem*{remarque}{Remarque}
+\newtheorem*{correction}{Correction}
 \newenvironment{thm}{\begin{theoreme}}{\end{theoreme}}
 \newenvironment{prop}{\begin{propriete}}{\end{propriete}}
 \newenvironment{df}{\begin{definition}}{\end{definition}}
@@ -42,7 +43,7 @@
 \rnc{\qedsymbol}{}
 % ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{amsfonts, mathtools, mathrsfs, yhmath, interval, xfp, relsize, siunitx, esvect, epsdice, numprint}
-\mathsurround=2pt
+\mathsurround=1pt
 \nc{\R}{\mathbb{R}}
 \nc{\D}{\mathbb{D}}
 \nc{\Q}{\mathbb{Q}}
