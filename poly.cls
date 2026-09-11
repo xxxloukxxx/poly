@@ -10,10 +10,10 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[french]{babel}
 \RequirePackage{geometry}
-\geometry{a4paper,top=2.5cm,bottom=2.5cm,left=2cm,right=2cm,footskip=12mm}
+\geometry{a4paper,top=1.27cm,bottom=2.54cm,left=1.27cm,right=1.27cm,footskip=12.7mm}
 \addtokomafont{disposition}{\rmfamily}
 \RequirePackage{setspace}
-\setstretch{1.2}
+\setstretch{1.1}
 \setlength{\parindent}{5mm}
 % ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{amsmath, amssymb, amsthm}
