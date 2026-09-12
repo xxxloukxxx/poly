@@ -1,84 +1,114 @@
 \chapter{Probabilité}
-
 \section{Rappels sur les calculs de probabilités}
-
 \subsection{Expérience aléatoire}
-
-
-
 \begin{definition}
 	Une expérience est \textbf{aléatoire} lorsqu'elle a plusieurs résultats ou \textbf{issues} et que l'on ne peut pas prévoir quel résultat se produira.
-
 	L'ensemble de toutes les \textbf{issues} d'une expérience s'appelle \textbf{l'univers} noté $\Omega$ (ou parfois $U$).
 	\begin{center}
 		\begin{tikzpicture}[
-				% Définition des styles
 				box/.style={rectangle, draw=blue!60, fill=blue!5, thick, rounded corners, minimum height=3.7cm, minimum width=10cm, align=center},
 				issue/.style={circle, draw=orange!80, fill=orange!20, thick, inner sep=4pt, font=\small\bfseries},
-				exp/.style={ellipse, draw=purple!80, fill=purple!10, thick, minimum height=1.2cm, minimum width=2.8cm, align=center, font=\small}
+				exp/.style={ellipse, draw=purple!80, fill=purple!10, thick, minimum height=1.2cm, minimum width=2.8cm, align=center, font=\small},
 			]
-
-			% 1. L'Expérience Aléatoire (à gauche)
 			\node[exp] (experience) at (-6.5, 0) {\textbf{Expérience}\\\textbf{Aléatoire}\\ \textit{(Résultat imprévisible)}};
-
-			% 2. L'Univers Oméga (la grande boîte à droite)
 			\node[box] (univers) at (2.5, 0) {};
-			% Étiquette de l'Univers
 			\node[anchor=north west, blue!80!black, font=\bfseries] at (univers.north west) {\,$\Omega$ (L'Univers)};
 			\node[anchor=south, blue!80!black, font=\small\itshape] at (univers.south) {Ensemble de tous les résultats possibles};
-
-			% 3. Les Issues (à l'intérieur de l'univers)
 			\node[issue] (i1) at (0.2, 0.6)  {Issue 1};
 			\node[issue] (i2) at (3.8, 0.5)  {Issue 2};
 			\node[issue] (i3) at (2.2, -0.6) {Issue 3};
 			\node[issue, dashed, draw=orange!50, fill=orange!5, text=orange!60] (i4) at (6.3, -0.6) {Issue $n$};
-
-			% Petits points de suspension entre les issues
 			\path (i3) -- (i4) node [midway, font=\bfseries, text=orange!70] {\dots};
-
-			% 4. Flèches de l'expérience vers les issues (Processus aléatoire)
 			\draw[-{Stealth[scale=1.2]}, thick, purple!70, dashed] (experience.east) -- (i1.west);
 			\draw[-{Stealth[scale=1.2]}, thick, purple!70, dashed] (experience.east) -- (i2.west) ; %node[midway, above, sloped, text=purple!90, font=\scriptsize\bfseries] {?};
 			\draw[-{Stealth[scale=1.2]}, thick, purple!70, dashed] (experience.east) -- (i3.west);
 			\draw[-{Stealth[scale=1.2]}, thick, purple!70, dashed] (experience.east) -- (i4.west);
-
 		\end{tikzpicture}
 	\end{center}
 \end{definition}
 
 \begin{ex}
-	\leavevmode\vspace{-\baselineskip}
+	\ajusteliste
 	\begin{itemize}
 		\item On lance une pièce de monnaie et on regarde la face supérieure.
 		\item On lance un dé à six faces et on regarde le nombre de points inscrits sur la face du dessus.
 		\item On fait tourner une roue marquée sur ses secteurs de couleurs différentes et on regarde la couleur du secteur marqué par la flèche.
 	\end{itemize}
+	\begin{center}
+		\begin{tikzpicture}[scale=0.9, >=stealth]
+			\begin{scope}[shift={(0,0)}]
+				\fill[yellow!15] (0,0) circle (1.2cm);
+				\draw[thick, fill=yellow!30] (0,0) circle (1.2cm);
+				\draw[gray!60] (0,0) circle (1.05cm);
+				\node[font=\Large\sffamily\bfseries, align=center] at (0,0.2) {1\eur{}};
+				\node[font=\tiny\sffamily, align=center] at (0,-0.4) {PILE};
+				\node[below, font=\small] at (0,-1.6) {1. Pièce de monnaie};
+			\end{scope}
+			\begin{scope}[shift={(4.5,0)}]
+				\filldraw[fill=white, draw=black, thick, line join=round]
+				(-0.8,-0.8) rectangle (0.4,0.4);
+				\fill[black] (-0.2,-0.2) circle (2.2pt);
+				\filldraw[fill=gray!10, draw=black, thick, line join=round]
+				(-0.8,0.4) -- (-0.3,0.9) -- (0.9,0.9) -- (0.4,0.4) -- cycle;
+				\fill[black] (-0.4,0.55) circle (2pt);
+				\fill[black] (-0.1,0.75) circle (2pt);
+				\fill[black] (0.2,0.55) circle (2pt);
+				\fill[black] (0.5,0.75) circle (2pt);
+				\filldraw[fill=gray!25, draw=black, thick, line join=round]
+				(0.4,0.4) -- (0.9,0.9) -- (0.9,-0.3) -- (0.4,-0.8) -- cycle;
+				\fill[black] (0.53,0.25) circle (2pt);
+				\fill[black] (0.79,0.5) circle (2pt);
+				\fill[black] (0.67,0.07) circle (2pt);
+				\fill[black] (0.53,-0.35) circle (2pt);
+				\fill[black] (0.79,-0.1) circle (2pt);
+				\node[below, font=\small] at (0.05,-1.6) {2. Dé à 6 faces};
+			\end{scope}
+			\begin{scope}[shift={(9,0)}]
+				\fill[red!60] (0,0) -- (0:1.2) arc (0:72:1.2) -- cycle;
+				\fill[blue!60] (0,0) -- (72:1.2) arc (72:144:1.2) -- cycle;
+				\fill[green!60] (0,0) -- (144:1.2) arc (144:216:1.2) -- cycle;
+				\fill[yellow!60] (0,0) -- (216:1.2) arc (216:288:1.2) -- cycle;
+				\fill[orange!60] (0,0) -- (288:1.2) arc (288:360:1.2) -- cycle;
+				\draw[thick] (0,0) circle (1.2cm);
+				\foreach \angle in {0,72,144,216,288}
+				\draw[thick] (0,0) -- (\angle:1.2);
+				\fill[white, draw=black] (0,0) circle (0.15cm);
+				\filldraw[red!80!black, draw=black, thick] (0,1.5) -- (-0.15,1.8) -- (0.15,1.8) -- cycle;
+				\node[below, font=\small] at (0,-1.6) {3. Roue à secteurs};
+			\end{scope}
+		\end{tikzpicture}
+	\end{center}
 \end{ex}
 
+\begin{exemple}
+	Exemples d'univers d'expériences aléatoires :
+	\begin{itemize}
+		\item {Lancer d'une pièce de monnaie :} $\Omega = \{\text{PILE} \,;\, \text{FACE}\}$
+		\item {Lancer d'un dé à 6 faces :} $\Omega = \{1 \,;\, 2 \,;\, 3 \,;\, 4 \,;\, 5 \,;\, 6\}$
+		\item {Lancer de deux pièces de monnaie (dans l'ordre) :} $\Omega = \{(P\,;P) \,;\, (P\,;F) \,;\, (F\,;P) \,;\, (F\,;F)\}$
+	\end{itemize}
+\end{exemple}
 \subsection{Évènement}
-
 \begin{definition}
 	Un \textbf{évènement} est constitué d'une ou plusieurs issues d'une même expérience aléatoire.
 \end{definition}
-
 \begin{exemple}
 	On lance un dé à six faces.
 	\begin{itemize}
-		\item \og{}Obtenir un chiffre pair\fg{} est l'évènement constitué des issues : 2 ; 4 et 6.
-		\item \og{}Obtenir un chiffre inférieur ou égal à 2\fg{} est l'évènement constitué des issues : 1 et 2.
+		\item \og{}Obtenir un chiffre pair\fg{} est l'évènement $A = \{2 \,;\, 4 \,;\, 6\}$.
+		\item \og{}Obtenir un chiffre inférieur ou égal à 2\fg{} est l'évènement $B = \{1 \,;\, 2\}$.
 	\end{itemize}
 \end{exemple}
 
 \subsection{Probabilité}
 
 \begin{definition}
-	La \textbf{probabilité} d'un évènement est un nombre compris entre $0$ et $1$ qui exprime \og{}la chance\fg{} qu'a un évènement de se produire.
+	La \textbf{probabilité} d'un évènement (ou d'une issue) est un nombre compris entre $0$ et $1$ qui exprime \og{}la chance\fg{} qu'a un évènement de se produire.
 \end{definition}
 
 \begin{exemple}
-	Dire que la probabilité d'un évènement est de $0,8$ signifie que cet évènement a $8$ chances sur $10$ ou $80$\% de chance de se produire.
+	Dire que la probabilité d'un évènement (ou d'une issue) est de $0,8$ signifie que cet évènement a $8$ chances sur $10$ ou $80$\% de chance de se produire.
 \end{exemple}
-\newpage
 
 \begin{remarque}
 	Soit un événement $E$ définit sur un univers $\Omega$.
@@ -89,91 +119,95 @@
 	\end{itemize}
 \end{remarque}
 
-\begin{propriete}
-	En cas d'équiprobabilité, la probabilité d'un évènement $A$ est :
-	\[
-		P(A) = \frac{\text{Nombre d'issues favorables à } A}{\text{Nombre d'issues total}}
-	\]
+\begin{definition}[Équiprobabilité]
+	Une situation d'\textbf{équiprobabilité} est une situation dans laquelle toutes les issues d'un univers $\Omega$ ont la \textbf{même probabilité} de se produire.
+
+\end{definition}
+
+\begin{rem}Dans un exercice, cette situation est souvent indiquée par des expressions telles que \og{}dé non truqué\fg{}, \og{}pièce équilibrée\fg{} ou \og{}boules indiscerables au toucher\fg{}.\end{rem}
+
+\begin{propriete}[Calcul de probabilité en cas d'équiprobabilité]
+	En cas d'équiprobabilité, la probabilité d'un évènement $A$ est donnée par la formule :
+	$$P(A) = \frac{\text{Nombre d'issues favorables à } A}{\text{Nombre total d'issues de } \Omega} = \frac{\text{Card}(A)}{\text{Card}(\Omega)}$$
 \end{propriete}
+
+\begin{rem}$\text{Card}(A)$ se lit \og{}cardinal de $A$\fg{} et désigne le \textbf{nombre d'éléments (ou d'issues)} contenus dans $A$.\end{rem}
 
 \begin{methode}[Calculer une probabilité (1)]
 	On lance un dé à 6 faces. On considère les évènements :
 	\begin{itemize}
-		\item $E$ = \og{}On obtient un 3\fg{}
+		\item $E$ = \og{}On obtient un \epsdice{3}\fg{}
 		\item $F$ = \og{}On obtient un chiffre pair\fg{}
-		\item $G$ = \og{}On obtient un chiffre strictly supérieur à 3\fg{}
+		\item $G$ = \og{}On obtient un chiffre strictly supérieur à  \epsdice{3}\fg{}
 	\end{itemize}
 	Calculer la probabilité de ces évènements.
 \end{methode}
 
-\begin{proof}[Correction]
-	~
+\begin{correction}
+	Nombre d'issues total : $6$. En effet, le dé a $6$ faces.
 	\begin{itemize}
-		\item Nombre d'issues favorables à $E$ : 1. Nombre d'issues total : 6. En effet, le dé a 6 faces.
-		      \[ P(E) = \frac{1}{6} \]
-		\item Nombre d'issues favorables à $F$ : 3 (2, 4 ou 6).
-		      \[ P(F) = \frac{3}{6} = \frac{1}{2} \]
-		\item Nombre d'issues favorables à $G$ : 3 (4, 5 ou 6).
-		      \[ P(G) = \frac{3}{6} = \frac{1}{2} \]
+		\item Nombre d'issues favorables à $E$ : $1$. $\Rarr P(E) = \dfrac{1}{6}$
+		\item Nombre d'issues favorables à $F$ : $3$ ($\epsdice{2}$, $\epsdice{4}$ ou $\epsdice{6}$). $\Rarr P(F) = \dfrac{3}{6} = \dfrac{1}{2}$
+		\item Nombre d'issues favorables à $G$ : $3$ ($\epsdice{4}$, $\epsdice{5}$ ou $\epsdice{6}$). $\Rarr P(G) = \dfrac{3}{6} = \dfrac{1}{2}$
 	\end{itemize}
-\end{proof}
+\end{correction}
 
 \begin{methode}[Calculer une probabilité (2)]
-	On tire une carte dans un jeu de 32 cartes. Soit $E$ l'évènement : \og{}On tire un as\fg{}. \\
+	On tire une carte dans un jeu de 32 cartes.
+
+	Soit $E$ l'évènement : \og{}On tire un as\fg{}.
+
 	Quelle est la probabilité de l'événement $E$ ?
 \end{methode}
 
-\begin{proof}[Correction]
-	Il y a 32 issues possibles car il existe 32 façons différentes de tirer une carte. \\
-	L'évènement $E$ possède 4 issues possibles : As de cœur, as de carreau, as de trèfle, as de pique. \\
-	La probabilité de l'événement $E$ est donc égale à : $P(E) = \frac{4}{32} = \frac{1}{8}$.
-\end{proof}
+\begin{correction}
+	Il y a $32$ issues possibles car il existe $32$ façons différentes de tirer une carte.
+
+	L'évènement $E$ possède $4$ issues possibles : As de cœur, as de carreau, as de trèfle, as de pique.
+
+	La probabilité de l'événement $E$ est donc égale à : $P(E) = \dfrac{4}{32} = \dfrac{1}{8}$
+\end{correction}
 
 \section{Évènement contraire, réunion, intersection}
-
 \subsection{Évènement contraire}
-
-\begin{definition}
+\begin{df}
 	L'événement contraire de $A$, noté $\overline{A}$, est l'ensemble de toutes les issues n'appartenant pas à $A$.
-\end{definition}
-
+\end{df}
 \begin{exemple}
-	\leavevmode \vspace{-\baselineskip}
+	\ajusteliste
 	\begin{itemize}
 		\item L'évènement contraire de l'évènement \og{}Obtenir un chiffre pair\fg{} est l'événement \og{}Obtenir un chiffre impair\fg{}.
 		\item L'évènement contraire de l'évènement \og{}Obtenir un chiffre inférieur ou égal à 2\fg{} est l'événement constitué des issues 3 ; 4 ; 5 et 6.
 	\end{itemize}
 \end{exemple}
-
 \begin{propriete}
 	La probabilité de l'événement contraire d'un événement $A$ est :
-	\[
-		P(\overline{A}) = 1 - P(A)
-	\]
-\end{propriete}
 
+	$$P(\overline{A}) = 1 - P(A)$$
+
+\end{propriete}
 \begin{exemple}
-	La probabilité de gagner au tennis contre Evelyne est : $P(G) = 0,2$. \\
+	La probabilité de gagner au tennis contre Evelyne est : $P(G) = 0,2$.
+
 	Alors la probabilité de perdre (évènement contraire) est :
-	\[
-		P(\overline{G}) = 1 - P(G) = 1 - 0,2 = 0,8.
-	\]
+
+	$$P(\overline{G}) = 1 - P(G) = 1 - 0,2 = 0,8$$
+
 \end{exemple}
 
 \subsection{Loi de probabilité}
 
 \begin{exemple}
-	Une urne contient 6 boules vertes, 3 boules jaunes et 11 boules noires. \\
-	On tire une boule au hasard et on note sa couleur. \\
-	Le tableau suivant présente les probabilités de toutes les issues de l'expérience, on l'appelle \textbf{loi de probabilité}.
+	Une urne contient 6 boules vertes, 3 boules jaunes et 11 boules noires.
 
+	On tire une boule au hasard et on note sa couleur.
+
+	Le tableau suivant présente les probabilités de toutes les issues de l'expérience, on l'appelle \textbf{loi de probabilité}.
 	\begin{center}
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			\textbf{Issues}       & Boule verte          & Boule jaune           & Boule noire            \\
-			\hline
-			\textbf{Probabilités} & $\frac{6}{20} = 0,3$ & $\frac{3}{20} = 0,15$ & $\frac{11}{20} = 0,55$ \\
-			\hline
+		\def\arraystretch{1.5}
+		\begin{tabular}{|r|c|c|c|} \hline
+			\textbf{Issues}                              & Boule verte           & Boule jaune            & Boule noire             \\ \hline
+			\rule[-12pt]{0pt}{32pt}\textbf{Probabilités} & $\dfrac{6}{20} = 0,3$ & $\dfrac{3}{20} = 0,15$ & $\dfrac{11}{20} = 0,55$ \\ \hline
 		\end{tabular}
 	\end{center}
 \end{exemple}
@@ -187,44 +221,40 @@
 \end{exemple}
 
 \begin{methode}[Utiliser une loi de probabilité]
-	On tire au hasard un jeton dans le sac contenant des jetons numérotés de 1 à 5. \\
-	Le tableau présente les probabilités de toutes les issues (loi de probabilité).
+	On tire au hasard un jeton dans le sac contenant des jetons numérotés de 1 à 5.
 
+	Le tableau présente les probabilités de toutes les issues (loi de probabilité).
 	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline
-			\textbf{Issues}       & 1              & 2              & 3 & 4              & 5              \\
-			\hline
-			\textbf{Probabilités} & $\frac{1}{15}$ & $\frac{4}{15}$ & ? & $\frac{3}{15}$ & $\frac{4}{15}$ \\
-			\hline
+		\def\arraystretch{1.5}
+		\begin{tabular}{|r|c|c|c|c|c|} \hline
+			\textbf{Issues}                              & 1               & 2               & 3 & 4               & 5               \\ \hline
+			\rule[-12pt]{0pt}{32pt}\textbf{Probabilités} & $\dfrac{1}{15}$ & $\dfrac{4}{15}$ & ? & $\dfrac{3}{15}$ & $\dfrac{4}{15}$ \\ \hline
 		\end{tabular}
 	\end{center}
-
 	\begin{enumerate}[label=\alph*)]
 		\item Compléter le tableau de la loi de probabilité.
 		\item Calculer la probabilité de l'évènement $E$ : \og{}Tirer un chiffre pair\fg{}.
 		\item Décrire l'évènement $\overline{E}$ puis calculer sa probabilité.
 	\end{enumerate}
-
 	\begin{correction}
-		\leavevmode\vspace{-\baselineskip}
 		\begin{enumerate}[label=\alph*)]
 			\item La somme des probabilités de toutes les issues est égale à 1, donc :
-			      \[
+			      $$
 				      P(1) + P(2) + P(3) + P(4) + P(5) = 1
-			      \]
-			      \[
+			      $$
+			      $$
 				      \frac{1}{15} + \frac{4}{15} + P(3) + \frac{3}{15} + \frac{4}{15} = 1 \implies P(3) + \frac{12}{15} = 1
-			      \]
-			      \[
+			      $$
+			      $$
 				      P(3) = 1 - \frac{12}{15} = \frac{15}{15} - \frac{12}{15} = \frac{3}{15} = \frac{1}{5}
-			      \]
-			\item L'évènement $E$ possède deux issues : 2 et 4. \\
+			      $$
+			\item L'évènement $E$ possède deux issues : 2 et 4.
+
 			      Donc, d'après le tableau : $P(E) = \frac{4}{15} + \frac{3}{15} = \frac{7}{15}$.
 			\item $\overline{E}$ est l'évènement : \og{}Ne pas tirer un chiffre pair\fg{}.
-			      \[
+			      $$
 				      P(\overline{E}) = 1 - P(E) = 1 - \frac{7}{15} = \frac{8}{15}.
-			      \]
+			      $$
 		\end{enumerate}
 	\end{correction}
 \end{methode}
@@ -232,7 +262,8 @@
 \subsection{Réunion et intersection de deux événements}
 
 \begin{exemple}
-	Soit les évènements : $A = \{1 ; 2\}$ et $B = \{1 ; 3 ; 4\}$. \\
+	Soit les évènements : $A = \{1 ; 2\}$ et $B = \{1 ; 3 ; 4\}$.
+
 	Alors $A \cap B = \{1\}$ et $A \cup B = \{1 ; 2 ; 3 ; 4\}$.
 \end{exemple}
 
@@ -250,7 +281,6 @@
 \end{methode}
 
 \begin{correction}
-	\leavevmode\vspace{-\baselineskip}
 	\begin{enumerate}[label=\alph*)]
 		\item $A \cap B$ : \og{}Obtenir un multiple de 2 inférieur ou égal à 4.\fg{}
 		\item On a : $A = \{2 ; 4 ; 6\}$ et $B = \{1 ; 2 ; 3 ; 4\}$. Donc $A \cap B = \{2 ; 4\}$.
@@ -258,15 +288,21 @@
 	\end{enumerate}
 \end{correction}
 
+
 \begin{theoreme}
-	\[
+	Soit $\Omega$ l'univers d'une expérience aléatoire.
+
+	Pour deux événements quelconques $A$ et $B$ définis sur cet univers, la probabilité que l'un au moins de ces deux événements se réalise est donnée par la formule :
+	$$
 		P(A \cup B) = P(A) + P(B) - P(A \cap B)
-	\]
+	$$
 \end{theoreme}
 
 \begin{methode}[Calculer la probabilité d'une réunion]
-	On lance un dé à six faces et on considère les événements suivants : \\
-	$A$ : \og{}On obtient un nombre impair\fg{} \\
+	On lance un dé à six faces et on considère les événements suivants :
+
+	$A$ : \og{}On obtient un nombre impair\fg{}
+
 	$B$ : \og{}On obtient un multiple de 3\fg{}
 	\begin{enumerate}[label=\alph*)]
 		\item Calculer $P(A)$, $P(B)$, $P(A \cap B)$.
@@ -274,21 +310,23 @@
 	\end{enumerate}
 \end{methode}
 
-\begin{proof}[Correction]
+\begin{correction}
 	\begin{enumerate}[label=\alph*)]
-		\item On a $A = \{1 ; 3 ; 5\}$ et $B = \{3 ; 6\}$, donc $P(A) = \frac{3}{6} = \frac{1}{2}$ et $P(B) = \frac{2}{6} = \frac{1}{3}$. \\
+		\item On a $A = \{1 ; 3 ; 5\}$ et $B = \{3 ; 6\}$, donc $P(A) = \frac{3}{6} = \frac{1}{2}$ et $P(B) = \frac{2}{6} = \frac{1}{3}$.
+
 		      On a $A \cap B = \{3\}$, donc $P(A \cap B) = \frac{1}{6}$.
-		\item $P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{1}{2} + \frac{1}{3} - \frac{1}{6} = \frac{3}{6} + \frac{2}{6} - \frac{1}{6} = \frac{4}{6} = \frac{2}{3}$. \\
+		\item $P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{1}{2} + \frac{1}{3} - \frac{1}{6} = \frac{3}{6} + \frac{2}{6} - \frac{1}{6} = \frac{4}{6} = \frac{2}{3}$.
+
 		      La probabilité d'obtenir un nombre impair ou un multiple de 3 est égale à $\frac{2}{3}$.
 	\end{enumerate}
-\end{proof}
+\end{correction}
 
 \section{Arbre pondéré}
 
 \begin{exemple}
-	Dans un sac, on dépose quatre jetons : un bleu, un rouge, un jaune et un vert. \\
-	En tirant au hasard un jeton du sac, on a quatre issues possibles. On représente les issues sur un schéma appelé \textbf{arbre pondéré} ou \textbf{arbre de probabilité}.
+	Dans un sac, on dépose quatre jetons : un bleu, un rouge, un jaune et un vert.
 
+	En tirant au hasard un jeton du sac, on a quatre issues possibles. On représente les issues sur un schéma appelé \textbf{arbre pondéré} ou \textbf{arbre de probabilité}.
 	\begin{center}
 		\begin{tikzpicture}[grow=right, sloped, level distance=3cm, sibling distance=1cm]
 			\node {}
@@ -301,39 +339,48 @@
 \end{exemple}
 
 \begin{methode}[Utiliser un arbre pondéré]
-	On lance deux fois de suite une pièce de monnaie. Il s'agit d'une expérience aléatoire à deux épreuves. \\
-	Soit $E$ l'événement : \og{}On obtient au moins une fois PILE.\fg{} \\
+	On lance deux fois de suite une pièce de monnaie. Il s'agit d'une expérience aléatoire à deux épreuves.
+
+	Soit $E$ l'événement : \og{}On obtient au moins une fois PILE.\fg{}
+
 	Calculer $P(E)$ en utilisant un arbre pondéré.
 \end{methode}
 
-\begin{proof}[Correction]
-	On construit un arbre présentant les résultats possibles aux deux épreuves de l'expérience (P pour PILE et F pour FACE).
+\begin{correction}
+	\ajusteliste
+	\begin{wrapstuff}[r, width=5cm]
+		\begin{center}
+			\begin{tikzpicture}[grow=right, sloped, level distance=1.5cm, sibling distance=1.3cm,
+					level 2/.style={
+							sibling distance=0.7cm,
+							level distance=2.0cm
+						}]
+				\node {}
+				child {
+						node {F}
+						child { node {F (F ; F)} }
+						child { node {P (F ; P)} }
+					}
+				child {
+						node {P}
+						child { node {F (P ; F)} }
+						child { node {P (P ; P)} }
+					};
+			\end{tikzpicture}
+		\end{center}
+	\end{wrapstuff}
 
-	\begin{center}
-		\begin{tikzpicture}[grow=right, sloped, level distance=2.5cm, sibling distance=1.5cm]
-			\node {}
-			child {
-					node {F}
-					child { node {F (F ; F)} }
-					child { node {P (F ; P)} }
-				}
-			child {
-					node {P}
-					child { node {F (P ; F)} }
-					child { node {P (P ; P)} }
-				};
-		\end{tikzpicture}
-	\end{center}
+	On construit un arbre présentant les résultats possibles aux deux épreuves de l'expérience (P pour PILE et F pour FACE).
 
 	\begin{itemize}
 		\item On compte 4 issues en tout : (P ; P), (P ; F), (F ; P) et (F ; F).
 		\item L'événement $E$ possède 3 issues : (P ; P), (P ; F) et (F ; P).
 	\end{itemize}
 	La probabilité de $E$ est donc égale à $\frac{3}{4}$.
-\end{proof}
+\end{correction}
+
 
 \section{Probabilités conditionnelles}
-
 \subsection{Calcul à l'aide d'un tableau croisé}
 
 \begin{definition}
@@ -341,69 +388,69 @@
 \end{definition}
 
 \begin{propriete}
-	\[
+	$$
 		P_A(B) = \frac{\text{Card}(A \cap B)}{\text{Card}(A)}
-	\]
+	$$
 \end{propriete}
 
 \begin{methode}[Calculer une probabilité conditionnelle à l'aide d'un tableau]
 	Un laboratoire pharmaceutique a réalisé des tests sur 800 patients atteints d'une maladie. Certains sont traités avec le médicament A, d'autres avec le médicament B.
-
 	\begin{center}
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			          & Médicament A & Médicament B & Total \\
-			\hline
-			Guéri     & 383          & 291          & 674   \\
-			\hline
-			Non guéri & 72           & 54           & 126   \\
-			\hline
-			Total     & 455          & 345          & 800   \\
-			\hline
+		\begin{tabular}{|c|c|c|c|} \hline
+			          & Médicament A & Médicament B & Total \\ \hline
+			Guéri     & 383          & 291          & 674   \\ \hline
+			Non guéri & 72           & 54           & 126   \\ \hline
+			Total     & 455          & 345          & 800   \\ \hline
 		\end{tabular}
 	\end{center}
-
 	\begin{enumerate}
-		\item On choisit au hasard un patient : $A$ : \og{}Médicament A\fg{}, $G$ : \og{}Guéri\fg{}. \\
-		      Calculer : a) $P(A)$ \quad b) $P(G)$ \quad c) $P(G \cap A)$ \quad d) $P(\overline{G} \cap A)$.
-		\item a) Calculer la probabilité que le patient ait pris le médicament A sachant qu'il est guéri. \\
+		\item On choisit au hasard un patient : $A$ : \og{}Médicament A\fg{}, $G$ : \og{}Guéri\fg{}.
+
+		      Calculer :
+
+		      a) $P(A)$ \quad b) $P(G)$ \quad c) $P(G \cap A)$ \quad d) $P(\overline{G} \cap A)$.
+
+		\item a) Calculer la probabilité que le patient ait pris le médicament A sachant qu'il est guéri.
+
 		      b) Calculer la probabilité que le patient soit guéri sachant qu'il a pris le médicament B.
 	\end{enumerate}
 \end{methode}
 
-\begin{proof}[Correction]
+\begin{correction}
 	\begin{enumerate}
 		\item
-		      a) $P(A) = \frac{455}{800} \approx 0,57 = 57\%$ \\
-		      b) $P(G) = \frac{674}{800} \approx 0,84 = 84\%$ \\
-		      c) $P(G \cap A) = \frac{383}{800} \approx 0,48 = 48\%$ \\
+		      a) $P(A) = \frac{455}{800} \approx 0,57 = 57\%$
+
+		      b) $P(G) = \frac{674}{800} \approx 0,84 = 84\%$
+
+		      c) $P(G \cap A) = \frac{383}{800} \approx 0,48 = 48\%$
+
 		      d) $P(\overline{G} \cap A) = \frac{72}{800} \approx 0,09 = 9\%$
 		\item
-		      a) $P_G(A) = \frac{383}{674} \approx 0,57 = 57\%$. \\
+		      a) $P_G(A) = \frac{383}{674} \approx 0,57 = 57\%$.
+
 		      b) $P_B(G) = \frac{291}{345} \approx 0,84 = 84\%$.
 	\end{enumerate}
-\end{proof}
-
+\end{correction}
 \subsection{Calcul à l'aide de la formule}
 
 \begin{propriete}
-	\[
-		P_A(B) = \frac{P(A \cap B)}{P(A)}
-	\]
+	$$P_A(B) = \frac{P(A \cap B)}{P(A)}$$
 \end{propriete}
 
 \begin{methode}[Calculer une probabilité conditionnelle à l'aide de la formule]
+	On tire une carte au hasard dans un jeu de 32 cartes.
 
-	On tire une carte au hasard dans un jeu de 32 cartes. \\
-	$A$ : \og{}Le résultat est un cœur\fg{} ; $B$ : \og{}Le résultat est un valet\fg{}. \\
+	$A$ : \og{}Le résultat est un cœur\fg{} ; $B$ : \og{}Le résultat est un valet\fg{}.
+
 	Calculer $P_A(B)$.
 \end{methode}
 
-\begin{proof}[Correction]
-	$P(A) = \frac{8}{32} = 0,25$ et $P(A \cap B) = \frac{1}{32} = 0,03125$. \\
-	Donc $P_A(B) = \frac{P(A \cap B)}{P(A)} = \frac{0,03125}{0,25} = 0,125$.
-\end{proof}
+\begin{correction}
+	$P(A) = \frac{8}{32} = 0,25$ et $P(A \cap B) = \frac{1}{32} = 0,03125$.
 
+	Donc $P_A(B) = \frac{P(A \cap B)}{P(A)} = \frac{0,03125}{0,25} = 0,125$.
+\end{correction}
 \subsection{Calcul à l'aide d'un arbre}
 
 \begin{propriete}
@@ -416,7 +463,6 @@
 
 \begin{methode}[Construire un arbre pondéré]
 \end{methode}
-
 \section{Loi des grands nombres}
 
 \begin{definition}
@@ -424,22 +470,22 @@
 \end{definition}
 
 \begin{methode}[Estimer une probabilité à l'aide de la loi des grands nombres]
-
 	Voici un programme Python permettant de mesurer la probabilité d'obetnir \epsdice{1} ou \epsdice{6}
-
-	\begin{lstlisting}
+	\begin{center}
+		\begin{minipage}{0.5\linewidth}
+			\begin{lstlisting}
 from random import *
-
 def de(n):
     s = 0
     for k in range(n):
         r = randint(1, 6)
         if r == 1 or r == 6:
             s = s + 1
-    return(s / n)
-\end{lstlisting}
+    return(s / n)\end{lstlisting}
+		\end{minipage}
+	\end{center}
 \end{methode}
 
-\begin{propriete}[Loi des grands nombres]
+\begin{demo}[Loi des grands nombres]
 	Lorsque $n$ devient grand, la fréquence observée est le plus souvent proche de la probabilité théorique.
-\end{propriete}
+\end{demo}

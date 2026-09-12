@@ -2,7 +2,7 @@
 \ProvidesClass{poly}[2026/09/06 Classe de document personnalisee pour poly de mathematiques]
 \DeclareOption*{\PassToOptionsToClass{\CurrentOption}{scrreprt}}
 \ProcessOptions\relax
-\LoadClass[a4paper,10pt,headings=small,headings=openright,twoside=true]{scrreprt}
+\LoadClass[a4paper,10pt,headings=normal,headings=openright,twoside=true]{scrreprt}
 % ---------------------------------------------------------------------------------------------------- 
 \let\nc\newcommand
 \let\rnc\renewcommand
@@ -10,28 +10,34 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[french]{babel}
 \RequirePackage{geometry}
-\geometry{a4paper,top=1.27cm,bottom=2.54cm,left=1.27cm,right=1.27cm,footskip=12.7mm}
+\geometry{a4paper,top=1.8cm,bottom=2.2cm,inner=2.0cm,outer=1.6cm,footskip=10mm}
+\RequirePackage{fourier}
+% \rnc{\familydefault}{\rmdefault}
 \addtokomafont{disposition}{\rmfamily}
+% ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{setspace}
-\setstretch{1.1}
-\setlength{\parindent}{5mm}
+\setstretch{1.05}
+\newlength{\monindent}
+\setlength{\monindent}{5mm}
+\setlength{\parindent}{\monindent}
 % ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{amsmath, amssymb, amsthm}
-\newtheoremstyle{plain}{\topsep}{\topsep}{\itshape}{0pt}{\bfseries}{\newline\indent}{0pt}{}
-\newtheoremstyle{definition}{\topsep}{\topsep}{\normalfont}{0pt}{\bfseries}{\newline\indent}{0pt}{}
+\newtheoremstyle{plain}{\topsep}{\topsep}{\itshape}{0pt}{\bfseries}{~\dotfill\newline\indent}{0pt}{}
+\newtheoremstyle{definition}{\topsep}{\topsep}{\normalfont}{0pt}{\bfseries}{~\dotfill\newline\indent}{0pt}{}
 \newtheoremstyle{remark}{\topsep}{\topsep}{\normalfont}{0pt}{\itshape}{~:\newline\indent}{0pt}{}
 \theoremstyle{plain}
-\newtheorem*{theoreme}{Théorème}
-\newtheorem*{propriete}{Propriété}
+\newtheorem*{theoreme}{\faCheckCircle\, Théorème}
+\newtheorem*{propriete}{\faDraftingCompass\, Propriété}
 \theoremstyle{definition}
-\newtheorem*{definition}{Définition}
-\newtheorem*{methode}{Méthode}
-\newtheorem*{exercice}{Exercice}
+\newtheorem*{definition}{\faBook\, Définition}
+\newtheorem*{methode}{\faLightbulb\, Méthode}
+\newtheorem*{exercice}{\faPenSquare\, Exercice}
 \theoremstyle{remark}
-\newtheorem*{demonstration}{Démonstration}
+\newtheorem*{demonstration}{\faSearch\, Démonstration}
 \newtheorem*{exemple}{Exemple}
 \newtheorem*{remarque}{Remarque}
 \newtheorem*{correction}{Correction}
+
 \newenvironment{thm}{\begin{theoreme}}{\end{theoreme}}
 \newenvironment{prop}{\begin{propriete}}{\end{propriete}}
 \newenvironment{df}{\begin{definition}}{\end{definition}}
@@ -39,10 +45,13 @@
 \newenvironment{exo}{\begin{exercice}}{\end{exercice}}
 \newenvironment{demo}{\begin{demonstration}}{\end{demonstration}}
 \newenvironment{ex}{\begin{exemple}}{\end{exemple}}
+\newenvironment{exmpl}{\begin{exemple}}{\end{exemple}}
 \newenvironment{rem}{\begin{remarque}}{\end{remarque}}
 \rnc{\qedsymbol}{}
-% ---------------------------------------------------------------------------------------------------- 
-\RequirePackage{amsfonts, mathtools, mathrsfs, yhmath, interval, xfp, relsize, siunitx, esvect, epsdice, numprint}
+% saut si on commence un \begin{ex} par un \begin{itemize /  enumerate}
+\nc{\ajusteliste}{\leavevmode\vspace{-\baselineskip}}
+% ----------------------------------------------------------------------------------------------------
+\RequirePackage{amsfonts, mathtools, mathrsfs, interval, xfp, relsize, siunitx, esvect, epsdice, numprint}
 \mathsurround=1pt
 \nc{\R}{\mathbb{R}}
 \nc{\D}{\mathbb{D}}
@@ -105,18 +114,19 @@
 \tikzset{arrow style/.style={thick, >={Stealth[scale=1.5]}, ->, shorten <=5pt, shorten >=5pt}}
 \tikzset{double style/.style={double distance=3pt, line width=0.5pt}}
 % ---------------------------------------------------------------------------------------------------- 
-\RequirePackage{lipsum, multicol, wrapfig, graphicx, fontawesome5}
+\RequirePackage{lipsum, graphicx, fontawesome5, pifont, wrapstuff, xhfill}
 \let\faWarning\faExclamationTriangle
 \RequirePackage{eurosym}
 \nc{\eur}{\,\text{\euro}}
-% ----------------------------------------------------------------------------------------------------
-\RequirePackage{enumitem}
-\setlist[itemize]{label=\textbullet}
-\def\be{\begin{enumerate}}\def\ber{\begin{enumerate}[resume]}\def\ee{\end{enumerate}}
-\def\bi{\begin{itemize}}\def\ei{\end{itemize}}
-\def\bmc{\begin{multicols}}\def\emc{\end{multicols}}
+\nc\numero[1]{n\textsuperscript{\small{o}~}#1}
 \let\ms\medskip\let\bs\bigskip
-\def\numero{n\up{\small{o}~}}
+% ----------------------------------------------------------------------------------------------------
+\RequirePackage{enumitem,multicol}
+\setlist[itemize]{label=\textbullet}
+\def\bi\begin{itemize}\def\ei\end{itemize}
+\def\be\begin{enumerate}\def\ee\end{numerate}
+\def\ber{\begin{enumerate}[resume]}
+\def\bmc\begin{multicols}\def\emc\end{multicols}
 % ----------------------------------------------------------------------------------------------------
 \RequirePackage{listings,courier}
 \lstset{
@@ -126,7 +136,10 @@
 	breaklines=true,
 	basicstyle=\ttfamily,
 	texcl=true,
-	commentstyle=\ttfamily
+	commentstyle=\ttfamily,
+	frame=single,
+	framerule=0.8pt,
+	framesep=5pt,
 }
 % ----------------------------------------------------------------------------------------------------
 \RequirePackage{hyperref}
