@@ -7,6 +7,7 @@
 \let\nc\newcommand
 \let\rnc\renewcommand
 % ---------------------------------------------------------------------------------------------------- 
+\RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[french]{babel}
 \RequirePackage{geometry}
