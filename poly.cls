@@ -2,7 +2,7 @@
 \ProvidesClass{poly}[2026/09/06 Classe de document personnalisee pour poly de mathematiques]
 \DeclareOption*{\PassToOptionsToClass{\CurrentOption}{scrreprt}}
 \ProcessOptions\relax
-\LoadClass[a4paper,10pt,headings=normal,headings=openright,twoside=true]{scrreprt}
+\LoadClass[a4paper,11pt,headings=normal,headings=openright,twoside=true]{scrreprt}
 % ---------------------------------------------------------------------------------------------------- 
 \let\nc\newcommand
 \let\rnc\renewcommand
@@ -47,6 +47,7 @@
 \newenvironment{ex}{\begin{exemple}}{\end{exemple}}
 \newenvironment{exmpl}{\begin{exemple}}{\end{exemple}}
 \newenvironment{rem}{\begin{remarque}}{\end{remarque}}
+\newenvironment{rmq}{\begin{remarque}}{\end{remarque}}
 \rnc{\qedsymbol}{}
 % saut si on commence un \begin{ex} par un \begin{itemize /  enumerate}
 \nc{\ajusteliste}{\leavevmode\vspace{-\baselineskip}}
@@ -107,6 +108,7 @@
 \nc{\intff}[2]{\interval[scaled]{#1}{#2}}
 \nc{\intof}[2]{\interval[open left,scaled]{#1}{#2}}
 \nc{\intfo}[2]{\interval[open right,scaled]{#1}{#2}}
+\nc\cmath[1]{\begin{center}\ensuremath{#1}\end{center}}
 % ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{tikz,pgfplots,tkz-tab}
 \usetikzlibrary{arrows.meta, calc, patterns, decorations.markings, shapes.geometric, positioning, backgrounds,decorations.text}
