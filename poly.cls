@@ -14,7 +14,7 @@
 \geometry{a4paper,top=1.8cm,bottom=2.2cm,inner=2.0cm,outer=1.6cm,footskip=10mm}
 \RequirePackage{fourier}
 \addtokomafont{disposition}{\rmfamily}
-\setcounter{tocdepth}{1} 
+\setcounter{tocdepth}{2}
 % ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{setspace}
 \setstretch{1.05}
@@ -38,10 +38,18 @@
 \newtheorem*{exemple}{Exemple}
 \newtheorem*{remarque}{Remarque}
 \newtheorem*{correction}{Correction}
+\newtheorem*{attention}{\faExclamationTriangle\,\normalfont\bfseries\ Attention}
+\newtheorem*{piege}{\faExclamationTriangle\,\normalfont\bfseries Piège classique}
+\newtheorem*{ideerecue}{\faExclamationTriangle\,\normalfont\bfseries Idée reçue}
+\newtheorem*{erreur}{\faExclamationTriangle\,\normalfont\bfseries Erreur à éviter}
+\newtheorem*{fauxami}{\faExclamationTriangle\,\normalfont\bfseries Faux ami}
+\newtheorem*{miseengarde}{\faExclamationTriangle\,\normalfont\bfseries Mise en garde}
 
 \newenvironment{thm}{\begin{theoreme}}{\end{theoreme}}
 \newenvironment{prop}{\begin{propriete}}{\end{propriete}}
 \newenvironment{df}{\begin{definition}}{\end{definition}}
+\newenvironment{defn}{\begin{definition}}{\end{definition}}
+\newenvironment{defin}{\begin{definition}}{\end{definition}}
 \newenvironment{meth}{\begin{methode}}{\end{methode}}
 \newenvironment{exo}{\begin{exercice}}{\end{exercice}}
 \newenvironment{demo}{\begin{demonstration}}{\end{demonstration}}
@@ -50,8 +58,9 @@
 \newenvironment{rem}{\begin{remarque}}{\end{remarque}}
 \newenvironment{rmq}{\begin{remarque}}{\end{remarque}}
 \rnc{\qedsymbol}{}
-% saut si on commence un \begin{ex} par un \begin{itemize /  enumerate}
-\nc{\ajusteliste}{\leavevmode\vspace{-\baselineskip}}
+% saut si on commence un \begin{ex} par un \begin{itemize / enumerate / wrapstuff}
+\nc{\nline}{\leavevmode\vspace{-\baselineskip}}
+\let\ajusteliste\nline
 % ----------------------------------------------------------------------------------------------------
 \RequirePackage{amsfonts, mathtools, mathrsfs, interval, xfp, relsize, siunitx, esvect, epsdice, numprint}
 \mathsurround=1pt
@@ -80,13 +89,12 @@
 \nc{\coordl}[2]{\pa{#1\,;\,#2}}
 \nc{\OIJ}{\pa{O;I,J}}
 \nc{\vOIJ}{\pa{O;\vec{i},\vec{j}}}
-\nc{\eqv}{\Leftrightarrow}
+\nc{\eqv}{\Longleftrightarrow}
 \nc{\rarr}{\rightarrow}
 \nc{\larr}{\leftarrow}
 \nc{\Rarr}{\Rightarrow}
 \nc{\Larr}{\Leftarrow}
 \nc{\Lrarr}{\Leftrightarrow}
-\rnc{\iff}{\Lrarr}
 \let\le\leqslant
 \let\ge\geqslant
 \nc{\lt}{\ifmmode{<}\else\textless\fi}
