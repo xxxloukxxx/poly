@@ -1,3 +1,473 @@
 \chapter{Fractions, puissances et racines carrées}
+
 \section{Fractions}
-\lipsum
+
+\subsection{Calculs avec les fractions}
+
+\begin{prop}[Opérations sur les fractions]
+	$$\frac{a}{D} + \frac{b}{D} = \frac{a+b}{D} \hspace{1.5cm} \frac{a}{D} - \frac{b}{D} = \frac{a-b}{D} \hspace{1.5cm} \frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b \times d} \hspace{1.5cm} \frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c}$$
+\end{prop}
+
+\begin{exo}[Effectuer des calculs de fractions]
+	Calculer :
+	$$A = \frac{5}{4} + \frac{6}{16} \hspace{1.5cm} B = \frac{5}{3} - \frac{6}{5} \hspace{1.5cm} C = \frac{2}{-3} \times \frac{-5}{11} \hspace{1.5cm} D = \frac{3}{4} \div \frac{-5}{8} \hspace{1.5cm} E = \frac{8}{7} - \frac{4}{7} \times \frac{5}{3}$$
+
+	\begin{correction}
+		$\begin{array}{r|r|r|r|r}
+				\def\arraystretch{2}
+				\begin{array}{rcl}
+					A & = & \dfrac{5}{4} + \dfrac{6}{16}   \\
+					  & = & \dfrac{20}{16} + \dfrac{6}{16} \\
+					  & = & \dfrac{26}{16}                 \\
+					  & = & \dfrac{13}{8}
+				\end{array}
+				 &
+				\def\arraystretch{2}
+				\begin{array}{rcl}
+					B & = & \dfrac{5}{3} - \dfrac{6}{5}     \\
+					  & = & \dfrac{25}{15} - \dfrac{18}{15} \\
+					  & = & \dfrac{7}{15}                   \\&&
+				\end{array}
+				 &
+				\def\arraystretch{2}
+				\begin{array}{rcl}
+					C & = & \dfrac{2}{-3} \times \dfrac{-5}{11}   \\
+					  & = & \dfrac{2 \times (-5)}{(-3) \times 11} \\
+					  & = & \dfrac{-10}{-33}                      \\
+					  & = & \dfrac{10}{33}
+				\end{array}
+				 &
+				\def\arraystretch{2}
+				\begin{array}{rcl}
+					D & = & \dfrac{3}{4} \div \dfrac{-5}{8}   \\
+					  & = & \dfrac{3}{4} \times \dfrac{8}{-5} \\
+					  & = & \dfrac{24}{-20}                   \\
+					  & = & -\dfrac{6}{5}
+				\end{array}
+				 &
+				\def\arraystretch{2}
+				\begin{array}{rcl}
+					E & = & \dfrac{8}{7} - \dfrac{4}{7} \times \dfrac{5}{3} \\
+					  & = & \dfrac{8}{7} - \dfrac{20}{21}                   \\
+					  & = & \dfrac{24}{21} - \dfrac{20}{21}                 \\
+					  & = & \dfrac{4}{21}
+				\end{array}
+			\end{array}$
+	\end{correction}
+\end{exo}
+
+\subsection{Réduire au même dénominateur}
+
+\begin{prop}[Réduction au même dénominateur]
+	$$\frac{a}{b} + \frac{c}{d} = \frac{ad}{bd} + \frac{cb}{bd} = \frac{ad + cb}{bd}$$
+\end{prop}
+
+\begin{exo}[Réduire des expressions au même dénominateur]
+	Réduire au même dénominateur :
+	$$A = \frac{7}{x-2} - \frac{5}{3} \hspace{2cm} B = 3 + \frac{5x}{2x+1}$$
+
+	\begin{correction}
+		$$
+			\begin{array}{c|c}
+				\def\arraystretch{2}
+				\begin{array}{rcl}
+					A & = & \dfrac{7}{x-2} - \dfrac{5}{3}                                            \\
+					  & = & \dfrac{7 \times 3}{(x-2)\times 3} - \dfrac{5\times (x-2)}{3\times (x-2)} \\
+					  & = & \dfrac{21 - 5(x-2)}{3(x-2)}                                              \\
+					  & = & \dfrac{21 - 5x + 10}{3(x-2)} \qquad = \dfrac{31 - 5x}{3(x-2)}            \\
+				\end{array}\qquad & \qquad
+				\def\arraystretch{2}
+				\begin{array}{rcl}
+					B & = & 3 + \dfrac{5x}{2x+1}                     \\
+					  & = & \dfrac{3(2x+1)}{2x+1} + \dfrac{5x}{2x+1} \\
+					  & = & \dfrac{6x + 3 + 5x}{2x+1}                \\
+					  & = & \dfrac{11x + 3}{2x+1}                    \\
+				\end{array}
+			\end{array}
+		$$
+	\end{correction}
+\end{exo}
+
+\section{Puissances}
+
+\subsection{Rappels}
+
+\begin{defin}[Puissance entière]
+	Pour tout nombre $a$ non nul et tout entier $n \ge 1$ :
+
+	$$a^n = \underbrace{a \times a \times \cdots \times a}_{n \text{ fois}}$$
+
+	Par convention : $a^1 = a$ \quad $a^0 = 1$ \quad $0^n = 0$ \quad $1^n = 1$
+\end{defin}
+
+\begin{piege}
+	Ne pas confondre :
+	$$(-3)^4 = (-3)\times(-3)\times(-3)\times(-3) = 81 \qquad \text{et} \qquad -3^4 = -(3\times3\times3\times3) = -81$$
+\end{piege}
+
+\begin{exercice}[Règle des signes]
+	Calculer :
+	\vspace{-4mm}
+	\begin{multicols}{4}
+		\begin{itemize}
+			\item $(-5)^2$
+			\item $-1^2$
+			\item $(-1)^2$
+			\item $-3^3$
+			\item $(-2)^2$
+			\item $-7^2$
+			\item $(-9)^0$
+			\item $-9^0$
+		\end{itemize}
+	\end{multicols}
+
+	\begin{correction}
+		\nline\vspace{-4mm}
+		\begin{multicols}{4}
+			\begin{itemize}
+				\item $(-5)^2=25$
+				\item $-1^2=-1$
+				\item $(-1)^2=1$
+				\item $-3^3=-9$
+				\item $(-2)^2=4$
+				\item $-7^2=-49$
+				\item $(-9)^0=1$
+				\item $-9^0=-1$
+			\end{itemize}
+		\end{multicols}
+	\end{correction}
+\end{exercice}
+
+\subsection{Opérations sur les puissances}
+
+\begin{prop}[Règles de calcul]
+	Soient $n, p$ entiers relatifs et $a \neq 0$, $b \neq 0$.
+	\begin{itemize}[itemsep=3mm]
+		\item \textbf{Multiplication :}\quad $a^n \times a^p = a^{n+p}$
+		\item \textbf{Division :}\quad $\dfrac{a^n}{a^p} = a^{n-p}$
+		\item \textbf{Inverses :}\quad $a^{-1} = \dfrac{1}{a} \quad \text{et} \quad a^{-n} = \dfrac{1}{a^n}$
+		\item \textbf{Puissance de puissance :}\quad $\left(a^n\right)^p = a^{n \times p}$
+		\item \textbf{Distribution :}\quad $(a \times b)^n = a^n \times b^n$
+	\end{itemize}
+\end{prop}
+
+\begin{exo}[Exprimer sous la forme d'une seule puissance]
+	Exprimer sous la forme d'une seule puissance :
+	$$
+		A = \frac{1}{4^2}
+		\hspace{15mm}
+		B = 4^5 \times 4^7
+		\hspace{15mm}
+		C = \frac{5^4}{5^6}
+		\hspace{15mm}
+		D = 7^3 \times \left(7^2\right)^6
+		\hspace{15mm}
+		E = 6^7 \times 9^7
+	$$
+
+	\begin{correction}
+		\nline
+		\begin{multicols}{2}
+			\begin{itemize}[itemsep=2mm]
+				\item $A = \dfrac{1}{4^2} = 4^{-2}$
+				\item $B = 4^5 \times 4^7 = 4^{5+7} = 4^{12}$
+				\item $C = \dfrac{5^4}{5^6} = 5^{4-6} = 5^{-2}$
+				\item $D = 7^3 \times \left(7^2\right)^6 = 7^3 \times 7^{12} = 7^{3+12} = 7^{15}$
+				\item $E = 6^7 \times 9^7 = (6 \times 9)^7 = 54^7$
+			\end{itemize}
+		\end{multicols}
+	\end{correction}
+\end{exo}
+% TODO : j'en suis là %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exo}[Puissances de $10$ et notation scientifique]
+	\textbf{a)} Écrire sous la forme $10^n$ :
+	$$
+		A = 10^4 \times 10^7
+		\qquad
+		B = \frac{10^{-4}}{10^5}
+		\qquad
+		C = \left(10^2\right)^{-6}
+		\qquad
+		D = 10^{-4} \times \left(10^3\right)^{-1}
+	$$
+
+	\textbf{b)} Écrire en notation scientifique :
+	$$
+		A = 4 \times 7 \times 10^{-5} \times 10^{-8}
+		\qquad
+		B = \frac{7 \times 10^{-4} \times 5 \times 10^8}{56 \times 10^{-9}}
+		\qquad
+		C = \frac{32 \times 10^{-4} + 6 \times 10^{-3}}{2 \times 10^{-5}}
+	$$
+
+	\begin{correction}
+
+		\textbf{a)}
+		$$
+			A = 10^{4+7} = 10^{11}
+			\qquad
+			B = 10^{-4-5} = 10^{-9}
+			\qquad
+			C = 10^{2\times(-6)} = 10^{-12}
+			\qquad
+			D = 10^{-4} \times 10^{-3} = 10^{-7}
+		$$
+
+		\textbf{b)}
+
+		$$
+			\begin{array}{r|r|r}
+				\def\arraystretch{1.5}
+				\begin{array}{rcl}
+					A & = & 28 \times 10^{-13}    \\
+					  & = & 2{,}8 \times 10^{-12} \\
+					  &   &                       \\
+					  &   &                       \\
+				\end{array}                                                                                            &
+				\def\arraystretch{1.5}
+				\begin{array}{rcl}
+					B & = & \dfrac{7 \times 5}{56} \times \dfrac{10^{-4} \times 10^8}{10^{-9}} \\
+					  & = & 0{,}625 \times 10^{-4+8+9}                                         \\
+					  & = & 0{,}625 \times 10^{13}                                             \\
+					  & = & 6{,}25 \times 10^{12}                                              \\
+				\end{array} &
+				\def\arraystretch{1.5}
+				\begin{array}{rcl}
+					C & = & \dfrac{0{,}0032 + 0{,}006}{2 \times 10^{-5}} \\
+					  & = & \dfrac{0{,}0092}{2 \times 10^{-5}}           \\
+					  & = & 0{,}0046 \times 10^5                         \\
+					  & = & 4{,}6 \times 10^{2}                          \\
+				\end{array}
+			\end{array}
+		$$
+	\end{correction}
+\end{exo}
+
+\section{Racines carrées}
+
+\subsection{Définition}
+
+\begin{defin}[Racine carrée]
+	La \textbf{racine carrée} de $a$ ($a \ge 0$) est l'unique nombre positif dont le carré est $a$. On la note $\sqrt{a}$.
+\end{defin}
+
+\begin{ex}[Racines carrées]
+	$3^2 = 9$ donc $\sqrt{9} = 3$ \qquad
+	$2{,}6^2 = 6{,}76$ donc $\sqrt{6{,}76} = 2{,}6$ \qquad
+	$\sqrt{2} \approx 1{,}4142$ \qquad
+	$\sqrt{3} \approx 1{,}732$
+\end{ex}
+\begin{prop}[Carrés parfaits à connaître]
+	$$
+		\begin{array}{lllll}
+			\sqrt{0}=0  & \sqrt{25}=5 & \sqrt{100}=10 \\
+			\sqrt{1}=1  & \sqrt{36}=6 & \sqrt{121}=11 \\
+			\sqrt{4}=2  & \sqrt{49}=7 & \sqrt{144}=12 \\
+			\sqrt{9}=3  & \sqrt{64}=8 & \sqrt{169}=13 \\
+			\sqrt{16}=4 & \sqrt{81}=9 &               \\
+		\end{array}
+	$$
+\end{prop}
+
+\begin{rem}
+	La racine carrée d'un nombre \textbf{négatif} n'existe pas : un carré est toujours positif, donc $\sqrt{-5}$ n'existe pas.
+\end{rem}
+
+\subsection{Propriétés}
+
+\begin{prop}[Règles de calcul ($a \ge 0$, $b \ge 0$, $b \neq 0$)]
+	\begin{itemize}[itemsep=3mm]
+		\item \textbf{Produit :}\qquad $\sqrt{a} \times \sqrt{b} = \sqrt{a \times b}$
+		\item \textbf{Quotient :}\qquad $\dfrac{\sqrt{a}}{\sqrt{b}} = \sqrt{\dfrac{a}{b}}$
+		\item \textbf{Carré d'une racine :}\qquad $\left(\sqrt{a}\right)^2 = a$
+		\item \textbf{Racine d'un carré :}\qquad $\sqrt{a^2} = a$
+		\item \textbf{Cas particulier :}\qquad $\sqrt{0} = 0 \quad \text{et} \quad \sqrt{1} = 1$
+	\end{itemize}
+
+	\textbf{Attention :} de façon générale, $\sqrt{a} + \sqrt{b} \neq \sqrt{a+b}$ et $\sqrt{a} - \sqrt{b} \neq \sqrt{a-b}$.
+\end{prop}
+
+\begin{demo}[$\sqrt{a} \times \sqrt{b} = \sqrt{a \times b}$]
+	\begin{itemize}
+		\item $\left(\sqrt{a} \times \sqrt{b}\right)^2 = \left(\sqrt{a}\right)^2 \times \left(\sqrt{b}\right)^2 = a \times b$
+		\item $\left(\sqrt{a \times b}\right)^2 = a \times b$ \quad (car $a$ et $b$ sont positifs)
+	\end{itemize}
+	Donc $\left(\sqrt{a} \times \sqrt{b}\right)^2 = \left(\sqrt{a \times b}\right)^2$, et donc $\sqrt{a} \times \sqrt{b} = \sqrt{a \times b}$.
+\end{demo}
+
+\begin{demo}[$\sqrt{a} + \sqrt{b} > \sqrt{a+b}$]
+	On a : $\left(\sqrt{a} + \sqrt{b}\right)^2 = \left(\sqrt{a}\right)^2 + 2\sqrt{a}\sqrt{b} + \left(\sqrt{b}\right)^2 = a + b + 2\sqrt{ab}$
+	Donc $\left(\sqrt{a}+\sqrt{b}\right)^2 > \left(\sqrt{a+b}\right)^2$ car $2\sqrt{ab} > 0$, et donc $\sqrt{a} + \sqrt{b} > \sqrt{a+b}$.
+\end{demo}
+
+\begin{methode}[Effectuer des calculs sur les racines carrées]
+	Écrire le plus simplement possible :
+	$$
+		\def\arraystretch{2}
+		\begin{array}{lllllll}
+			A = \sqrt{32} \times \sqrt{2} \quad & \quad D = \dfrac{\sqrt{98}}{\sqrt{2}} \quad & \quad F = \left(4\sqrt{5}\right)^2                      \\
+			B = \sqrt{3} \times \sqrt{27} \quad & \quad E = \dfrac{\sqrt{50}}{\sqrt{72}}\quad & \quad G = \dfrac{\sqrt{32} \times \sqrt{10}}{\sqrt{80}} \\
+			C = \sqrt{3} \times \sqrt{36} \times \sqrt{3}
+		\end{array}
+	$$
+\end{methode}
+\begin{methode}[Effectuer des calculs sur les racines carrées]
+	\begin{correction}
+		$$
+			\def\arraystretch{2}
+			\begin{array}{rr}
+				\begin{array}{rcl}
+					A & = & \sqrt{32 \times 2} = \sqrt{64} = 8                                               \\
+					B & = & \sqrt{3 \times 27} = \sqrt{81} = 9                                               \\
+					C & = & \sqrt{3 \times 3} \times \sqrt{36} = \sqrt{9} \times \sqrt{36} = 3 \times 6 = 18 \\
+					D & = & \sqrt{\dfrac{98}{2}} = \sqrt{49} = 7                                             \\
+				\end{array}\qquad & \qquad
+				\begin{array}{rcl}
+					E & = & \sqrt{\dfrac{50}{72}} = \sqrt{\dfrac{25}{36}} = \dfrac{\sqrt{25}}{\sqrt{36}} = \dfrac{5}{6} \\
+					F & = & 4^2 \times \left(\sqrt{5}\right)^2 = 16 \times 5 = 80                                       \\
+					G & = & \sqrt{\dfrac{32 \times 10}{80}} = \sqrt{4} = 2                                              \\
+					  &   &
+				\end{array}
+			\end{array}
+		$$
+	\end{correction}
+\end{methode}
+
+\subsection{Extraire un carré parfait}
+
+\begin{methode}[Écrire sous la forme $a\sqrt{b}$]
+	Écrire sous la forme $a\sqrt{b}$, avec $a$ et $b$ entiers et $b$ le plus petit possible :
+	$$
+		A = \sqrt{72}
+		\qquad
+		B = \sqrt{45}
+		\qquad
+		C = 3\sqrt{125}
+	$$
+
+	\begin{correction}
+		$$
+			\begin{array}{lll}
+				\def\arraystretch{1.3}
+				\begin{array}{rcl}
+					A & = & \sqrt{72} \\ &=& \sqrt{36 \times 2}\\ &=& \sqrt{36} \times \sqrt{2}\\ &=& 6\sqrt{2}\\
+				\end{array} &
+				\def\arraystretch{1.3}
+				\begin{array}{rcl}
+					B & = & \sqrt{45} \\ &=& \sqrt{9 \times 5}\\ &=& \sqrt{9} \times \sqrt{5}\\ &=& 3\sqrt{5} \\
+				\end{array}  &
+				\def\arraystretch{1.3}
+				\begin{array}{rcl}
+					C & = & 3\sqrt{125} \\ &=& 3\sqrt{25 \times 5}\\ &=& 3\sqrt{25} \times \sqrt{5}\\ &=& 3 \times 5 \times \sqrt{5} = 15\sqrt{5} \\
+				\end{array}
+			\end{array}
+		$$
+		\textit{Pour que $b$ soit le plus petit possible, $b$ ne doit pas contenir de carré parfait.}
+	\end{correction}
+\end{methode}
+
+\subsection{Simplifier des expressions contenant des racines}
+
+\begin{methode}[Réduire des expressions avec racines carrées]
+	\textbf{1)} Écrire le plus simplement possible :
+	$$
+		A = 4\sqrt{3} - 2\sqrt{3} + 6\sqrt{3}
+		\qquad
+		B = 7\sqrt{2} - 3\sqrt{5} + 8\sqrt{2} - \sqrt{5}
+		\qquad
+		C = \left(3 - 2\sqrt{3}\right) - \left(4 - 6\sqrt{3}\right)
+	$$
+
+	\textbf{2)} Écrire sous la forme $a\sqrt{b}$ ($b$ le plus petit possible) :
+	$$
+		D = \sqrt{12} + 7\sqrt{3} - \sqrt{27}
+		\qquad
+		E = \sqrt{125} - 2\sqrt{20} + 6\sqrt{80}
+	$$
+
+	\begin{correction}
+
+		\textbf{1)} On regroupe les membres d'une même « famille » de racines carrées.
+		$$
+			\begin{array}{rcl}
+				A & = & 4\sqrt{3} - 2\sqrt{3} + 6\sqrt{3} \\
+				  & = & (4 - 2 + 6)\sqrt{3}               \\
+				  & = & 8\sqrt{3}
+			\end{array}\qquad
+			\begin{array}{rcl}
+				B & = & 7\sqrt{2} - 3\sqrt{5} + 8\sqrt{2} - \sqrt{5} \\
+				  & = & (7 + 8)\sqrt{2} + (-3-1)\sqrt{5}             \\
+				  & = & 15\sqrt{2} - 4\sqrt{5}
+			\end{array}\qquad
+			\begin{array}{rcl}
+				C & = & \left(3 - 2\sqrt{3}\right) - \left(4 - 6\sqrt{3}\right) \\
+				  & = & 3 - 2\sqrt{3} - 4 + 6\sqrt{3}                           \\
+				  & = & -1 + 4\sqrt{3}
+			\end{array}
+		$$
+
+		\textbf{2)} On extrait les carrés parfaits pour ramener à la même famille.
+		$$
+			\begin{array}{rcl}
+				D & = & \sqrt{4 \times 3} + 7\sqrt{3} - \sqrt{9 \times 3}   \\
+				  & = & 2\sqrt{3} + 7\sqrt{3} - 3\sqrt{3} \quad = 6\sqrt{3}
+			\end{array}\qquad
+			\begin{array}{rcl}
+				E & = & \sqrt{25 \times 5} - 2\sqrt{4 \times 5} + 6\sqrt{16 \times 5} \\
+				  & = & 5\sqrt{5} - 4\sqrt{5} + 24\sqrt{5} \quad = 25\sqrt{5}
+			\end{array}
+		$$
+	\end{correction}
+\end{methode}
+
+\subsection{Développements avec des racines carrées}
+
+\begin{methode}[Développer et réduire avec des racines carrées]
+	Développer et réduire :
+	$$
+		A = \left(\sqrt{3} - 4\right)^2
+		\qquad
+		B = \left(3 + \sqrt{5}\right)^2
+		\qquad
+		C = \left(\sqrt{2} - \sqrt{5}\right)\left(\sqrt{2} + \sqrt{5}\right)
+		\qquad
+		D = \left(3 + \sqrt{3}\right)\left(1 - \sqrt{2}\right)
+	$$
+
+	\begin{correction}
+		On applique les identités remarquables et la distributivité, en traitant les racines comme des inconnues.
+
+		$$
+			\def\arraystretch{1.4}
+			\begin{array}{rcl}
+				A & = & \left(\sqrt{3}\right)^2 - 2 \times \sqrt{3} \times 4 + 4^2 \\
+				  & = & 3 - 8\sqrt{3} + 16                                         \\
+				  & = & 19 - 8\sqrt{3}
+			\end{array}
+			\qquad
+			\def\arraystretch{1.4}
+			\begin{array}{rcl}
+				B & = & 3^2 + 2 \times 3 \times \sqrt{5} + \left(\sqrt{5}\right)^2 \\
+				  & = & 9 + 6\sqrt{5} + 5                                          \\
+				  & = & 14 + 6\sqrt{5}
+			\end{array}
+		$$
+
+		\ms
+
+		$$
+			\def\arraystretch{1.4}
+			\begin{array}{rcl}
+				C & = & \left(\sqrt{2}\right)^2 - \left(\sqrt{5}\right)^2 \\
+				  & = & 2 - 5 \qquad = -3
+			\end{array}
+			\qquad
+			\def\arraystretch{1.4}
+			\begin{array}{rcl}
+				D & = & 3 - 3\sqrt{2} + \sqrt{3} - \sqrt{3} \times \sqrt{2} \\
+				  & = & 3 - 3\sqrt{2} + \sqrt{3} - \sqrt{6}
+			\end{array}
+		$$
+
+	\end{correction}
+\end{methode}
