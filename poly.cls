@@ -120,7 +120,9 @@
 \nc\cmath[1]{\begin{center}\ensuremath{#1}\end{center}}
 % ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{tikz,pgfplots,tkz-tab}
-\usetikzlibrary{arrows.meta, calc, patterns, decorations.markings, shapes.geometric, positioning, backgrounds,decorations.text}
+\usetikzlibrary{calc, patterns, positioning, backgrounds}
+\usetikzlibrary{arrows.meta, decorations.markings, decorations.text, shapes.geometric}
+\usetikzlibrary{lindenmayersystems}
 \pgfplotsset{compat=1.18}
 \tikzset{arrow style/.style={thick, >={Stealth[scale=1.5]}, ->, shorten <=5pt, shorten >=5pt}}
 \tikzset{double style/.style={double distance=3pt, line width=0.5pt}}
@@ -156,3 +158,92 @@
 \RequirePackage{hyperref}
 \hypersetup{hidelinks, pdftitle={}, pdfauthor={}, psdextra}
 \makeatletter\pdfstringdefDisableCommands{\def\HyPsd@Warning#1{}}\makeatother
+% ----------------------------------------------------------------------------------------------------
+\nc\illustration{
+	\begin{tikzpicture}[cap=round]
+		\colorlet{anglecolor}{white!50!black}
+		\colorlet{bordercolor}{black}
+		\def\alpha{10}
+		\def\layer{5}
+		\begin{scope}[scale=5]
+			\pgfmathsetmacro\sinTriDiff{sin(60-\alpha)}
+			\pgfmathsetmacro\cosTriDiff{1-cos(60-\alpha)}
+			\pgfmathsetmacro\radiusC{sqrt(\cosTriDiff*\cosTriDiff + \sinTriDiff*\sinTriDiff)}
+			\pgfmathsetmacro\startAng{\alpha + atan(\sinTriDiff/\cosTriDiff)}
+			\pgfmathsetmacro\al{\alpha*\layer}
+			\foreach \x in {0,\alpha,...,\al}
+				{
+					\pgfmathsetmacro\ang{\x + \startAng}
+					\pgfmathsetmacro\xRs{\radiusC*cos(\ang)}
+					\pgfmathsetmacro\yRs{\radiusC*sin(\ang)}
+					\pgfmathsetmacro\radiusLayer{\xRs + sqrt( 1 - \yRs*\yRs )}
+					\pgfmathsetmacro\angRs{acos(\yRs)}
+					\pgfmathsetmacro\angRss{acos(\radiusC*sin(\ang-\alpha))}
+					\colorlet{anglecolor}{gray!\ang!white}
+					\pgfmathsetmacro\step{2*\alpha - 180}
+					\pgfmathsetmacro\stop{180-2*\alpha}
+					\foreach \y in {-180, \step ,..., \stop}
+						{
+							\pgfmathsetmacro\deltaAng{\y-\x}
+							\filldraw[color=anglecolor,draw=bordercolor] (\y-\x:\radiusLayer) arc (-90+\angRs+\deltaAng : \alpha-90+\angRss+\deltaAng :1) arc (\alpha+90-\angRss+\deltaAng : 2*\alpha+90-\angRs+\deltaAng :1) arc (\deltaAng+2*\alpha : \deltaAng : \radiusLayer);
+						}
+				}
+			\pgfmathsetmacro\xRs{\radiusC*cos(\al+\startAng)}
+			\pgfmathsetmacro\yRs{\radiusC*sin(\al+\startAng)}
+			\pgfmathsetmacro\radiusLayer{\xRs + sqrt( 1 - \yRs*\yRs )}
+			\draw[line width=2, color=bordercolor] (0,0) circle (.8*\radiusLayer);
+			\pgfmathsetmacro\radiusSmall{.7*\radiusLayer}
+			\foreach \x in {-60,0,...,240}
+				{
+					\fill[color=anglecolor] (\x:\radiusSmall) arc (-180+\x+60: -180+\x: \radiusSmall)
+					arc (0+\x: -60+\x: \radiusSmall)
+					arc (120+\x: 60+\x: \radiusSmall);
+				}
+			\foreach \x in {0, 4, ..., 360}
+				{
+					\fill[color=anglecolor] (\x:1) -- (\x+3:1.05) -- (\x+5:1.05) -- (\x+2:1) -- cycle;
+					\fill[color=anglecolor] (\x+5:1.05) -- (\x+7:1.05) -- (\x+4:1.1) -- (\x+2:1.1) -- cycle;
+				}
+			\draw[line width=1, color=bordercolor] (0,0) circle (1);
+			\draw[line width=1, color=bordercolor] (0,0) circle (1.1);
+		\end{scope}
+	\end{tikzpicture}
+}
+
+\makeatletter
+\if@titlepage
+	\renewcommand\maketitle{%
+		\begin{titlepage}%
+			\let\maketitle\relax
+			\let\thanks\relax
+			\null\vfil
+			\vskip 60\p@
+			\begin{center}%
+				{\Huge\bfseries \@title \par}%
+				\vskip 3em%
+					{\LARGE
+						\lineskip .75em%
+						\begin{tabular}[t]{c}%
+							\@author
+						\end{tabular}\par}%
+				\vskip 1.5em%
+					{\Large \@date \par}%
+				\vspace{30mm}
+				\illustration
+			\end{center}
+			\vfil\null
+		\end{titlepage}%
+		\setcounter{footnote}{0}%
+		\global\let\thanks\relax
+		\global\let\maketitle\relax
+		\global\let\@thanks\@empty
+		\global\let\@author\@empty
+		\global\let\@date\@empty
+		\global\let\@title\@empty
+		\global\let\title\relax
+		\global\let\author\relax
+		\global\let\date\relax
+		\global\let\and\relax
+	}
+\fi
+\makeatother
