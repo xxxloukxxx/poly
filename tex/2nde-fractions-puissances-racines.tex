@@ -1,0 +1,409 @@
+\chapter{Fractions, puissances et racines carrés}
+
+\section{Fractions}
+
+\begin{prop}
+	Soient $a$, $b$, $c$ et $d$ des nombres réels, avec $b \neq 0$ et $d \neq 0$.
+
+	\begin{itemize}
+		\item \textbf{Égalité et simplification :}
+		      \[
+			      \frac{a \times c}{b \times c} = \frac{a}{b} \quad (c \neq 0) \qquad \text{et} \qquad \frac{a}{b} = \frac{c}{d} \eqv a \times d = b \times c
+		      \]
+
+		\item \textbf{Somme et différence :}
+		      \[
+			      \frac{a}{b} + \frac{c}{b} = \frac{a + c}{b} \qquad \text{et} \qquad \frac{a}{b} - \frac{c}{b} = \frac{a - c}{b}
+		      \]
+		      \textit{Si les dénominateurs sont différents, on réduit au même dénominateur :}
+		      \[
+			      \frac{a}{b} + \frac{c}{d} = \frac{a \times d + b \times c}{b \times d}
+		      \]
+
+		\item \textbf{Produit :}
+		      \[
+			      \frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b \times d}
+		      \]
+
+		\item \textbf{Quotient :}
+		      \[
+			      \text{Si } c \neq 0, \quad \dfrac{a}{b} \div \dfrac{c}{d} = \frac{a}{b} \times \frac{d}{c} = \frac{a \times d}{b \times c} \qquad \text{et en particulier :} \quad 1 \div \dfrac{c}{d} = \frac{d}{c}
+		      \]
+
+		\item \textbf{Puissance :}
+		      \[
+			      \text{Pour tout } n \in \Z, \quad \pfrac{a}{b}^n = \frac{a^n}{b^n}
+		      \]
+	\end{itemize}
+\end{prop}
+
+\begin{attention}
+	On ne peut pas additionner directement les numérateurs et les dénominateurs !
+
+	\[
+		\frac{a}{b} + \frac{c}{d} \neq \frac{a + c}{b + d}
+	\]
+
+	De plus, la division par zéro est impossible : un dénominateur ne doit jamais s'annuler.
+\end{attention}
+
+\begin{ex}
+	On souhaite appliquer les propriétés de calcul avec les fractions sur les exemples suivants :
+
+	\begin{enumerate}
+		\item \textbf{Somme et différence (avec réduction au même dénominateur) :}
+		      \[
+			      A = \frac{7}{3} - \frac{5}{4} = \frac{7 \times 4}{3 \times 4} - \frac{5 \times 3}{4 \times 3} = \frac{28}{12} - \frac{15}{12} = \frac{28 - 15}{12} = \frac{13}{12}
+		      \]
+
+		\item \textbf{Produit (penser à simplifier avant d'effectuer le produit) :}
+		      \[
+			      B = \frac{15}{14} \times \frac{21}{10} = \frac{(3 \times 5) \times (3 \times 7)}{(2 \times 7) \times (2 \times 5)} = \frac{3 \times 3}{2 \times 2} = \frac{9}{4}
+		      \]
+
+		\item \textbf{Quotient (multiplier par l'inverse) :}
+		      \[
+			      C = \frac{\phantom{i}\dfrac{8}{15}\phantom{i}}{\dfrac{12}{25}} = \frac{8}{15} \times \frac{25}{12} = \frac{(2 \times 4) \times (5 \times 5)}{(3 \times 5) \times (3 \times 4)} = \frac{2 \times 5}{3 \times 3} = \frac{10}{9}
+		      \]
+
+		\item \textbf{Puissance et exposant négatif :}
+		      \[
+			      D = \pfrac{2}{3}^3 = \frac{2^3}{3^3} = \frac{8}{27} \qquad \text{et} \qquad E = \pfrac{3}{5}^{-2} = \pfrac{5}{3}^2 = \frac{5^2}{3^2} = \frac{25}{9}
+		      \]
+	\end{enumerate}
+\end{ex}
+
+\begin{meth}
+	Lors d'un calcul comportant des fractions :
+	\begin{itemize}
+		\item Pour la \textbf{somme} ou la \textbf{différence}, on cherche toujours un \textbf{dénominateur commun}.
+		      \[
+			      F = \frac{4}{9} + \frac{2}{15}
+		      \]
+
+		      Au lieu de multiplier les dénominateurs entre eux ($9 \times 15 = 135$), on cherche le plus petit multiple commun à $9$ et $15$.
+
+		      \begin{itemize}
+			      \item Multiples de $9$ : $9\,;\, 18\,;\, 27\,;\, 36\,;\, \mathbf{45}\,;\, 54 \dots$
+			      \item Multiples de $15$ : $15\,;\, 30\,;\, \mathbf{45}\,;\, 60 \dots$
+		      \end{itemize}
+
+		      Le dénominateur commun est donc $\mathbf{45}$ (car $45 = 9 \times 5$ et $45 = 15 \times 3$).
+
+		      \[
+			      F = \frac{4 \times 5}{9 \times 5} + \frac{2 \times 3}{15 \times 3} = \frac{20}{45} + \frac{6}{45} = \frac{20 + 6}{45} = \frac{26}{45}
+		      \]
+		\item Pour la \textbf{multiplication} ou la \textbf{division}, on \textbf{décompose en facteurs premiers} ou en produits de petits nombres pour \textbf{simplifier avant de multiplier}. Cela évite de manipuler de trop grands nombres !
+		      \[
+			      G = \frac{28}{15} \times \frac{25}{21}
+		      \]
+
+		      Plutôt que d'effectuer $28 \times 25 = 700$ et $15 \times 21 = 315$, on décompose chaque nombre en produit de facteurs plus simples pour faire apparaître des simplifications :
+
+		      \begin{itemize}
+			      \item $28 = 4 \times \mathbf{7}$
+			      \item $21 = 3 \times \mathbf{7}$ \quad $\rightarrow$ \textit{permets de simplifier par $7$ !}
+			      \item $25 = 5 \times \mathbf{5}$ et $15 = 3 \times \mathbf{5}$ \quad $\rightarrow$ \textit{permets de simplifier par $5$ !}
+		      \end{itemize}
+
+		      On écrit alors le produit sur une seule barre de fraction :
+
+		      \[
+			      G = \frac{28 \times 25}{15 \times 21} = \frac{(4 \times \mathbf{7}) \times (5 \times \mathbf{5})}{(3 \times \mathbf{5}) \times (3 \times \mathbf{7})}
+		      \]
+
+		      En simplifiant par $\mathbf{7}$ et par $\mathbf{5}$ au numérateur et au dénominateur, il reste :
+
+		      \[
+			      G = \frac{4 \times 5}{3 \times 3} = \frac{20}{9}
+		      \]
+	\end{itemize}
+\end{meth}
+
+\section{Racines carrées}
+
+\begin{df}
+	Soit $a$ un nombre réel \textbf{positif ou nul} ($a \geqslant 0$).
+
+	La \textbf{racine carrée} de $a$, notée $\sqrt{a}$, est le seul nombre réel \textbf{positif} dont le carré est égal à $a$.
+	\[
+		\text{Pour tout } a \geqslant 0, \quad \sqrt{a} \geqslant 0 \qquad \text{et} \qquad \left( \sqrt{a} \right)^2 = a
+	\]
+\end{df}
+
+\newpage
+
+\begin{prop}
+	Soient $a$ et $b$ deux nombres réels positifs ($a \geqslant 0$ et $b \geqslant 0$).
+
+	\begin{itemize}
+		\item \textbf{Produit :}
+		      \[
+			      \sqrt{a \times b} = \sqrt{a} \times \sqrt{b}
+		      \]
+
+		\item \textbf{Quotient :}
+		      \[
+			      \text{Si } b > 0, \quad \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}
+		      \]
+
+		\item \textbf{Carré d'une racine et racine d'un carré :}
+		      \[
+			      \left( \sqrt{a} \right)^2 = a \qquad \text{et} \qquad \sqrt{a^2} = a
+		      \]
+	\end{itemize}
+\end{prop}
+
+\begin{ex}[Racines carrées remarquables et valeurs usuelles]
+	\nline
+	\begin{enumerate}
+		\item \textbf{Carrés parfaits à connaître :}
+		      \[
+			      \begin{array}{rllcrll}
+				      \sqrt{0}  & = 0 & \quad (0^2 = 0)  & \qquad & \sqrt{49}  & = 7  & \quad (7^2 = 49)   \\
+				      \sqrt{1}  & = 1 & \quad (1^2 = 1)  & \qquad & \sqrt{64}  & = 8  & \quad (8^2 = 64)   \\
+				      \sqrt{4}  & = 2 & \quad (2^2 = 4)  & \qquad & \sqrt{81}  & = 9  & \quad (9^2 = 81)   \\
+				      \sqrt{9}  & = 3 & \quad (3^2 = 9)  & \qquad & \sqrt{100} & = 10 & \quad (10^2 = 100) \\
+				      \sqrt{16} & = 4 & \quad (4^2 = 16) & \qquad & \sqrt{121} & = 11 & \quad (11^2 = 121) \\
+				      \sqrt{25} & = 5 & \quad (5^2 = 25) & \qquad & \sqrt{144} & = 12 & \quad (12^2 = 144) \\
+				      \sqrt{36} & = 6 & \quad (6^2 = 36) & \qquad & \sqrt{169} & = 13 & \quad (13^2 = 169)
+			      \end{array}
+		      \]
+
+		\item \textbf{Valeurs approchées remarquables :} Certaines racines ne sont pas des nombres rationnels (ce sont des nombres irrationnels), mais il est très utile de connaître leur ordre de grandeur :
+		      \[
+			      \sqrt{2} \approx 1{,}414 \qquad \text{et} \qquad \sqrt{3} \approx 1{,}732
+		      \]
+	\end{enumerate}
+\end{ex}
+
+\begin{attention}
+	\nline
+	\begin{itemize}
+		\item \textbf{La racine carrée d'un nombre négatif n'existe pas} dans $\R$ (par exemple, $\sqrt{-9}$ n'a aucun sens).
+		\item \textbf{Pas de simplification avec la somme ou la différence :}
+		      \[
+			      \sqrt{a + b} \neq \sqrt{a} + \sqrt{b} \qquad \text{et} \qquad \sqrt{a - b} \neq \sqrt{a} - \sqrt{b}
+		      \]
+	\end{itemize}
+
+	On a : $\sqrt{9 + 16} = \sqrt{25} = 5$, alors que $\sqrt{9} + \sqrt{16} = 3 + 4 = 7$.
+\end{attention}
+
+\begin{ex}
+	On applique les propriétés pour simplifier des expressions avec des racines carrées :
+
+	\begin{enumerate}
+		\item \textbf{Produit et simplification directe :}
+		      \[
+			      \sqrt{3} \times \sqrt{12} = \sqrt{3 \times 12} = \sqrt{36} = 6
+		      \]
+
+		\item \textbf{Quotient :}
+		      \[
+			      \frac{\sqrt{72}}{\sqrt{2}} = \sqrt{\frac{72}{2}} = \sqrt{36} = 6
+		      \]
+
+		\item \textbf{Développement avec produit remarquable :}
+		      \[
+			      \left( 3 + \sqrt{5} \right)^2 = 3^2 + 2 \times 3 \times \sqrt{5} + \left( \sqrt{5} \right)^2 = 9 + 6\sqrt{5} + 5 = 14 + 6\sqrt{5}
+		      \]
+	\end{enumerate}
+\end{ex}
+
+\newpage
+
+\begin{meth}
+	Pour écrire une racine carrée sous la forme $a\sqrt{b}$ (où $b$ est l'entier le plus petit possible) :
+
+	\begin{itemize}
+		\item On cherche le \textbf{plus grand carré parfait} ($4, 9, 16, 25, 36, 49 \dots$) qui divise le nombre sous la racine.
+		\item On utilise la propriété du produit $\sqrt{a \times b} = \sqrt{a} \times \sqrt{b}$.
+	\end{itemize}
+
+	\[
+		H = \sqrt{72}
+	\]
+
+	Le plus grand carré parfait divisant $72$ est $36$ (car $72 = 36 \times 2$) :
+
+	\[
+		H = \sqrt{36 \times 2} = \sqrt{36} \times \sqrt{2} = 6\sqrt{2}
+	\]
+\end{meth}
+
+\begin{meth}[Somme de racines identiques]
+	Pour simplifier une somme, on extrait les carrés parfaits de chaque terme pour faire apparaître, si possible, la même racine :
+
+	\[
+		I = \sqrt{50} - 2\sqrt{18} = \sqrt{25 \times 2} - 2\sqrt{9 \times 2} = 5\sqrt{2} - 2 \times 3\sqrt{2} = 5\sqrt{2} - 6\sqrt{2} = -\sqrt{2}
+	\]
+\end{meth}
+
+\section{Puissances}
+
+\begin{prop}
+	Soient $a$ et $b$ deux nombres réels non nuls, et $n, p \in \Z$ deux entiers relatifs.
+
+	\begin{itemize}
+		\item \textbf{Définition et cas particuliers :}
+		      \[
+			      a^0 = 1 \qquad \text{et} \qquad a^{-n} = \frac{1}{a^n}
+		      \]
+
+		\item \textbf{Produit de puissances de même base :}
+		      \[
+			      a^n \times a^p = a^{n+p}
+		      \]
+
+		\item \textbf{Quotient de puissances de même base :}
+		      \[
+			      \frac{a^n}{a^p} = a^{n-p}
+		      \]
+
+		\item \textbf{Puissance d'une puissance :}
+		      \[
+			      \left( a^n \right)^p = a^{n \times p}
+		      \]
+
+		\item \textbf{Puissance d'un produit et d'un quotient :}
+		      \[
+			      (a \times b)^n = a^n \times b^n \qquad \text{et} \qquad \pfrac{a}{b}^n = \frac{a^n}{b^n}
+		      \]
+	\end{itemize}
+\end{prop}
+
+\begin{attention}
+	Attention aux pièges classiques sur les sommes et les signes !
+	\begin{itemize}
+		\item En général, $\ a^n + a^p \neq a^{n+p}\ $ et $\ (a + b)^n \neq a^n + b^n$.
+		      \begin{itemize}
+			      \item $2^3 + 2^2 = 8 + 4 = 12 \qquad \text{et} \qquad 2^{3+2} = 2^5 = 32$
+
+			            On constate bien que : $2^3 + 2^2 \neq 2^{3+2} \qquad (\text{car } 12 \neq 32)$
+			      \item $(3 + 4)^2 = 7^2 = 49 \qquad \text{et} \qquad 3^2 + 4^2 = 9 + 16 = 25$
+
+			            On constate bien que : $(3 + 4)^2 \neq 3^2 + 4^2 \qquad (\text{car } 49 \neq 25)$
+		      \end{itemize}
+		\item Ne pas confondre $(-3)^2 = (-3) \times (-3) = 9$ et $-3^2 = -(3 \times 3) = -9$.
+	\end{itemize}
+\end{attention}
+
+\begin{ex}
+	On applique les règles de calcul sur les puissances pour simplifier les expressions suivantes :
+
+	\begin{enumerate}
+		\item \textbf{Produit et quotient de même base :}
+		      \[
+			      A = 10^5 \times 10^{-2} = 10^{5+(-2)} = 10^3 = \np{1000}
+		      \]
+		      \[
+			      B = \frac{2^7}{2^4} = 2^{7-4} = 2^3 = 8 \qquad \text{et} \qquad C = \frac{5^2}{5^{-3}} = 5^{2-(-3)} = 5^{2+3} = 5^5 = \np{3125}
+		      \]
+
+		\item \textbf{Puissance de puissance :}
+		      \[
+			      D = \left( 3^{-2} \right)^3 = 3^{-2 \times 3} = 3^{-6} = \frac{1}{3^6} = \frac{1}{729}
+		      \]
+
+		\item \textbf{Puissance d'un produit :}
+		      \[
+			      E = (2 \times 5)^3 = 2^3 \times 5^3 = 8 \times 125 = \np{1000}
+		      \]
+	\end{enumerate}
+\end{ex}
+%
+\begin{meth}
+	Pour simplifier une expression complexe comportant des puissances :
+	\begin{itemize}
+		\item On traite en priorité les \textbf{puissances de puissances} $\left( a^n \right)^p$ pour supprimer les parenthèses.
+		\item On regroupe les termes qui ont la \textbf{même base} au numérateur et au dénominateur.
+		      \[
+			      F = \frac{2^3 \times \left( 2^{-2} \right)^4}{2^{-7}} = \frac{2^3 \times 2^{-8}}{2^{-7}} = \frac{2^{3+(-8)}}{2^{-7}} = \frac{2^{-5}}{2^{-7}} = 2^{-5-(-7)} = 2^2 = 4
+		      \]
+		\item Si les bases sont différentes, on tente de les \textbf{décomposer en produits de facteurs plus simples} (par exemple $12 = 3 \times 2^2$).
+	\end{itemize}
+\end{meth}
+
+\begin{ex}
+	Simplifier l'expression :
+	\[
+		G = \frac{12^3 \times 18^{-2}}{6^2}
+	\]
+
+	On commence par décomposer chaque base en produit de facteurs premiers ($2$ et $3$) :
+	\begin{itemize}
+		\item $12 = 4 \times 3 = 2^2 \times 3$
+		\item $18 = 2 \times 9 = 2 \times 3^2$
+		\item $6 = 2 \times 3$
+	\end{itemize}
+
+	On remplace ensuite ces décompositions dans l'expression :
+	\[
+		G = \frac{\left( 2^2 \times 3 \right)^3 \times \left( 2 \times 3^2 \right)^{-2}}{\left( 2 \times 3 \right)^2}
+	\]
+
+	On applique les règles de puissance d'un produit et de puissance d'une puissance :
+	\[
+		G = \frac{\left( 2^{2 \times 3} \times 3^3 \right) \times \left( 2^{-2} \times 3^{2 \times (-2)} \right)}{2^2 \times 3^2} = \frac{2^6 \times 3^3 \times 2^{-2} \times 3^{-4}}{2^2 \times 3^2}
+	\]
+
+	On regroupe les puissances de même base au numérateur :
+	\[
+		G = \frac{2^{6+(-2)} \times 3^{3+(-4)}}{2^2 \times 3^2} = \frac{2^4 \times 3^{-1}}{2^2 \times 3^2}
+	\]
+
+	On simplifie enfin en séparant les bases $2$ et $3$ :
+	\[
+		G = 2^{4-2} \times 3^{-1-2} = 2^2 \times 3^{-3} = 4 \times \frac{1}{3^3} = \frac{4}{27}
+	\]
+\end{ex}
+
+\newpage
+
+\begin{df}
+	\textbf{Écriture scientifique :} Tout nombre réel strictement positif $x$ peut s'écrire de manière unique sous la forme :
+	\[
+		x = a \times 10^n
+	\]
+	où $a$ est un nombre réel tel que $1 \leqslant a < 10$ et $n \in \Z$.
+\end{df}
+
+\begin{ex}[Écriture scientifique]
+	\nline
+	\begin{enumerate}
+		\item \textbf{Grands nombres :}
+		      \[
+			      \np{149600000} \text{ km} = 1{,}496 \times 10^8 \text{ km} \quad \text{(distance Terre-Soleil)}
+		      \]
+		\item \textbf{Petits nombres :}
+		      \[
+			      0{,}000\,000\,000\,3 \text{ m} = 3 \times 10^{-10} \text{ m} \quad \text{(ordre de grandeur d'un atome)}
+		      \]
+		\item \textbf{Ajustement du coefficient :}
+		      \[
+			      45{,}2 \times 10^3 = (4{,}52 \times 10^1) \times 10^3 = 4{,}52 \times 10^4
+		      \]
+	\end{enumerate}
+\end{ex}
+
+\begin{meth}[Rendre rationnel un dénominateur]
+	Pour éliminer une racine carrée au dénominateur et simplifier une fraction :
+
+	\begin{itemize}
+		\item \textbf{Si le dénominateur est de la forme $\sqrt{a}$ :}
+
+		      On multiplie en haut et en bas par $\sqrt{a}$.
+		      \[
+			      \frac{3}{\sqrt{5}} = \frac{3 \times \sqrt{5}}{\sqrt{5} \times \sqrt{5}} = \frac{3\sqrt{5}}{5}
+		      \]
+		\item \textbf{Si le dénominateur est une somme $a + \sqrt{b}$ :}
+
+		      On multiplie le numérateur et le dénominateur par son \textbf{expression conjuguée} $a - \sqrt{b}$ afin de faire apparaître l'identité remarquable $(x + y)(x - y) = x^2 - y^2$ :
+		      \begin{align*}
+			      \frac{6}{3 - \sqrt{7}} & \quad = \quad \frac{6 \times (3 + \sqrt{7})}{(3 - \sqrt{7})(3 + \sqrt{7})} \quad = \quad \frac{6(3 + \sqrt{7})}{3^2 - \left( \sqrt{7} \right)^2} \\[2ex]
+			                             & \quad = \quad \frac{6(3 + \sqrt{7})}{9 - 7} \quad = \quad \frac{6(3 + \sqrt{7})}{2}                                                              \\[2ex]
+			                             & \quad = \quad 3(3 + \sqrt{7}) \quad = \quad 9 + 3\sqrt{7}
+		      \end{align*}
+	\end{itemize}
+\end{meth}

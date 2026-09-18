@@ -126,6 +126,7 @@
 \pgfplotsset{compat=1.18}
 \tikzset{arrow style/.style={thick, >={Stealth[scale=1.5]}, ->, shorten <=5pt, shorten >=5pt}}
 \tikzset{double style/.style={double distance=3pt, line width=0.5pt}}
+\tikzset{>=Stealth}
 % ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{lipsum, graphicx, fontawesome5, pifont, wrapstuff, xhfill}
 \let\faWarning\faExclamationTriangle
