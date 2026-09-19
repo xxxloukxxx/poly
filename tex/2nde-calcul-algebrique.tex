@@ -95,8 +95,8 @@
 		\begin{tikzpicture}[transform shape,arrow/.style={-{Stealth[scale=0.8]}, thick, color=blue!70!black},node distance=0.1cm ]
 			\node (expr) {\Large $a(b + c) = ab + ac$};
 			\path (expr.west) ++(0.35, 0.2) node (a_pos) {};
-			\path (expr.west) ++(0.85, 0.2) node (b_pos) {};
-			\path (expr.west) ++(1.7, 0.2) node (c_pos) {};
+			\path (expr.west) ++(0.8, 0.2) node (b_pos) {};
+			\path (expr.west) ++(1.5, 0.2) node (c_pos) {};
 			\draw [arrow] (a_pos.center) to[out=85, in=95, distance=4mm] (b_pos.center);
 			\draw [arrow] (a_pos.center) to[out=85, in=95, distance=7mm] (c_pos.center);
 		\end{tikzpicture}
@@ -161,11 +161,11 @@
 		\begin{tikzpicture}[transform shape,arrow_a/.style={-{Stealth[scale=0.8]}, thick, color=blue!70!black},arrow_b/.style={-{Stealth[scale=0.8]}, thick, color=red!70!black},node distance=0.1cm ]
 			\node (expr) {\Large $(a + b)(c + d) = ac + ad + bc + bd$};
 			\path (expr.west) ++(0.45, 0.2) node (a_top) {};
-			\path (expr.west) ++(2.05, 0.2) node (c_top) {};
-			\path (expr.west) ++(2.85, 0.2) node (d_top) {};
+			\path (expr.west) ++(1.85, 0.2) node (c_top) {};
+			\path (expr.west) ++(2.55, 0.2) node (d_top) {};
 			\path (expr.west) ++(1.45, -0.2) node (b_bot) {};
-			\path (expr.west) ++(2.05, -0.2) node (c_bot) {};
-			\path (expr.west) ++(2.85, -0.2) node (d_bot) {};
+			\path (expr.west) ++(1.85, -0.2) node (c_bot) {};
+			\path (expr.west) ++(2.55, -0.2) node (d_bot) {};
 			\draw [arrow_a] (a_top.center) to[out=80, in=100, distance=6mm] (c_top.center);
 			\draw [arrow_a] (a_top.center) to[out=85, in=95, distance=11mm] (d_top.center);
 			\draw [arrow_b] (b_bot.center) to[out=-80, in=-100, distance=5mm] (c_bot.center);

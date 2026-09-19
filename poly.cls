@@ -58,11 +58,10 @@
 \newenvironment{rem}{\begin{remarque}}{\end{remarque}}
 \newenvironment{rmq}{\begin{remarque}}{\end{remarque}}
 \rnc{\qedsymbol}{}
-% saut si on commence un \begin{ex} par un \begin{itemize / enumerate / wrapstuff}
 \nc{\nline}{\leavevmode\vspace{-\baselineskip}}
 \let\ajusteliste\nline
 % ----------------------------------------------------------------------------------------------------
-\RequirePackage{amsfonts, mathtools, mathrsfs, interval, xfp, relsize, siunitx, esvect, epsdice, numprint}
+\RequirePackage{amsfonts, mathtools, mathrsfs, interval, xfp, relsize, siunitx, esvect, epsdice, numprint, cancel}
 \mathsurround=1pt
 \nc{\R}{\mathbb{R}}
 \nc{\D}{\mathbb{D}}
