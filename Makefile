@@ -8,7 +8,7 @@ DEPS        = $(shell find assets -type f 2>/dev/null)
 
 EXTRA_CLEAN = *.synctex.gz *-blx.bib *.run.xml *.nav *.snm *.vrb *.fdb_latexmk *.log
 
-.PHONY: all compile clean mrproper
+.PHONY: all compile clean mrproper regenerate
 
 all: $(PDFS)
 
@@ -28,5 +28,7 @@ mrproper: clean
 		$(LLMK) --quiet --clobber $$f ; \
 	done
 	@rm -f $(PDFS) $(EXTRA_CLEAN)
+
+regenerate: mrproper all
 
 # vim: set ft=make noet ts=8 sw=8 :
