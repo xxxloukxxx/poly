@@ -1,0 +1,200 @@
+\chapter{Équations et inéquations}
+
+\section{Équations}
+
+\subsection{Équations du premier degré}
+
+\begin{methode}[Résoudre une équation du premier degré]
+	Résoudre :
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item $-5x + 3 = -3x + 2$
+			\item $3(x + 4) = -(x + 5) + 2$
+		\end{itemize}
+	\end{multicols}
+
+	\begin{correction}
+		\[
+			\begin{array}{l|l}%
+				\def\arraystretch{1.2}%
+				\begin{array}{rrcl}%
+					     & -5x + 3  & = & -3x + 2                       \\
+					\eqv & -5x + 3x & = & 2 - 3                         \\
+					\eqv & -2x      & = & -1                            \\
+					\eqv & x        & = & \dfrac{-1}{-2} = \dfrac{1}{2} \\
+					     &          &   &
+				\end{array} \qquad & \qquad %
+				\def\arraystretch{1.2}%
+				\begin{array}{rrcl}%
+					     & 3(x + 4) & = & -(x + 5) + 2   \\
+					\eqv & 3x + 12  & = & -x - 5 + 2     \\
+					\eqv & 3x + x   & = & -12 - 5 + 2    \\
+					\eqv & 4x       & = & -15            \\
+					\eqv & x        & = & -\dfrac{15}{4}
+				\end{array}%
+			\end{array}%
+		\]
+	\end{correction}
+\end{methode}
+
+\subsection{Équation-produit}
+
+\begin{prop}[Règle du produit nul]
+	Un produit de facteurs est nul \textbf{si et seulement si} l'un au moins de ses facteurs est nul.
+
+	\[
+		A \times B = 0 \iff A = 0 \quad \text{ou} \quad B = 0
+	\]
+\end{prop}
+
+\begin{methode}[Résoudre une équation-produit]
+	Résoudre dans $\mathbb{R}$ :
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item $(4x + 6)(3 - 7x) = 0$
+			\item $5x^2 - 4x = 0$
+		\end{itemize}
+	\end{multicols}
+
+	\begin{correction}
+		\nline
+		\begin{itemize}
+			\item $(4x + 6)(3 - 7x) = 0$
+
+			      \[
+				      \begin{array}{rcl}
+					      (4x + 6)(3 - 7x) = 0 & \iff & \begin{cases} 4x + 6 = 0 \\ 3 - 7x = 0 \end{cases} \iff \begin{cases} 4x = -6 \\ -7x = -3 \end{cases} \iff \begin{cases} x = \dfrac{-6}{4} = \dfrac{-3}{2} \\[3mm] x = \dfrac{3}{7} \end{cases} \\%
+					                           & \iff & S = \left\{ -\dfrac{3}{2}\ ;\ \dfrac{3}{7} \right\}
+				      \end{array}
+			      \]
+
+			\item $5x^2 - 4x = 0$
+
+			      On factorise par $x$ pour obtenir un produit.
+
+			      \[
+				      \begin{array}{rcl}
+					      5x^2 - 4x = 0 & \iff & x(5x - 4) = 0 \iff \begin{cases} x = 0 \\ 5x - 4 = 0 \end{cases} \iff \begin{cases} x = 0 \\ 5x = 4 \end{cases} \iff \begin{cases} x = 0 \\[1mm] x = \dfrac{4}{5} \end{cases} \\[3mm]%
+					                    & \iff & S = \left\{ 0\ ;\ \dfrac{4}{5} \right\}
+				      \end{array}
+			      \]
+		\end{itemize}
+	\end{correction}
+\end{methode}
+
+\subsection{Équation-quotient}
+
+\begin{prop}[Règle du quotient nul]
+	Un quotient est nul \textbf{si et seulement si} son numérateur est nul \textbf{et} son dénominateur est non nul.
+
+	\[
+		\dfrac{A}{B} = 0 \iff A = 0 \quad \text{et} \quad B \neq 0
+	\]
+\end{prop}
+
+\begin{ex}
+	Soit l'équation : $\quad\dfrac{x+2}{x+3} = 0$
+
+	\begin{itemize}
+		\item \textbf{Condition d'existence :} L'expression est définie pour $x + 3 \neq 0$, c'est-à-dire $x \neq -3$.
+		\item \textbf{Résolution :} Pour tout $x \neq -3$,
+		      \[
+			      \dfrac{x+2}{x+3} = 0 \iff x + 2 = 0 \iff x = -2
+		      \]
+		\item \textbf{Conclusion :} Comme $-2 \neq -3$, la solution est $S = \{-2\}$.
+	\end{itemize}
+\end{ex}
+
+\begin{methode}[Résoudre une équation-quotient]
+	Résoudre dans $\mathbb{R}$ :
+	\begin{multicols}{3}
+		\begin{enumerate}
+			\item $\dfrac{3x+5}{x-1} = 0$
+			\item $\dfrac{(2x+1)(x-3)}{x-4} = 0$
+		\end{enumerate}
+	\end{multicols}
+
+	\begin{correction}
+		\nline
+		\begin{itemize}
+			\item $\dfrac{3x+5}{x-1} = 0$
+			      \[
+				      \begin{array}{rcl}
+					      \dfrac{3x+5}{x-1} = 0 & \iff & \begin{cases} 3x + 5 = 0 \\ x - 1 \neq 0 \end{cases} \iff \begin{cases} 3x = -5 \\ x \neq 1 \end{cases} \iff \begin{cases} x = -\dfrac{5}{3} \\[1mm] x \neq 1 \end{cases} \\%
+					                            & \iff & S = \left\{ -\dfrac{5}{3} \right\}
+				      \end{array}
+			      \]
+
+			\item $\dfrac{(2x+1)(x-3)}{x-4} = 0$
+			      \[
+				      \begin{array}{rcl}
+					      \dfrac{(2x+1)(x-3)}{x-4} = 0 & \iff & \begin{cases} (2x+1)(x-3) = 0 \\ x - 4 \neq 0 \end{cases} \iff \begin{cases} 2x + 1 = 0 \\ x - 3 = 0 \\ x \neq 4 \end{cases} \iff \begin{cases} x = -\dfrac{1}{2} \\ x = 3 \\ x \neq 4 \end{cases} \\%
+					                                   & \iff & S = \left\{ \dfrac{-1}{2} \,;\, 3 \right\}
+				      \end{array}
+			      \]
+		\end{itemize}
+	\end{correction}
+\end{methode}
+
+\subsection{Équation de la forme $x^2 = a$}
+
+\begin{prop}[Solutions de $x^2 = a$]
+	\nline
+	\begin{itemize}
+		\item Si $a < 0$ : l'équation n'a \textbf{pas de solution} dans $\mathbb{R}$.
+		\item Si $a = 0$ : l'équation possède l'\textbf{unique solution} $x = 0$.
+		\item Si $a > 0$ : l'équation possède \textbf{deux solutions} $x = -\sqrt{a}$ et $x = \sqrt{a}$.
+	\end{itemize}
+\end{prop}
+
+\begin{demo}[Solutions de $x^2 = a$]
+	\nline
+	\begin{itemize}
+		\item Si $a < 0$ : pas de solution car un carré est toujours positif.
+		\item Si $a = 0$ : l'équation s'écrit $x^2 = 0$ donc $x = 0$.
+		\item \textbf{Si $a > 0$ :} L'équation $x^2 = a$ admet deux solutions distinctes :
+		      \[
+			      \begin{array}{rcl}
+				      x^2 = a & \iff & x^2 - a = 0                                                                                                                      \\[1mm]
+				              & \iff & x^2 - \left(\sqrt{a}\right)^2 = 0                                                                                                \\[1mm]
+				              & \iff & \left(x - \sqrt{a}\right)\left(x + \sqrt{a}\right) = 0                                                                           \\[2mm]
+				              & \iff & \begin{cases} x - \sqrt{a} = 0 \\ x + \sqrt{a} = 0 \end{cases} \iff \begin{cases} x = \sqrt{a} \\[1mm] x = -\sqrt{a} \end{cases}
+			      \end{array}
+		      \]
+		      L'ensemble des solutions est donc $S = \left\{ -\sqrt{a} \,;\, \sqrt{a} \right\}$.
+	\end{itemize}
+\end{demo}
+
+\begin{methode}[Résoudre une équation de la forme $x^2 = a$]
+	Résoudre dans $\mathbb{R}$ :
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item $x^2 = 16$
+			\item $x^2 = -8$
+			\item $(x + 2)^2 = 9$
+		\end{itemize}
+	\end{multicols}
+
+	\begin{correction}
+		\nline
+		\begin{itemize}
+			\item $x^2 = 16$
+			      \[
+				      x^2 = 16 \iff \begin{cases} x = -\sqrt{16} = -4 \\ x = \sqrt{16} = 4 \end{cases} \iff S = \{-4\ ;\ 4\}
+			      \]
+
+			\item $x^2 = -8$
+			      \[
+				      x^2 = -8 \iff S = \varnothing \quad \text{(un carré est toujours positif)}
+			      \]
+
+			\item $(x + 2)^2 = 9$
+			      \[
+				      (x + 2)^2 = 9 \iff \begin{cases} x + 2 = -3 \\ x + 2 = 3 \end{cases} \iff \begin{cases} x = -5 \\ x = 1 \end{cases} \iff S = \{-5\ ;\ 1\}
+			      \]
+		\end{itemize}
+	\end{correction}
+\end{methode}
+
+\section{Inéquations}
+

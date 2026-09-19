@@ -14,7 +14,7 @@
 \geometry{a4paper,top=1.8cm,bottom=2.2cm,inner=2.0cm,outer=1.6cm,footskip=10mm}
 \RequirePackage{fourier}
 \addtokomafont{disposition}{\rmfamily}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 % ---------------------------------------------------------------------------------------------------- 
 \RequirePackage{setspace}
 \setstretch{1.05}
