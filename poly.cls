@@ -87,7 +87,7 @@
 \nc{\coord}[2]{\pmat{#1\\#2}}
 \nc{\coordl}[2]{\pa{#1\,;\,#2}}
 \nc{\OIJ}{\pa{O;I,J}}
-\nc{\vOIJ}{\pa{O;\vec{i},\vec{j}}}
+\nc{\vOIJ}{\pa{O~;~\vec{i}~,~\vec{j}}}
 \nc{\eqv}{\Longleftrightarrow}
 \nc{\rarr}{\rightarrow}
 \nc{\larr}{\leftarrow}
