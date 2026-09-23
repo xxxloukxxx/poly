@@ -61,7 +61,7 @@
 \nc{\nline}{\leavevmode\vspace{-\baselineskip}}
 \let\ajusteliste\nline
 % ----------------------------------------------------------------------------------------------------
-\RequirePackage{amsfonts, mathtools, mathrsfs, interval, xfp, relsize, siunitx, esvect, epsdice, numprint, cancel}
+\RequirePackage{amsfonts, mathtools, mathrsfs, interval, xfp, relsize, siunitx, esvect, epsdice, numprint, cancel, colortbl}
 \mathsurround=1pt
 \nc{\R}{\mathbb{R}}
 \nc{\D}{\mathbb{D}}
