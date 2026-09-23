@@ -8,22 +8,250 @@
 % ----------------------------------------------------------------------------------------------------
 \begin{document}
 % -----------------
+\chapter{Probabilités}
 
-\maketitle
-\tableofcontents
-\part{Nombres et calculs}
-\input{tex/2nde/fractions-puissances-racines}
-\input{tex/2nde/calcul-algebrique}
-\input{tex/2nde/multiples-et-diviseurs}
-\input{tex/2nde/ensembles-de-nombres-intervalles}
-\input{tex/2nde/equations-inequations}
-\part{Statistiques et probabilités}
-\input{tex/2nde/proportion}
-\input{tex/2nde/statistiques}
-\part{Fonctions}
-\input{tex/2nde/generalites-sur-les-fonctions}
-\input{tex/2nde/variations-extremums}
-\input{tex/2nde/fonctions-affines}
-\input{tex/2nde/fonctions-de-reference}
+\section{Vocabulaire des expériences aléatoires}
+
+\begin{defin}[Expérience aléatoire]
+	Une expérience est dite \textbf{aléatoire} lorsqu'elle peut conduire à plusieurs résultats différents et que l'on ne peut pas prévoir à l'avance lequel de ces résultats va se produire.
+\end{defin}
+
+\begin{ex}
+	\nline
+	\begin{wrapstuff}[r]
+		\includegraphics[width=1.5cm]{./tex/2nde/img/de.png}
+	\end{wrapstuff}
+
+	On lance le dé représenté ci-contre et on regarde le numéro inscrit sur la face du dessus.
+
+	On ne peut pas prévoir, avant de lancer, quel numéro va sortir~: c'est une expérience aléatoire.
+
+	\phantom{x}
+
+	\phantom{x}
+\end{ex}
+
+\begin{defin}[Univers]
+	L'ensemble de \textbf{tous} les résultats possibles d'une expérience aléatoire s'appelle l'\textbf{univers} de l'expérience.
+
+	On le note en général $\Omega$ (la lettre grecque \og oméga \fg{}).
+
+	Chaque résultat possible s'appelle une \textbf{issue}.
+\end{defin}
+
+\begin{ex}
+	\nline
+	\begin{itemize}
+		\item Expérience aléatoire~: \og On lance un dé à six faces et on note le numéro obtenu \fg{}
+		\item Univers~: $\Omega = \left\{ \epsdice{1};\epsdice{2};\epsdice{3};\epsdice{4};\epsdice{5};\epsdice{6} \right\}$
+		\item Chacun des six résultats possibles est une \textbf{issue} de l'expérience.
+	\end{itemize}
+\end{ex}
+
+\begin{defin}[Événement]
+	Un \textbf{événement} est un ensemble d'issues d'une expérience aléatoire, c'est-à-dire une \textbf{partie} de l'univers $\Omega$.
+
+	Lorsqu'un événement n'est constitué que d'une seule issue, on dit que c'est un \textbf{événement élémentaire}.
+\end{defin}
+
+\begin{ex}
+	On reprend l'expérience \og lancer un dé \fg{} et $\Omega = \left\{ \epsdice{1};\epsdice{2};\epsdice{3};\epsdice{4};\epsdice{5};\epsdice{6} \right\}$.
+	\begin{itemize}
+		\item $A~:$ \og Obtenir un nombre pair \fg{} $\quad\Rarr\quad A = \left\{ \epsdice{2};\epsdice{4};\epsdice{6} \right\}$
+		\item $B~:$ \og Obtenir un nombre supérieur ou égal à 5 \fg{} $\quad\Rarr\quad B = \left\{ \epsdice{5};\epsdice{6} \right\}$
+		\item $C~:$ \og Obtenir le numéro 3 \fg{} $\quad\Rarr\quad C = \left\{ \epsdice{3} \right\}$ est un événement \textbf{élémentaire}.
+	\end{itemize}
+\end{ex}
+
+\begin{rem}
+	\nline
+	\begin{itemize}
+		\item L'événement \textbf{certain} est l'univers $\Omega$ tout entier~: il est toujours réalisé, quelle que soit l'issue obtenue.
+		\item L'événement \textbf{impossible} est l'ensemble vide, noté $\varnothing$~: aucune issue ne peut le réaliser.
+	\end{itemize}
+\end{rem}
+
+\begin{ex}
+	Avec l'expérience aléatoire précédente~:
+	\begin{itemize}
+		\item \og Obtenir un nombre compris entre 1 et 6 \fg{} est l'événement \textbf{certain}.
+		\item \og Obtenir le nombre 9 \fg{} est un événement \textbf{impossible}.
+	\end{itemize}
+\end{ex}
+
+\begin{ex}
+	\nline
+	\begin{itemize}
+		\item \textbf{Expérience aléatoire~:} \og On choisit un élève au hasard dans la classe et on compte son nombre de frères et s\oe{}urs \fg{} (dans une classe où personne n'en a plus de 4).
+		\item \textbf{Univers~:} $\Omega = \left\{ 0 ; 1 ; 2 ; 3 ; 4 \right\}$
+		\item Chaque nombre de $0$ à $4$ est une \textbf{issue} de l'expérience.
+		\item \textbf{Événements~:}
+		      \begin{itemize}
+			      \item $A~:$ \og L'élève a au moins deux frères et s\oe{}urs \fg{} $\quad\Rarr\quad A = \left\{ 2 ; 3 ; 4 \right\}$
+			      \item $B~:$ \og L'élève a un nombre pair de frères et s\oe{}urs \fg{} $\quad\Rarr\quad B = \left\{ 0 ; 2 ; 4 \right\}$
+			      \item $C~:$ \og L'élève est enfant unique \fg{} $\quad\Rarr\quad C = \left\{ 0 \right\}$ est un événement \textbf{élémentaire}.
+			      \item \og L'élève a moins de 5 frères et s\oe{}urs \fg{} est l'événement \textbf{certain}.
+			      \item \og L'élève a 10 frères et s\oe{}urs \fg{} est un événement \textbf{impossible}.
+		      \end{itemize}
+	\end{itemize}
+\end{ex}
+
+\begin{ex}
+	\nline
+	\begin{itemize}
+		\item \textbf{Expérience aléatoire~:} \og On consulte l'application météo pour relever le temps qu'il fera samedi après-midi \fg{}
+		\item \textbf{Univers~:} $\Omega = \left\{ \text{Soleil} ; \text{Nuageux} ; \text{Pluie} ; \text{Neige} \right\}$
+		\item Chaque type de temps est une \textbf{issue} de l'expérience.
+		\item \textbf{Événements~:}
+		      \begin{itemize}
+			      \item $A~:$ \og Il y a des précipitations \fg{} $\quad\Rarr\quad A = \left\{ \text{Pluie} ; \text{Neige} \right\}$
+			      \item $B~:$ \og Il ne pleut pas \fg{} $\quad\Rarr\quad B = \left\{ \text{Soleil} ; \text{Nuageux} ; \text{Neige} \right\}$
+			      \item $C~:$ \og Il fait soleil \fg{} $\quad\Rarr\quad C = \left\{ \text{Soleil} \right\}$ est un événement \textbf{élémentaire}.
+			      \item \og Le temps correspond à l'une des quatre conditions météo \fg{} est l'événement \textbf{certain}.
+			      \item \og Il tombe des grenouilles \fg{} est un événement \textbf{impossible}.
+		      \end{itemize}
+	\end{itemize}
+\end{ex}
+
+\section{Calculer des probabilités}
+
+\subsection{Loi de probabilité}
+
+\begin{defin}[Loi de probabilité]
+	Soit $\Omega = \left\{ e_1 ; e_2 ; \ldots ; e_n \right\}$ l'univers associé à une expérience aléatoire.
+
+	\textbf{Définir une loi de probabilité} sur $\Omega$, c'est associer à chaque issue $e_i$ un nombre réel $p_i$, appelé \textbf{probabilité} de l'issue $e_i$ et noté $P(e_i)$, tel que~:
+
+	\begin{itemize}
+		\item Chaque probabilité est comprise entre $0$ et $1$~: $\quad 0 \le P(e_i) \le 1$
+		\item La somme de toutes les probabilités vaut $1$~: $\quad P(e_1) + P(e_2) + \ldots + P(e_n) = 1$
+	\end{itemize}
+
+	On présente souvent une loi de probabilité sous forme d'un tableau.
+\end{defin}
+
+\begin{ex}
+	\nline
+	\begin{wrapstuff}[r]
+		\begin{tikzpicture}[scale=0.6]
+			\draw[thick, rounded corners=8pt] (-3,-2) rectangle (3,2);
+			\foreach \p/\l in { (-1.8, 1.0)/R, (0.0, 1.2)/R, (1.8, 1.0)/R, (-2.0,-0.8)/V, (-0.8, 0.1)/B, (0.8, 0.1)/B, (-0.8,-1.1)/B, (1.0,-1.1)/B } { \filldraw[fill=black!15, draw=black, thick] \p circle (0.4); \node at \p {\small\textbf{\l}}; }
+		\end{tikzpicture}
+	\end{wrapstuff}
+	Un sac opaque contient $8$ jetons indiscernables au toucher~:
+
+	\begin{itemize}
+		\item $3$ jetons rouges
+		\item $1$ jeton vert
+		\item $4$ jetons bleus.
+	\end{itemize}
+
+	On tire un jeton au hasard et on note sa couleur.
+
+	La situation n'est pas équiprobable~: il y a plus de jetons bleus que de jetons verts.
+
+	On obtient la loi de probabilité suivante~:
+	\[
+		\begin{array}{|c|c|c|c|}
+			\hline
+			\cellcolor{gray!30} e_i                          & \text{Rouge}           & \text{Vert}            & \text{Bleu}          \\
+			\hline
+			\cellcolor{gray!30} \rule[-4mm]{0mm}{11mm}P(e_i) & \dfrac{3}{8} = 0{,}375 & \dfrac{1}{8} = 0{,}125 & \dfrac{4}{8} = 0{,}5 \\
+			\hline
+		\end{array}
+	\]
+
+	On vérifie bien que~: $\quad 0{,}375 + 0{,}125 + 0{,}5 = 1$
+\end{ex}
+
+\begin{defin}[Probabilité d'un événement]
+	La \textbf{probabilité} d'un événement $A$, notée $P(A)$, est la \textbf{somme} des probabilités des issues qui le composent.
+\end{defin}
+
+\begin{ex}
+	Avec le sac de jetons précédent, soit :
+
+	\begin{itemize}
+		\item $D~:$ \og Ne pas obtenir un jeton vert \fg{}, donc $D = \left\{ \text{Rouge};\text{Bleu} \right\}$.
+	\end{itemize}
+	\[
+		P(D) = P(\text{Rouge}) + P(\text{Bleu}) = 0{,}375 + 0{,}5 = 0{,}875
+	\]
+\end{ex}
+
+\begin{ex}
+	\nline
+	\begin{itemize}
+		\item \textbf{Expérience aléatoire~:} \og On choisit une personne au hasard en France et on note son groupe sanguin (système ABO) \fg{}
+
+		\item La loi de probabilité associée est la suivante~:
+
+		      \begin{center}
+			      \begin{tabular}{|c|c|c|c|c|} \hline
+				      \cellcolor{gray!30}Groupe sanguin $e_i$ & $A$      & $O$      & $B$      & $AB$     \\ \hline
+				      \cellcolor{gray!30}$P(e_i)$             & $0{,}44$ & $0{,}42$ & $0{,}10$ & $0{,}04$ \\ \hline
+			      \end{tabular}
+		      \end{center}
+		      \ms
+		\item Soit $R~:$ \og La personne possède un groupe sanguin rare (B ou AB) \fg{}, donc $R = \left\{ B ; AB \right\}$.
+		      \[
+			      P(R) = P(B) + P(AB) = 0{,}10 + 0{,}04 = 0{,}14
+		      \]
+	\end{itemize}
+\end{ex}
+
+\subsection{Situations d'équiprobabilité}
+
+\begin{defin}[Équiprobabilité]
+	On dit qu'il y a \textbf{équiprobabilité} lorsque toutes les issues de l'univers ont la \textbf{même} probabilité de se réaliser.
+
+	On dit aussi que la loi de probabilité est \textbf{équirépartie}.
+\end{defin}
+
+\begin{prop}
+	Dans une situation d'équiprobabilité sur un univers $\Omega$ constitué de $n$ issues, la probabilité d'un événement $A$ est~:
+	\[
+		P(A) = \dfrac{\text{nombre d'issues favorables à } A}{\text{nombre d'issues total}} = \dfrac{\text{Card}(A)}{\text{Card}(\Omega)}
+	\]
+
+	\ldots où $\text{Card}(A)$ désigne le \textbf{cardinal} de l'ensemble $A$, c'est-à-dire son nombre d'éléments (d'issues).
+\end{prop}
+
+\begin{ex}
+	On tire au hasard une carte dans un jeu de $32$ cartes bien mélangé.
+	\begin{itemize}
+		\item L'univers est $\Omega = \left\{ \text{7 de C\oe{}ur} ; \text{8 de C\oe{}ur} ; \ldots ; \text{As de Pique} \right\}$ et contient $32$ issues.
+		\item Toutes les cartes ont la même chance d'être tirées~: il y a \textbf{équiprobabilité}.
+		\item La probabilité de tirer une carte précise (par exemple l'As de C\oe{}ur) est $P(\text{\og As de C\oe{}ur \fg{}}) = \dfrac{1}{32}$.
+	\end{itemize}
+\end{ex}
+
+\begin{ex}
+	On lance un dé \textbf{non truqué} à six faces. Toutes les faces ont la même chance de sortir~: la situation est équiprobable, et $P\pa{\epsdice{1}} = P\pa{\epsdice{2}} = \ldots = P\pa{\epsdice{6}} = \dfrac{1}{6}$.
+
+	Soit $A~:$ \og Obtenir un multiple de 3 \fg{}, donc $A = \left\{ \epsdice{3};\epsdice{6} \right\}$.
+	\[
+		P(A) = \dfrac{\text{Card}(A)}{\text{Card}(\Omega)} = \dfrac{2}{6} = \dfrac{1}{3}
+	\]
+\end{ex}
+
+\section{Intersection et union}
+
+% \maketitle
+% \tableofcontents
+% \part{Nombres et calculs}
+% \input{tex/2nde/fractions-puissances-racines}
+% \input{tex/2nde/calcul-algebrique}
+% \input{tex/2nde/multiples-et-diviseurs}
+% \input{tex/2nde/ensembles-de-nombres-intervalles}
+% \input{tex/2nde/equations-inequations}
+% \part{Statistiques et probabilités}
+% \input{tex/2nde/proportion}
+% \input{tex/2nde/statistiques}
+% \part{Fonctions}
+% \input{tex/2nde/generalites-sur-les-fonctions}
+% \input{tex/2nde/variations-extremums}
+% \input{tex/2nde/fonctions-affines}
+% \input{tex/2nde/fonctions-de-reference}
 % -----------------
 \end{document}
