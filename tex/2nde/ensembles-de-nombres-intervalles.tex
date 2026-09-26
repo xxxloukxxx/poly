@@ -575,3 +575,132 @@
 		      \]
 	\end{enumerate}
 \end{ex}
+
+\section{Valeur absolue et distance}
+
+\subsection{Définition et premières propriétés}
+
+\begin{df}
+	Soit $x$ un nombre réel. On appelle \textbf{valeur absolue} de $x$, notée $\abs{x}$, le nombre réel positif ou nul défini par :
+	\[
+		\abs{x} =
+		\begin{cases}
+			x  & \text{si } x \geqslant 0 \\
+			-x & \text{si } x < 0
+		\end{cases}
+	\]
+\end{df}
+
+\begin{prop}
+	Pour tout réel $x$ :
+	\begin{itemize}
+		\item $\abs{x} \geqslant 0$ (la valeur absolue est toujours positive ou nulle).
+		\item $\abs{-x} = \abs{x}$.
+		\item $\abs{x} = 0 \iff x = 0$.
+	\end{itemize}
+\end{prop}
+
+\begin{ex}
+	\nline
+	\begin{itemize}
+		\item $\abs{3} = 3$ car $3 \geqslant 0$.
+		\item $\abs{-5} = -(-5) = 5$ car $-5 < 0$.
+		\item $\abs{\pi - 5} = -(\pi - 5) = 5 - \pi$ car $\pi - 5 < 0$.
+	\end{itemize}
+\end{ex}
+
+\subsection{Distance entre deux réels}
+
+\begin{df}
+	Soient $a$ et $b$ deux réels, repérés par les points $A$ et $B$ sur une droite graduée.
+
+	La \textbf{distance} entre $a$ et $b$, notée $d(a,b)$, est égale à la longueur du segment $[AB]$ :
+	\[
+		d(a,b) = \abs{b - a} = \abs{a - b}
+	\]
+
+	\begin{center}
+		\begin{tikzpicture}[scale=1.2]
+			\draw[->, thick] (-1,0) -- (5,0);
+			\foreach \x in {0,1,2,3,4} { \draw[thick] (\x,0.08) -- (\x,-0.08); }
+			\fill[red!80!black] (1,0) circle (2pt) node[below=2mm] {$A$};
+			\fill[blue] (4,0) circle (2pt) node[below=2mm] {$B$};
+			\fill[purple] (1,0.3) circle (2pt);
+			\fill[purple] (4,0.3) circle (2pt);
+			\draw[line width=1.5pt, purple] (1,0.3) -- (4,0.3);
+			\node[purple, above=2pt] at (2.5,0.3) {$d(a,b) = \abs{b - a}$};
+		\end{tikzpicture}
+	\end{center}
+\end{df}
+
+\begin{remarque}
+	En particulier, pour tout réel $x$, la valeur absolue $\abs{x} = \abs{x - 0} = d(x,0)$ représente la \textbf{distance entre $x$ et l'origine $0$}.
+\end{remarque}
+
+\subsection{Équations et inéquations avec valeur absolue}
+
+\begin{prop}[Résolution d'équations $\abs{x - a} = r$]
+	Soient $a \in \R$ et $r \geqslant 0$.
+
+	L'équation $\abs{x - a} = r$ signifie que la distance entre $x$ et $a$ est égale à $r$.
+	\[
+		\abs{x - a} = r \iff \begin{cases}x_1 = a - r \\ x_2 = a + r\end{cases}
+	\]
+\end{prop}
+
+\begin{ex}
+	Résolvons dans $\R$ l'équation $\abs{x - 2} = 3$.
+
+	On cherche les réels $x$ situés à une distance de $3$ du point d'abscisse $2$.
+
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			\draw[->, thick] (-2,0) -- (6,0);
+			\foreach \x in {-1,0,1,2,3,4,5} { \draw[thick] (\x,0.08) -- (\x,-0.08) node[below=1mm] {\small $\x$}; }
+			\fill[blue] (2,0) circle (2.5pt) node[below=5mm] {$a = 2$};
+			\draw[->, >=stealth, line width=1pt, red!50!black] (2,0.3) to[out=140,in=40] node[midway,above] {distance $3$} (-1,0.3);
+			\draw[->, >=stealth, line width=1pt, red!50!black] (2,0.3) to[out=40,in=140] node[midway,above] {distance $3$} (5,0.3);
+			\fill[red!50!black] (-1,0) circle (2.5pt);
+			\fill[red!50!black] (5,0) circle (2.5pt);
+		\end{tikzpicture}
+	\end{center}
+
+	L'ensemble des solutions est $S = \{-1 \,;\, 5\}$.
+\end{ex}
+
+\begin{prop}[Résolution d'inéquations $\abs{x - a} \leqslant r$]
+	Soient $a \in \R$ et $r \geqslant 0$.
+
+	L'inéquation $\abs{x - a} \leqslant r$ signifie que la distance entre $x$ et $a$ est inférieure ou égale à $r$.
+	\begin{align*}
+		\abs{x - a} \leqslant r & \iff x \in \intff{\pa{a - r}}{\pa{a + r}}        \\
+		                        & \iff \pa{a - r} \leqslant x \leqslant \pa{a + r}
+	\end{align*}
+\end{prop}
+
+\begin{ex}
+	Résolvons dans $\R$ l'inéquation $\abs{x - 2} \leqslant 3$.
+
+	\textbf{Interprétation :} On cherche les réels $x$ dont la distance à $2$ est inférieure ou égale à $3$.
+
+	\begin{center}
+		\begin{tikzpicture}[scale=1]
+			% Axe
+			\draw[->, thick] (-2.5,0) -- (6.5,0);
+			\foreach \x in {-2,-1,0,1,3,4,5,6} { \draw[thick] (\x,0.08) -- (\x,-0.08) node[below=1mm] {\small $\x$}; }
+
+			% Intervalle solution
+			\draw[blue, line width=1.5pt, {Bracket[length=4pt, width=13pt]}-{Bracket[length=4pt, width=13pt]}] (-1.03,0) -- (5.03,0);
+			\node[blue, above=6pt] at (2,0) {$\intff{-1}{5}$};
+			\fill (2,0) circle (2pt) node[below=2mm] {$a = 2$};
+
+			% Flèches de rayon
+			\draw[<->, >=stealth, thick, red!50!black] (-1,-1) -- (2,-1) node[midway,below] {$r=3$};
+			\draw[<->, >=stealth, thick, red!50!black] (2,-1) -- (5,-1) node[midway,below] {$r=3$};
+		\end{tikzpicture}
+	\end{center}
+
+	L'ensemble des solutions est l'intervalle $S = \intff{-1}{5}$.
+\end{ex}
+
+

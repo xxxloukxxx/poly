@@ -8,27 +8,450 @@
 % ----------------------------------------------------------------------------------------------------
 \begin{document}
 % -----------------
-% TODO : on a oublié la valeur absolue et son iontrepretation sur la distance
 
-\maketitle
-\tableofcontents
-\part{Nombres et calculs}
-\input{tex/2nde/fractions-puissances-racines}
-\input{tex/2nde/calcul-algebrique}
-\input{tex/2nde/multiples-et-diviseurs}
-\input{tex/2nde/ensembles-de-nombres-intervalles}
-\input{tex/2nde/equations-inequations}
-\part{Statistiques et probabilités}
-\input{tex/2nde/proportion}
-\input{tex/2nde/statistiques}
-\input{tex/2nde/probabilites}
-\input{tex/2nde/probabilite-conditionnelle}
-\part{Fonctions}
-\input{tex/2nde/generalites-sur-les-fonctions}
-\input{tex/2nde/variations-extremums}
-\input{tex/2nde/fonctions-affines}
-\input{tex/2nde/fonctions-de-reference}
-\part{Géométrie}
-\input{tex/2nde/notion-de-vecteurs}
+\chapter{Vecteurs et repérage}
+
+\section{Repère du plan}
+
+\begin{defin}[Repère du plan]
+	On appelle \textbf{repère du plan} tout triplet $\vOIJ$ où $O$ est un point et $\vec{i}$, $\vec{j}$ sont deux vecteurs non colinéaires.
+
+	Si $\vec{i} = \vec{OI}$ et $\vec{j} = \vec{OJ}$, ce repère se note aussi $\OIJ$.
+
+	\begin{itemize}
+		\item Un repère est dit \textbf{orthogonal} si $\vec{i}$ et $\vec{j}$ ont des directions perpendiculaires.
+		\item Un repère est dit \textbf{orthonormé} s'il est orthogonal et si $\vec{i}$ et $\vec{j}$ sont de norme $1$.
+	\end{itemize}
+
+	\begin{center}
+		\begin{tikzpicture}[scale=0.9, >=Stealth]
+			\def\lenAxis{1.5}\def\lenVector{0.8}\def\lenTextWidth{2.5cm}
+			\begin{scope}[shift={(0,0)}]
+				\draw[->] (-\lenAxis,0) -- (\lenAxis+0.3,0);
+				\draw[->] ({-\lenAxis*0.4}, {-\lenAxis*1.2}) -- ({\lenAxis*0.4}, {\lenAxis*1.2});
+				\coordinate (O) at (0,0);
+				\draw[->, thick, blue] (O) -- (\lenVector,0) node[midway, below] {$\vec{i}$};
+				\draw[->, thick, blue] (O) -- ({\lenVector*0.6}, {\lenVector*1.8}) node[midway, left] {$\vec{j}$};
+				\node[below left] at (O) {$O$};
+				\node[fill=white, align=center, text width=\lenTextWidth, font=\small, anchor=north west] at (-\lenAxis, -\lenAxis-0.5) {Repère\\quelconque};
+			\end{scope}
+			\begin{scope}[shift={(5,0)}]
+				\draw[->] (-\lenAxis,0) -- (\lenAxis+0.3,0);
+				\draw[->] (0, -\lenAxis) -- (0, \lenAxis+0.3);
+				\coordinate (O) at (0,0);
+				\draw[->, thick, blue] (O) -- (\lenVector,0) node[midway, below] {$\vec{i}$};
+				\draw[->, thick, blue] (O) -- (0, {\lenVector*1.6}) node[midway, left] {$\vec{j}$};
+				\node[below left] at (O) {$O$};
+				\node[fill=white, align=center, text width=\lenTextWidth, font=\small, anchor=north west] at (-\lenAxis, -\lenAxis-0.5) {Repère\\orthogonal};
+			\end{scope}
+			\begin{scope}[shift={(10,0)}]
+				\draw[->] (-\lenAxis,0) -- (\lenAxis+0.3,0);
+				\draw[->] (0, -\lenAxis) -- (0, \lenAxis+0.3);
+				\coordinate (O) at (0,0);
+				\draw[->, thick, blue] (O) -- (\lenVector,0) node[midway, below] {$\vec{i}$};
+				\draw[->, thick, blue] (O) -- (0, \lenVector) node[midway, left] {$\vec{j}$};
+				\node[below left] at (O) {$O$};
+				\node[fill=white, align=center, text width=\lenTextWidth, font=\small, anchor=north west] at (-\lenAxis, -\lenAxis-0.5) {Repère\\orthonormé};
+			\end{scope}
+		\end{tikzpicture}
+	\end{center}
+\end{defin}
+
+\section{Coordonnées d'un vecteur}
+
+\begin{defin}{Coordonnées d'un vecteur}
+	Soit $(O, \vv{i}, \vv{j})$ un repère du plan et $\vv{u}$ un vecteur.
+
+	Il existe un unique couple de nombres réels $(x\,;\,y)$ tel que :
+	\[
+		\vv{u} = x\vv{i} + y\vv{j}
+	\]
+
+	Le nombre $x$ est l'\textbf{abscisse} du vecteur $\vv{u}$ et $y$ est son \textbf{ordonnée}.
+
+	On note $\vv{u}\coord{x}{y}$ ou $\vv{u}(x\,;\,y)$.
+\end{defin}
+
+\begin{ex}{}
+	Pour aller de $A$ vers $B$, on parcourt un chemin : 3 unités vers la droite et 2 unités vers le haut.
+
+	Ainsi $\vec{AB} = 3\vec{i} + 2\vec{j}$. Les coordonnées de $\vec{AB}$ se notent $\coord{3}{2}$ ou $(3\,;\,2)$.
+
+	\begin{center}
+		\begin{tikzpicture}[scale=0.9, >=Stealth]
+			\draw[help lines, gray!50] (-1,-1) grid (7,4);
+			\def\lenAxisX{7}\def\lenAxisY{4}
+			\def\refLenVector{1}
+			\coordinate (O) at (0,0);
+			\draw[thick, ->] (-1,0) -- (\lenAxisX,0);
+			\draw[thick, ->] (0,-1) -- (0,\lenAxisY);
+			\node[below left] at (O) {$O$};
+			\foreach \x in {1,2,3,4,5,6} { \draw (\x,2pt) -- (\x,-2pt); }
+			\foreach \y in {1,2,3} { \draw (2pt,\y) -- (-2pt,\y); }
+			\draw[->, ultra thick, green!50!black] (O) -- (\refLenVector,0) node[midway, below] {$\vec{i}$};
+			\draw[->, ultra thick, red] (O) -- (0,\refLenVector) node[midway, left] {$\vec{j}$};
+			\coordinate (A) at (2,1);
+			\coordinate (Corner) at (5,1);
+			\coordinate (B) at (5,3);
+			\node[anchor=east, fill=white] at (A) {$A$};
+			\node[anchor=south,above right] at (B) {$B$};
+			\draw[->, thick, green!50!black, dashed] (A) -- (3,1);
+			\draw[->, thick, green!50!black, dashed] (3,1) -- (4,1);
+			\draw[->, thick, green!50!black, dashed] (4,1) -- (Corner);
+			\node[green!50!black, below, fill=white] at ($(A)!0.5!(Corner)+(0,-0.1)$) {$3\vec{i}$};
+			\draw[->, thick, red, dashed] (Corner) -- (5,2);
+			\draw[->, thick, red, dashed] (5,2) -- (B);
+			\node[red, right, fill=white] at ($(Corner)!0.5!(B)+(0.1,0)$) {$2\vec{j}$};
+			\draw[->, thick, black] (A) -- (B) node[midway, above, sloped, fill=white] {$3\vec{i}+2\vec{j}$};
+			\fill[black] (A) circle (2pt);
+			\fill[black] (B) circle (2pt);
+			\fill[black] (Corner) circle (2pt);
+		\end{tikzpicture}
+	\end{center}
+\end{ex}
+
+\begin{methode}[Déterminer les coordonnées d'un vecteur par lecture graphique]
+	Dans le repère $\vOIJ$, placer les points :
+	\begin{multicols}{4}
+		\begin{itemize}
+			\item $C\coordl{-1}{-2}$
+			\item $D\coordl{-2}{3}$
+			\item $E\coordl{1}{-4}$
+			\item $F\coordl{4}{-2}$
+		\end{itemize}
+	\end{multicols}
+
+	Déterminer, par lecture graphique, les coordonnées des vecteurs $\vec{CD}$ et $\vec{EF}$.
+
+	\begin{center}
+		\begin{tikzpicture}[scale=0.8, >=Stealth]
+			\draw[thin, gray!30] (-3.5,-4.5) grid (5.5,3.5);
+			\draw[->, thick] (-3.5,0) -- (5.5,0) node[right] {$x$};
+			\draw[->, thick] (0,-4.5) -- (0,3.5) node[above] {$y$};
+			\coordinate (O) at (0,0);
+			\node[below left] at (O) {$O$};
+			\draw[->, ultra thick, blue] (O) -- (1,0) node[midway, below] {$\vec{i}$};
+			\draw[->, ultra thick, blue] (O) -- (0,1) node[midway, left] {$\vec{j}$};
+			\coordinate (C) at (-1,-2);
+			\coordinate (D) at (-2,3);
+			\coordinate (E) at (1,-4);
+			\coordinate (F) at (4,-2);
+			\draw[->, ultra thick, green!50!black, dotted] (C) -- (-2,-2) node[midway, below] {$-\vec{i}$};
+			\draw[->, ultra thick, green!50!black, dotted] (-2,-2) -- (D) node[midway, left] {$5\vec{j}$};
+			\draw[->, ultra thick, green!50!black, dotted] (E) -- (4,-4) node[midway, below] {$3\vec{i}$};
+			\draw[->, ultra thick, green!50!black, dotted] (4,-4) -- (F) node[midway, right, fill=white] {$2\vec{j}$};
+			\draw[->, ultra thick, black] (C) -- (D);
+			\draw[->, ultra thick, black] (E) -- (F);
+			\fill[black] (C) circle (3pt) node[right] {$C$};
+			\fill[black] (D) circle (3pt) node[above] {$D$};
+			\fill[black] (E) circle (3pt) node[left] {$E$};
+			\fill[black] (F) circle (3pt) node[right] {$F$};
+		\end{tikzpicture}
+	\end{center}
+
+	\begin{correction}
+		\nline
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $\vec{CD} = -\vec{i} + 5\vec{j}$ \quad donc $\vec{CD}\coord{-1}{5}$
+				\item $\vec{EF} = 3\vec{i} + 2\vec{j}$ \quad donc $\vec{EF}\coord{3}{2}$
+			\end{itemize}
+		\end{multicols}
+	\end{correction}
+\end{methode}
+
+\begin{prop}[Coordonnées d'un vecteur $\vec{AB}$]
+	\nline
+	\begin{wrapstuff}[r]
+		\begin{tikzpicture}[scale=0.9, >=Stealth]
+			\draw[->, thick] (-0.5,0) -- (6.8,0) node[right] {\footnotesize $x$};
+			\draw[->, thick] (0,-0.5) -- (0,4.8) node[right] {\footnotesize $y$};
+			\node[below left, font=\small] at (0,0) {$O$};
+			\draw[->, ultra thick, blue] (0,0) -- (1,0) node[midway, below] {$\vv{i}$};
+			\draw[->, ultra thick, blue] (0,0) -- (0,1) node[midway, left] {$\vv{j}$};
+			\coordinate (A) at (1.5,1.8);
+			\coordinate (B) at (5,4);
+			\coordinate (C) at (5,1.8);
+			\draw[dotted, gray!20!black] (1.5,0) node[below, font=\small] {$x_A$} -- (A) -- (0,1.8) node[left, font=\small] {$y_A$};
+			\draw[dotted, gray!20!black] (5,0) node[below, font=\small] {$x_B$} -- (C) -- (B) -- (0,4) node[left, font=\small] {$y_B$};
+			\draw[->, ultra thick, green!50!black, dashed] (A) -- (C) node[midway, below, font=\small] {$(x_B - x_A)\vv{i}$};
+			\draw[->, ultra thick, red, dashed] (C) -- (B) node[midway, right, font=\small] {$(y_B - y_A)\vv{j}$};
+			\draw[->, ultra thick, blue!80!black] (A) -- (B) node[midway, above, sloped, fill=white] {$\vv{AB}\coord{x_B - x_A}{y_B - y_A}$};
+			\fill[black] (A) circle (2.2pt) node[above left] {$A$};
+			\fill[black] (B) circle (2.2pt) node[above left] {$B$};
+		\end{tikzpicture}
+	\end{wrapstuff}
+
+	Soit deux points $A\coordl{x_A}{y_A}$ et $B\coordl{x_B}{y_B}$.
+
+	Le vecteur $\vec{AB}$ a pour coordonnées :
+	\[
+		\vec{AB}\coord{x_B - x_A}{y_B - y_A}
+	\]
+
+	\rule{0mm}{23mm}
+\end{prop}
+
+\begin{methode}[Déterminer les coordonnées d'un vecteur par calcul]
+	Calculer les coordonnées des vecteurs $\vec{AB}$, $\vec{CD}$ et $\vec{EF}$ avec $A\coordl{2}{1}$, $B\coordl{5}{3}$, $C\coordl{-1}{-2}$, $D\coordl{-2}{3}$, $E\coordl{1}{-4}$ et $F\coordl{4}{-2}$.
+
+	\begin{correction}
+		$$
+			\begin{array}{r|r|r}
+				\begin{array}{rcl}
+					\vec{AB} & = & \coord{x_B-x_A}{y_B-y_A}        \\
+					         & = & \coord{5-2}{3-1} = \coord{3}{2}
+				\end{array}         &
+				\begin{array}{rcl}
+					\vec{CD} & = & \coord{x_D-x_C}{y_D-y_C}                \\
+					         & = & \coord{-2-(-1)}{3-(-2)} = \coord{-1}{5}
+				\end{array} &
+				\begin{array}{rcl}
+					\vec{EF} & = & \coord{x_F-x_E}{y_F-y_E}            \\
+					         & = & \coord{4-1}{-2-(-4)} = \coord{3}{2}
+				\end{array}
+			\end{array}
+		$$
+	\end{correction}
+\end{methode}
+
+\begin{prop}[Opérations sur les coordonnées]
+	Soit deux vecteurs $\vec{u}\coord{x}{y}$, $\vec{v}\coord{x'}{y'}$ et un réel $k$. On a :
+	\[
+		\vec{u} + \vec{v} \coord{x+x'}{y+y'}
+		\qquad
+		k\vec{u} \coord{kx}{ky}
+		\qquad
+		-\vec{u} \coord{-x}{-y}
+	\]
+	De plus, $\vec{u}$ et $\vec{v}$ sont égaux si et seulement si $x = x'$ et $y = y'$.
+\end{prop}
+
+\begin{methode}[Appliquer les formules sur les coordonnées de vecteurs]
+	Considérant $\vec{AB}\coord{3}{2}$ et $\vec{CD}\coord{-1}{5}$, calculer les coordonnées des vecteurs $3\vec{AB}$, $4\vec{CD}$ et $3\vec{AB} - 4\vec{CD}$.
+
+	\begin{correction}
+		$$
+			\begin{array}{r|r|r}
+				\begin{array}{rcl}
+					3\vec{AB} & = & \coord{3\times3}{3\times2} = \coord{9}{6}
+				\end{array}      &
+				\begin{array}{rcl}
+					4\vec{CD} & = & \coord{4\times(-1)}{4\times5} = \coord{-4}{20}
+				\end{array} &
+				\begin{array}{rcl}
+					3\vec{AB} - 4\vec{CD} & = & \coord{9-(-4)}{6-20} = \coord{13}{-14}
+				\end{array}
+			\end{array}
+		$$
+	\end{correction}
+\end{methode}
+
+\begin{methode}[Calculer les coordonnées d'un point défini par une égalité vectorielle]
+	Soit $A\coordl{1}{2}$, $B\coordl{-4}{3}$ et $C\coordl{1}{-2}$.
+
+	Déterminer les coordonnées du point $D$ tel que $ABCD$ soit un parallélogramme.
+
+	\begin{correction}
+		$ABCD$ est un parallélogramme $\iff \vec{AB} = \vec{DC}$.
+
+		On pose $D\coordl{x_D}{y_D}$.
+
+		On a : $\vec{AB}\coord{-4-1}{3-2} = \coord{-5}{1}\quad$ et $\quad\vec{DC}\coord{1-x_D}{-2-y_D}$.
+
+		On en déduit :
+		$$\vec{AB} = \vec{DC} \iff \begin{cases} 1 - x_D = -5 \\ -2 - y_D = 1 \end{cases} \iff \begin{cases} -x_D = -5 - 1 \\ -y_D = 1 + 2 \end{cases} \iff \begin{cases} x_D = 6 \\ y_D = -3 \end{cases}$$
+
+		Les coordonnées du point $D$ sont donc $\coord{6}{-3}$.
+	\end{correction}
+\end{methode}
+
+\section{Colinéarité de deux vecteurs}
+
+\subsection{Critère de colinéarité}
+
+\begin{prop}[Critère de colinéarité]
+	Soit $\vec{u}\coord{x}{y}$ et $\vec{v}\coord{x'}{y'}$. Dire que $\vec{u}$ et $\vec{v}$ sont colinéaires revient à dire que :
+	\[
+		xy' - yx' = 0
+	\]
+\end{prop}
+
+\begin{remarque}
+	Dire que $\vec{u}$ et $\vec{v}$ sont colinéaires revient à dire que les coordonnées des deux vecteurs sont proportionnelles, c'est-à-dire $xy' = yx'$.
+\end{remarque}
+
+\begin{demo}[Condition de colinéarité]
+	\begin{itemize}
+		\item Si l'un des vecteurs est nul, l'équivalence est évidente.
+		\item Supposons maintenant que les vecteurs $\vec{u}$ et $\vec{v}$ soient non nuls.
+	\end{itemize}
+
+	Dire que les vecteurs $\vec{u}\coord{x}{y}$ et $\vec{v}\coord{x'}{y'}$ sont colinéaires équivaut à dire qu'il existe un nombre réel $k$ tel que $\vec{u} = k\vec{v}$.
+
+	Les coordonnées des vecteurs $\vec{u}$ et $\vec{v}$ sont donc proportionnelles, ce qui correspond au tableau de proportionnalité suivant :
+
+	\begin{center}
+		\begin{tabular}{|l|c|c|}
+			\hline
+			\text{abscisse} & $x$ & $x'$ \\ \hline
+			\text{ordonnée} & $y$ & $y'$ \\ \hline
+		\end{tabular}
+	\end{center}
+	\ms
+	D'après le produit en croix, on a $xy' = yx'$, soit encore $xy' - yx' = 0$.
+
+	\ms
+	Réciproquement, supposons que $xy' - yx' = 0$.
+
+	Le vecteur $\vec{v}$ étant non nul, l'une de ses coordonnées est non nulle. Supposons que $x' \neq 0$.
+
+	Posons alors $k = \dfrac{x}{x'}$. L'égalité $xy' - yx' = 0$ s'écrit $yx' = xy'$, soit :
+	\[
+		y = \frac{x y'}{x'} = \frac{x}{x'} y' = k y'
+	\]
+
+	Comme on a déjà $x = k x'$ par définition de $k$, on en déduit que $\vec{u} = k\vec{v}$.
+
+	Les vecteurs $\vec{u}$ et $\vec{v}$ sont donc colinéaires.
+\end{demo}
+
+\begin{methode}[Vérifier si deux vecteurs sont colinéaires]
+	Dans chaque cas, vérifier si les vecteurs $\vec{u}$ et $\vec{v}$ sont colinéaires :
+	\[
+		\text{a)}\ \vec{u}\coord{4}{-7} \text{ et } \vec{v}\coord{-12}{21}
+		\qquad\qquad
+		\text{b)}\ \vec{u}\coord{5}{-2} \text{ et } \vec{v}\coord{15}{-7}
+	\]
+
+	\begin{correction}
+		$$
+			\begin{array}{r|r}
+				\def\arraystretch{1.2}
+				\begin{array}{rcl}
+					xy' - yx' & = & 4\times21 - (-7)\times(-12) \\
+					          & = & 84 - 84 = 0
+				\end{array}                                             &
+				\def\arraystretch{1.2}
+				\begin{array}{rcl}
+					xy' - yx' & = & 5\times(-7) - (-2)\times 15 \\
+					          & = & -35 + 30 = -5 \neq 0
+				\end{array}                                                  \\
+				\text{Le critère est vérifié, donc } \vec{u} \text{ et } \vec{v} \text{ sont colinéaires.} &
+				\text{Le critère n'est pas vérifié, donc } \vec{u} \text{ et } \vec{v} \text{ ne le sont pas.}
+			\end{array}
+		$$
+		\textit{(Pour le cas a, on peut également observer directement que $\vec{v} = -3\vec{u}$.)}
+	\end{correction}
+\end{methode}
+
+\subsection{Déterminant de deux vecteurs}
+
+\begin{defin}[Déterminant]
+	Soit $\vec{u}\coord{x}{y}$ et $\vec{v}\coord{x'}{y'}$. Le nombre $xy' - yx'$ est appelé \textbf{déterminant} des vecteurs $\vec{u}$ et $\vec{v}$. On note :
+	\[
+		\det(\vec{u}\,;\,\vec{v}) = \determinant{x & x' \\ y & y'} = xy' - yx'
+	\]
+\end{defin}
+
+\begin{prop}
+	Dire que $\vec{u}$ et $\vec{v}$ sont colinéaires revient à dire que $\det(\vec{u}\,;\,\vec{v}) = 0$.
+\end{prop}
+
+\begin{methode}[Vérifier si deux vecteurs sont colinéaires à l'aide du déterminant]
+	Dans chaque cas, vérifier si les vecteurs $\vec{u}$ et $\vec{v}$ sont colinéaires :
+	\[
+		\text{a)}\ \vec{u}\coord{-6}{10} \text{ et } \vec{v}\coord{9}{-15}
+		\qquad\qquad
+		\text{b)}\ \vec{u}\coord{4}{9} \text{ et } \vec{v}\coord{11}{23}
+	\]
+
+	\begin{correction}
+		$$
+			\begin{array}{r|r}
+				\def\arraystretch{1.2}
+				\begin{array}{rcl}
+					\det(\vec{u}\,;\,\vec{v}) & = & \determinant{-6             & 9 \\ 10 & -15} \\
+					                          & = & (-6)\times(-15) - 10\times9     \\
+					                          & = & 90 - 90 = 0
+				\end{array} &
+				\def\arraystretch{1.2}
+				\begin{array}{rcl}
+					\det(\vec{u}\,;\,\vec{v}) & = & \determinant{4        & 11 \\ 9 & 23} \\
+					                          & = & 4\times23 - 9\times11      \\
+					                          & = & 92 - 99 = -7 \neq 0
+				\end{array}             \\
+				\text{Les vecteurs } \vec{u} \text{ et } \vec{v} \text{ sont colinéaires.}      &
+				\text{Les vecteurs } \vec{u} \text{ et } \vec{v} \text{ ne sont pas colinéaires.}
+			\end{array}
+		$$
+	\end{correction}
+\end{methode}
+
+\subsection{Applications}
+
+\begin{prop}[Parallélisme et alignement]
+	\begin{enumerate}
+		\item Dire que les droites $(AB)$ et $(CD)$ sont parallèles revient à dire que les vecteurs $\vec{AB}$ et $\vec{CD}$ sont colinéaires.
+		\item Dire que les points $A$, $B$ et $C$ sont alignés revient à dire que les vecteurs $\vec{AB}$ et $\vec{AC}$ sont colinéaires.
+	\end{enumerate}
+\end{prop}
+
+\begin{methode}[Appliquer la colinéarité]
+	On considère les points $A\coordl{-1}{1}$, $B\coordl{3}{2}$, $C\coordl{-2}{-3}$, $D\coordl{6}{-1}$ et $E\coordl{5}{0}$.
+
+	a) Démontrer que les droites $(AB)$ et $(CD)$ sont parallèles.
+
+	b) Démontrer que les points $E$, $B$ et $D$ sont alignés.
+
+	\begin{correction}
+		\textbf{a)} On calcule les coordonnées de $\vec{AB}$ et $\vec{CD}$ :
+		\[
+			\vec{AB}\coord{3-(-1)}{2-1} = \coord{4}{1}
+			\qquad\text{et}\qquad
+			\vec{CD}\coord{6-(-2)}{-1-(-3)} = \coord{8}{2}
+		\]
+		\[
+			\det(\vec{AB}\,;\,\vec{CD}) = \determinant{4 & 8 \\ 1 & 2} = 4\times2 - 8\times1 = 8 - 8 = 0
+		\]
+		Les vecteurs $\vec{AB}$ et $\vec{CD}$ sont colinéaires, donc les droites $(AB)$ et $(CD)$ sont parallèles.
+
+		\ms
+		\textbf{b)} On calcule les coordonnées de $\vec{EB}$ et $\vec{ED}$ :
+		\[
+			\vec{EB}\coord{3-5}{2-0} = \coord{-2}{2}
+			\qquad\text{et}\qquad
+			\vec{ED}\coord{6-5}{-1-0} = \coord{1}{-1}
+		\]
+		\[
+			\det(\vec{EB}\,;\,\vec{ED}) = \determinant{-2 & 1 \\ 2 & -1} = (-2)\times(-1) - 2\times1 = 2 - 2 = 0
+		\]
+		Les vecteurs $\vec{EB}$ et $\vec{ED}$ sont colinéaires, donc les points $E$, $B$ et $D$ sont alignés.
+	\end{correction}
+\end{methode}
+
+
+% \maketitle
+% \tableofcontents
+% \part{Nombres et calculs}
+% \input{tex/2nde/fractions-puissances-racines}
+% \input{tex/2nde/calcul-algebrique}
+% \input{tex/2nde/multiples-et-diviseurs}
+% \input{tex/2nde/ensembles-de-nombres-intervalles}
+% \input{tex/2nde/equations-inequations}
+% \part{Statistiques et probabilités}
+% \input{tex/2nde/proportion}
+% \input{tex/2nde/statistiques}
+% \input{tex/2nde/probabilites}
+% \input{tex/2nde/probabilite-conditionnelle}
+% \part{Fonctions}
+% \input{tex/2nde/generalites-sur-les-fonctions}
+% \input{tex/2nde/variations-extremums}
+% \input{tex/2nde/fonctions-affines}
+% \input{tex/2nde/fonctions-de-reference}
+% \part{Géométrie}
+% \input{tex/2nde/notion-de-vecteurs}
+% \input{tex/2nde/reperage-dans-le-plan}
+% \input{tex/exos.tex}
 % -----------------
 \end{document}

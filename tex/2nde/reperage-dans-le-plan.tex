@@ -1,0 +1,503 @@
+\chapter{Repérage dans le plan}
+
+\section{Coordonnées d'un point dans un repère}
+
+\subsection{Repère et coordonnées}
+
+\begin{df}
+	Définir un repère, c'est donner trois points $O$, $I$ et $J$ \textbf{non alignés} dans un ordre précis.
+
+	On note $\OIJ$ ce repère.
+
+	\begin{itemize}
+		\item Le point $O$ est appelé l'\textbf{origine du repère}.
+		\item La droite $(OI)$ est l'axe des \textbf{abscisses}.
+		\item La droite $(OJ)$ est l'axe des \textbf{ordonnées}.
+	\end{itemize}
+\end{df}
+
+\begin{center}
+	\begin{tikzpicture}[>=Stealth]
+		\draw[step=1cm, gray!50, thin] (-1,-1) grid (5,4);
+		\draw[->, thick] (-1,0) -- (5,0) node[below left] {Axe des abscisses};
+		\draw[->, thick] (0,-1) -- (0,4) node[below right] {Axe des ordonnées};
+		\coordinate (O) at (0,0);
+		\coordinate (I) at (1,0);
+		\coordinate (J) at (0,1);
+		\node[below left] at (O) {$O$};
+		\node[below] at (I) {$I$};
+		\node[left] at (J) {$J$};
+		\draw[fill=black] (O) circle (1.5pt);
+		\draw[fill=black] (I) circle (1.5pt);
+		\draw[fill=black] (J) circle (1.5pt);
+		\draw[<-, thick, blue] (0.1,0.1) -- (1.5,1.5) node[right] {Origine};
+	\end{tikzpicture}
+\end{center}
+
+\begin{rmq}
+	Dans le repère $\OIJ$, les coordonnées des points $O$, $I$ et $J$ sont :
+	\[
+		O\coordl{0}{0}, \quad I\coordl{1}{0} \quad \text{et} \quad J\coordl{0}{1}
+	\]
+\end{rmq}
+
+\begin{rmq}
+	Les coordonnées d'un point sont toujours écrites dans le même ordre :
+	\[
+		\coordl{\text{abscisse}}{\text{ordonnée}} \quad \text{ou} \quad \coordl{x}{y}
+	\]
+\end{rmq}
+
+\begin{ex}
+	\nline
+	\begin{wrapstuff}[r]
+		\begin{tikzpicture}[scale=0.7, >=Stealth]
+			\draw[step=1cm, gray!50, thin] (-5.5,-3.5) grid (6.5,4.5);
+			\draw[dashed, red!70!black, thick] (1,0) -- (1,2) -- (0,2);
+			\draw[dashed, red!70!black, thick] (-4,0) -- (-4,3) -- (0,3);
+			\draw[dashed, red!70!black, thick] (-3,0) -- (-3,-2) -- (0,-2);
+			\draw[dashed, red!70!black, thick] (5,0) -- (5,3) -- (0,3);
+			\foreach \x in {-5,-4,-3,-2,-1,1,2,3,4,5,6} \draw (\x,0.05) -- (\x,-0.05) node[below, font=\footnotesize,fill=white] {$\x$};
+			\foreach \y in {-3,-2,-1,1,2,3,4} \draw (0.05,\y) -- (-0.05,\y) node[left, font=\footnotesize,fill=white] {$\y$};
+			\draw[->, thick] (-5.5,0) -- (6.5,0) node[above] {\footnotesize $x$};
+			\draw[->, thick] (0,-3.5) -- (0,4.5) node[right] {\footnotesize $y$};
+			\node[below left, font=\footnotesize] at (0,0) {$O$};
+			\coordinate (A) at (1,2);
+			\coordinate (B) at (-4,3);
+			\coordinate (C) at (-3,-2);
+			\coordinate (F) at (5,3);
+			\fill[blue!70!black] (A) circle (3pt) node[above right] {$A$};
+			\fill[blue!70!black] (B) circle (3pt) node[above right] {$B$};
+			\fill[blue!70!black] (C) circle (3pt) node[below left] {$C$};
+			\fill[blue!70!black] (F) circle (3pt) node[above right] {$F$};
+		\end{tikzpicture}
+	\end{wrapstuff}
+
+	Exemples de coordonnées de points :
+
+	\begin{itemize}
+		\item $A\coordl{1}{2}$
+		\item $B\coordl{-4}{3}$
+		\item $C\coordl{-3}{-2}$
+		\item $F\coordl{5}{3}$
+	\end{itemize}
+	\rule{0mm}{3cm}
+\end{ex}
+
+\subsection{Orthogonal, normé et orthonormé}
+
+\begin{df}
+	Soit le repère $\OIJ$ :
+	\begin{itemize}
+		\item Si $(OI) \perp (OJ)$, on dit que le repère est \textbf{orthogonal}.
+		\item Si $OI = OJ$, on dit que le repère est \textbf{normé}.
+		\item Un repère à la fois \textbf{orthogonal} et \textbf{normé} est dit \textbf{orthonormé}.
+	\end{itemize}
+\end{df}
+
+\begin{center}
+	\begin{tikzpicture}[scale=0.7, >=Stealth]
+		% Repère orthogonal
+		\begin{scope}[shift={(0,0)}]
+			\draw[step=0.5cm, gray!30, ultra thin] (-0.8,-0.8) grid (2.8,2.8);
+			\draw[->, thick] (-0.8,0) -- (2.8,0);
+			\draw[->, thick] (0,-0.8) -- (0,2.8);
+			\coordinate (O) at (0,0);
+			\coordinate (I) at (1.5,0);
+			\coordinate (J) at (0,0.5);
+			\node[below left] at (O) {$O$};
+			\node[below] at (I) {$I$};
+			\node[left] at (J) {$J$};
+			\draw[fill=black] (O) circle (1.5pt);
+			\draw[fill=black] (I) circle (1.5pt);
+			\draw[fill=black] (J) circle (1.5pt);
+			\node[below=18pt] at (1,0) {\small Repère orthogonal};
+		\end{scope}
+
+		% Repère normé
+		\begin{scope}[shift={(5,0)}]
+			\draw[step=0.5cm, gray!30, ultra thin] (-0.8,-0.8) grid (2.8,2.8);
+			\draw[->, thick] (-0.8,0) -- (2.8,0);
+			\draw[->, thick] (-0.35,-0.8) -- (1.2,2.8);
+			\coordinate (O) at (0,0);
+			\coordinate (I) at (1,0);
+			\coordinate (J) at (0.39,0.92);
+			\node[below left] at (O) {$O$};
+			\node[below] at (I) {$I$};
+			\node[left] at (J) {$J$};
+			\draw[fill=black] (O) circle (1.5pt);
+			\draw[fill=black] (I) circle (1.5pt);
+			\draw[fill=black] (J) circle (1.5pt);
+			\node[below=18pt] at (1,0) {\small Repère normé};
+		\end{scope}
+
+		% Repère orthonormé
+		\begin{scope}[shift={(10,0)}]
+			\draw[step=0.5cm, gray!30, ultra thin] (-0.8,-0.8) grid (2.8,2.8);
+			\draw[->, thick] (-0.8,0) -- (2.8,0);
+			\draw[->, thick] (0,-0.8) -- (0,2.8);
+			\coordinate (O) at (0,0);
+			\coordinate (I) at (1,0);
+			\coordinate (J) at (0,1);
+			\node[below left] at (O) {$O$};
+			\node[below] at (I) {$I$};
+			\node[left] at (J) {$J$};
+			\draw[fill=black] (O) circle (1.5pt);
+			\draw[fill=black] (I) circle (1.5pt);
+			\draw[fill=black] (J) circle (1.5pt);
+			\node[below=18pt] at (1,0) {\small Repère orthonormé};
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
+
+\section{Coordonnées du milieu d'un segment}
+
+\subsection{Propriété : coordonnées d'un milieu}
+
+\begin{prop}
+	Soient les points $A\coordl{x_A}{y_A}$ et $B\coordl{x_B}{y_B}$.
+
+	Les coordonnées du milieu $M$ du segment $[AB]$ sont données par :
+	\[
+		x_M = \frac{x_A + x_B}{2} \quad \text{et} \quad y_M = \frac{y_A + y_B}{2}
+	\]
+
+	\begin{center}
+		\begin{tikzpicture}[scale=1.1, >=Stealth]
+			\draw[->, thick] (-0.5,0) -- (6.5,0) node[right] {$x$};
+			\draw[->, thick] (0,-0.5) -- (0,3.5) node[right] {$y$};
+			\node[below left, font=\small] at (0,0) {$O$};
+			\pgfmathsetmacro{\xA}{1.2} \pgfmathsetmacro{\yA}{1.0}
+			\pgfmathsetmacro{\xB}{5.4} \pgfmathsetmacro{\yB}{2.8}
+			\pgfmathsetmacro{\xM}{(\xA+\xB)/2} \pgfmathsetmacro{\yM}{(\yA+\yB)/2}
+			\coordinate (A) at (\xA,\yA);
+			\coordinate (B) at (\xB,\yB);
+			\coordinate (M) at (\xM,\yM);
+			\draw[dashed, blue!70!black] (\xA,0) node[below, font=\small] {$x_A$} -- (A) -- (0,\yA) node[left, font=\small] {$y_A$};
+			\draw[dashed, blue!70!black] (\xB,0) node[below, font=\small] {$x_B$} -- (B) -- (0,\yB) node[left, font=\small] {$y_B$};
+			\draw[dashed, red!80!black] (\xM,0) node[below, font=\small, red!80!black] {$x_M$} -- (M) -- (0,\yM) node[left, font=\small, red!80!black] {$y_M$};
+			\draw[thick] (A) -- (B);
+			\fill[blue!70!black] (A) circle (2pt) node[above left] {$A$};
+			\fill[blue!70!black] (B) circle (2pt) node[above left] {$B$};
+			\fill[red!80!black] (M) circle (2.2pt) node[above left, red!80!black] {$M$};
+			\draw[red!80!black, thick] ($ (A)!0.5!(M) + (-2pt,3pt) $) -- ($ (A)!0.5!(M) + (2pt,-3pt) $);
+			\draw[red!80!black, thick] ($ (M)!0.5!(B) + (-2pt,3pt) $) -- ($ (M)!0.5!(B) + (2pt,-3pt) $);
+		\end{tikzpicture}
+	\end{center}
+\end{prop}
+
+\begin{rmq}
+	Les coordonnées de $M$ sont la \og{}moyenne\fg{} des coordonnées de $A$ et de $B$.
+\end{rmq}
+
+\begin{ex}
+	\nline
+	\begin{wrapstuff}[r]
+		\begin{tikzpicture}[scale=0.9, >=Stealth]
+			\draw[step=1cm, gray!50, thin] (-0.5,-0.5) grid (7.5,4.5);
+			\draw[->, thick] (-0.5,0) -- (7.8,0) node[right] {\footnotesize $x$};
+			\draw[->, thick] (0,-0.5) -- (0,4.8) node[right] {\footnotesize $y$};
+			\node[below left, font=\small] at (0,0) {$O$};
+			\foreach \x in {1,2,3,4,5,6,7} \draw[thick] (\x,0.08) -- (\x,-0.08) node[below, font=\small, fill=white] {$\x$};
+			\foreach \y in {1,2,3,4} \draw[thick] (0.08,\y) -- (-0.08,\y) node[left, font=\small, fill=white] {$\y$};
+			\coordinate (A) at (2,1);
+			\coordinate (B) at (6,3);
+			\coordinate (M) at (4,2);
+			\draw[dashed, black!60, thick] (2,0) -- (A) -- (0,1);
+			\draw[dashed, black!60, thick] (6,0) -- (B) -- (0,3);
+			\draw[dashed, black!60, thick] (4,0) -- (M) -- (0,2);
+			\draw[very thick] (A) -- (B);
+			\fill[black] (A) circle (2.2pt) node[above left] {$A$};
+			\fill[black] (B) circle (2.2pt) node[above left] {$B$};
+			\fill[black] (M) circle (2.5pt) node[above left] {$M$};
+			\draw[thick] ($(A)!0.5!(M) + (-2pt,3pt)$) -- ($(A)!0.5!(M) + (2pt,-3pt)$);
+			\draw[thick] ($(A)!0.5!(M) + (0pt,3pt)$) -- ($(A)!0.5!(M) + (4pt,-3pt)$);
+			\draw[thick] ($(M)!0.5!(B) + (-2pt,3pt)$) -- ($(M)!0.5!(B) + (2pt,-3pt)$);
+			\draw[thick] ($(M)!0.5!(B) + (0pt,3pt)$) -- ($(M)!0.5!(B) + (4pt,-3pt)$);
+		\end{tikzpicture}
+	\end{wrapstuff}
+	Soient $A\coordl{2}{1}$ et $B\coordl{6}{3}$.
+
+	Les coordonnées de $M$ milieu de $[AB]$ sont :
+
+	\begin{itemize}
+		\item $x_M = \dfrac{x_A + x_B}{2} = \dfrac{2 + 6}{2} = \dfrac{8}{2} = 4$
+		\item $y_M = \dfrac{y_A + y_B}{2} = \dfrac{1 + 3}{2} = \dfrac{4}{2} = 2$
+	\end{itemize}
+
+	On a donc $M\coordl{4}{2}$.
+
+	\rule{0mm}{20mm}
+\end{ex}
+
+\begin{ex}
+	\nline
+	\begin{wrapstuff}[r]
+		\begin{tikzpicture}[scale=0.9, >=Stealth]
+			\draw[step=1cm, gray!50, thin] (-1.5,-0.5) grid (5.5,3.5);
+			\draw[->, thick] (-1.5,0) -- (5.8,0) node[right] {\footnotesize $x$};
+			\draw[->, thick] (0,-0.5) -- (0,3.8) node[right] {\footnotesize $y$};
+			\node[below left, font=\small] at (0,0) {$O$};
+			\foreach \x in {-1,1,2,3,4,5} \draw[thick] (\x,0.08) -- (\x,-0.08) node[below, font=\small, fill=white] {$\x$};
+			\foreach \y in {1,2,3} \draw[thick] (0.08,\y) -- (-0.08,\y) node[left, font=\small, fill=white] {$\y$};
+			\coordinate (A) at (-1,1);
+			\coordinate (B) at (1,2.5);
+			\coordinate (C) at (5,2);
+			\coordinate (D) at (3,0.5);
+			\coordinate (K) at (2,1.5);
+			\draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+			\draw[dashed, black!60, thick] (A) -- (C);
+			\draw[dashed, black!60, thick] (B) -- (D);
+			\fill[black] (A) circle (2.2pt) node[left] {$A$};
+			\fill[black] (B) circle (2.2pt) node[above left] {$B$};
+			\fill[black] (C) circle (2.2pt) node[right] {$C$};
+			\fill[black] (D) circle (2.2pt) node[below right] {$D$};
+			\fill[black] (K) circle (2.5pt) node[above right] {$K=L$};
+		\end{tikzpicture}
+	\end{wrapstuff}
+
+	Soient $A\coordl{-1}{1}$, $B\coordl{1}{\frac{5}{2}}$, $C\coordl{5}{2}$ et $D\coordl{3}{\frac{1}{2}}$.
+
+	\medskip
+
+	Soit $K$ milieu de $[AC]$ :
+	\[
+		K\coordl{\dfrac{-1+5}{2}}{\dfrac{1+2}{2}} \quad\Rarr\quad K\coordl{2}{\dfrac{3}{2}}
+	\]
+
+	Soit $L$ milieu de $[BD]$ :
+	\[
+		L\coordl{\dfrac{1+3}{2}}{\dfrac{\frac{5}{2}+\frac{1}{2}}{2}} \quad\Rarr\quad L\coordl{2}{\dfrac{3}{2}}
+	\]
+
+	$K$ et $L$ ont les mêmes coordonnées, donc $[AC]$ et $[BD]$ se coupent en leurs milieux, donc $ABCD$ est un parallélogramme.
+\end{ex}
+
+\begin{rmq}[Rappel]
+	Un quadrilatère dont les diagonales se coupent en leurs milieux est un parallélogramme.
+\end{rmq}
+
+\section{Distance entre deux points}
+
+\subsection{Propriété : distance entre deux points}
+
+\begin{prop}
+	Soient les points $A\coordl{x_A}{y_A}$ et $B\coordl{x_B}{y_B}$.
+
+	La distance entre $A$ et $B$ est donnée par :
+	\[
+		AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}
+	\]
+
+	\begin{center}
+		\begin{tikzpicture}[scale=0.9, >=Stealth]
+			\draw[->, thick] (-0.5,0) -- (6.8,0) node[right] {\footnotesize $x$};
+			\draw[->, thick] (0,-0.5) -- (0,4.8) node[right] {\footnotesize $y$};
+			\node[below left, font=\small] at (0,0) {$O$};
+			% \foreach \x in {1,2,3,4,5,6} \draw[thick] (\x,0.08) -- (\x,-0.08);
+			% \foreach \y in {1,2,3,4} \draw[thick] (0.08,\y) -- (-0.08,\y);
+			\coordinate (A) at (1,1);
+			\coordinate (B) at (5,4);
+			\coordinate (C) at (5,1);
+			\draw[dashed, very thick] (1,0) node[below, font=\small, fill=white] {$x_A$} -- (A) -- (0,1) node[left, font=\small, fill=white] {$y_A$};
+			\draw[dashed, very thick] (5,0) node[below, font=\small, fill=white] {$x_B$} -- (C) -- (B) -- (0,4) node[left, font=\small, fill=white] {$y_B$};
+			\draw[dashed, very thick] (1,1) -- (5,1);
+			% \draw[thick, blue!80!black] (A) -- (C) node[midway, below, font=\small] {$x_B - x_A$};
+			\draw[thick, blue!80!black,<->] ($(A)+(0,-0.2)$) -- ($(C)+(0,-0.2)$) node[midway, below, font=\small] {$x_B - x_A$};
+			\draw[thick, blue!80!black,<->] ($(C)+(0.2,0)$) -- ($(B)+(0.2,0)$) node[midway, right, font=\small] {$y_B - y_A$};
+			\draw[very thick] (A) -- (B) node[midway, above, sloped] {$AB$};
+			\draw[thick] (4.7,1) -- (4.7,1.3) -- (5,1.3);
+			\fill[black] (A) circle (2.2pt) node[above left] {$A$};
+			\fill[black] (B) circle (2.2pt) node[above left] {$B$};
+			\fill[black] (C) circle (2.2pt) node[below right] {$C$};
+		\end{tikzpicture}
+	\end{center}
+\end{prop}
+
+\begin{ex}
+	\nline
+	\begin{wrapstuff}[r]
+		\begin{tikzpicture}[scale=0.9, >=Stealth]
+			\draw[step=1cm, gray!50, thin] (-1.5,-0.5) grid (4.5,3.5);
+			\draw[->, thick] (-1.5,0) -- (4.8,0) node[right] {\footnotesize $x$};
+			\draw[->, thick] (0,-0.5) -- (0,3.8) node[right] {\footnotesize $y$};
+			\node[below left, font=\small] at (0,0) {$O$};
+			\foreach \x in {-1,1,2,3,4} \draw[thick] (\x,0.08) -- (\x,-0.08) node[below, font=\small, fill=white] {$\x$};
+			\foreach \y in {1,2,3} \draw[thick] (0.08,\y) -- (-0.08,\y) node[left, font=\small, fill=white] {$\y$};
+			\coordinate (A) at (-1,1);
+			\coordinate (B) at (4,3);
+			\coordinate (C) at (4,1);
+			\draw[dotted, ultra thick, blue!70!white] (A) -- (C);
+			\draw[dotted, ultra thick, blue!70!white] (C) -- (B);
+			\draw[dashed, thick] (-1,0) node[below, font=\small, fill=white] {$-1$} -- (A) -- (0,1) node[left, font=\small, fill=white] {$1$};
+			\draw[dashed, thick] (4,0) node[below, font=\small, fill=white] {$4$} -- (C) -- (B) -- (0,3) node[left, font=\small, fill=white] {$3$};
+			\draw[very thick] (A) -- (B);
+			\draw[thick] (3.7,1) -- (3.7,1.3) -- (4,1.3);
+			\fill[black] (A) circle (2.2pt) node[above left] {$A$};
+			\fill[black] (B) circle (2.2pt) node[above left] {$B$};
+		\end{tikzpicture}
+	\end{wrapstuff}
+
+	Soient $A\coordl{-1}{2}$ et $B\coordl{4}{3}$. On a :
+	\[
+		\begin{aligned}
+			AB & = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2} \\
+			   & = \sqrt{(-1 - 4)^2 + (2 - 3)^2}        \\
+			   & = \sqrt{(-5)^2 + (-1)^2}               \\
+			   & = \sqrt{26} \approx 5,1
+		\end{aligned}
+	\]
+
+	\rule{0mm}{20mm}
+\end{ex}
+
+\begin{demo}
+	\nline
+	\begin{wrapstuff}[r]
+		\begin{tikzpicture}[scale=0.9, >=Stealth]
+			\draw[->, thick] (-0.5,0) -- (6.8,0) node[right] {\footnotesize $x$};
+			\draw[->, thick] (0,-0.5) -- (0,4.8) node[right] {\footnotesize $y$};
+			\node[below left, font=\small] at (0,0) {$O$};
+			% \foreach \x in {1,2,3,4,5,6} \draw[thick] (\x,0.08) -- (\x,-0.08);
+			% \foreach \y in {1,2,3,4} \draw[thick] (0.08,\y) -- (-0.08,\y);
+			\coordinate (A) at (1,1);
+			\coordinate (B) at (5,4);
+			\coordinate (C) at (5,1);
+			\draw[dashed, very thick] (1,0) node[below, font=\small, fill=white] {$x_A$} -- (A) -- (0,1) node[left, font=\small, fill=white] {$y_A$};
+			\draw[dashed, very thick] (5,0) node[below, font=\small, fill=white] {$x_B$} -- (C) -- (B) -- (0,4) node[left, font=\small, fill=white] {$y_B$};
+			\draw[dashed, very thick] (1,1) -- (5,1);
+			% \draw[thick, blue!80!black] (A) -- (C) node[midway, below, font=\small] {$x_B - x_A$};
+			\draw[thick, blue!80!black,<->] ($(A)+(0,-0.2)$) -- ($(C)+(0,-0.2)$) node[midway, below, font=\small] {$x_B - x_A$};
+			\draw[thick, blue!80!black,<->] ($(C)+(0.2,0)$) -- ($(B)+(0.2,0)$) node[midway, right, font=\small] {$y_B - y_A$};
+			\draw[very thick] (A) -- (B) node[midway, above, sloped] {$AB$};
+			\draw[thick] (4.7,1) -- (4.7,1.3) -- (5,1.3);
+			\fill[black] (A) circle (2.2pt) node[above left] {$A$};
+			\fill[black] (B) circle (2.2pt) node[above left] {$B$};
+			\fill[black] (C) circle (2.2pt) node[below right] {$C$};
+		\end{tikzpicture}
+	\end{wrapstuff}
+
+
+	Soient les points $A\coordl{x_A}{y_A}$ et $B\coordl{x_B}{y_B}$.
+
+	Considérons le point $C$ tel que : $C\coordl{x_B}{y_A}$.
+
+	On a :
+	\[
+		AC = (x_B - x_A) \quad \text{et} \quad BC = (y_B - y_A)
+	\]
+
+	D'après le théorème de Pythagore :
+	\[
+		AB^2 = AC^2 + BC^2
+	\]
+
+	Donc :
+	\[
+		\def\arraystretch{1.4}
+		\begin{array}{rcl}
+			     & AB^2 & = (x_B - x_A)^2 + (y_B - y_A)^2        \\
+			\eqv & AB   & = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}
+		\end{array}
+	\]
+\end{demo}
+
+\begin{ex}
+	\nline
+	\begin{wrapstuff}[r]
+		\begin{tikzpicture}[scale=0.6, >=Stealth]
+			\draw[step=1cm, gray!50, thin] (-4.5,-3.5) grid (6.5,5.5);
+			\draw[->, thick] (-4.5,0) -- (6.8,0) node[above] {\footnotesize $x$};
+			\draw[->, thick] (0,-3.5) -- (0,5.8) node[right] {\footnotesize $y$};
+			\foreach \x in {-4,-3,-2,-1,1,2,3,4,5,6} \draw[thick] (\x,0.08) -- (\x,-0.08) node[below, font=\small, fill=white] {\footnotesize $\x$};
+			\foreach \y in {-3,-2,-1,1,2,3,4,5} \draw[thick] (0.08,\y) -- (-0.08,\y) node[left, font=\small, fill=white] {\footnotesize $\y$};
+			\coordinate (A) at (6,5);
+			\coordinate (B) at (2,-3);
+			\coordinate (C) at (-4,0);
+			\draw[very thick] (A) -- (B) node[midway, fill=white, right] {$\sqrt{80}$};
+			\draw[very thick] (B) -- (C) node[midway, fill=white, below left] {$\sqrt{45}$};
+			\draw[very thick] (C) -- (A) node[midway, fill=white, above left] {$\sqrt{125}$};
+			\draw[very thick] (A) -- (B);
+			\draw[thick] ($(B)!0.3cm!(A) + ($(B)!0.3cm!(C)-(B)$)$) -- ($(B)!0.3cm!(A) + ($(B)!0.3cm!(C)-(B)$)$) -- ($(B)!0.3cm!(C)$);
+			\draw[thick] ($(B)!0.3cm!(A)$) -- ($(B)!0.3cm!(A) + ($(B)!0.3cm!(C)-(B)$)$) -- ($(B)!0.3cm!(C)$);
+			\fill[black] (A) circle (3pt) node[above right] {$A$};
+			\fill[black] (B) circle (3pt) node[below right] {$B$};
+			\fill[black] (C) circle (3pt) node[above left] {$C$};
+		\end{tikzpicture}
+	\end{wrapstuff}
+
+	Soient $A\coordl{6}{5}$, $B\coordl{2}{-3}$ et $C\coordl{-4}{0}$.
+
+	\begin{itemize}
+		\item $AB = \sqrt{(6-2)^2 + (5-(-3))^2} = \sqrt{4^2 + 8^2} = \sqrt{80}$
+		\item $BC = \sqrt{(2-(-4))^2 + ((-3)-0)^2} = \sqrt{6^2 + (-3)^2} = \sqrt{45}$
+		\item $AC = \sqrt{(6-(-4))^2 + (5-0)^2} = \sqrt{10^2 + 5^2} = \sqrt{125}$
+	\end{itemize}
+
+	D'une part, $AC^2 = \left(\sqrt{125}\right)^2 = 125$.
+
+	D'autre part, $AB^2 + BC^2 = \left(\sqrt{80}\right)^2 + \left(\sqrt{45}\right)^2 = 80 + 45 = 125$.
+
+	On constate que $AC^2 = AB^2 + BC^2$.
+
+	D'après la réciproque du théorème de Pythagore, le triangle $ABC$ est rectangle en $B$.
+
+	\rule{0mm}{8mm}
+\end{ex}
+
+\subsection{Alignement de 3 points}
+
+\begin{prop}
+	Soient $A$, $B$ et $C$ trois points distincts du plan.
+
+	Si $AC = AB + BC$, alors $A$, $B$ et $C$ sont alignés dans cet ordre.
+\end{prop}
+
+\begin{ex}
+	\nline
+	\begin{wrapstuff}[r]
+		\begin{tikzpicture}[scale=0.30, >=Stealth]
+			% \draw[step=2cm, gray!50, thin] (-1.5,-1.5) grid (23.5,14.5);
+			\draw[->, thick] (-1.5,0) -- (23.8,0) node[above] {\footnotesize $x$};
+			\draw[->, thick] (0,-1.5) -- (0,14.8) node[above] {\footnotesize $y$};
+			\foreach \x in {2,4,...,22} \draw[thick] (\x,0.15) -- (\x,-0.15) node[below, font=\small, fill=white] {$\x$};
+			\foreach \y in {2,4,...,14} \draw[thick] (0.15,\y) -- (-0.15,\y) node[left, font=\small, fill=white] {$\y$};
+			\coordinate (A) at (0,0);
+			\coordinate (B) at (8,0);
+			\coordinate (C) at (8,8);
+			\coordinate (D) at (0,8);
+			\coordinate (E) at (0,13);
+			\coordinate (F) at (21,0);
+			\draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+			\draw[very thick] (E) -- (C) node[midway, above right] {$\sqrt{89}$};
+			\draw[very thick] (C) -- (F) node[midway, above right] {$\sqrt{233}$};
+			% \draw[dashed, black!60, thick] (E) -- (F) node[midway, below left] {$\sqrt{610}$};
+			\fill[black] (A) circle (6pt) node[below left] {$A$};
+			\fill[black] (B) circle (6pt) node[above right] {$B$};
+			\fill[black] (C) circle (6pt) node[above right] {$C$};
+			\fill[black] (D) circle (6pt) node[above right] {$D$};
+			\fill[black] (E) circle (6pt) node[above right] {$E$};
+			\fill[black] (F) circle (6pt) node[above right] {$F$};
+		\end{tikzpicture}
+	\end{wrapstuff}
+
+	Soit $ABCD$ un carré de côté $8$ et deux points $E\coordl{0}{13}$ et $F\coordl{21}{0}$.
+
+	Les points $E$, $C$ et $F$ sont-ils alignés ?
+
+	On a $E\coordl{0}{13}$, $F\coordl{21}{0}$ et $C\coordl{8}{8}$.
+
+	\begin{itemize}
+		\item $EC = \sqrt{(8-0)^2 + (8-13)^2} = \sqrt{89} \approx 9,43398$
+		\item $CF = \sqrt{(21-8)^2 + (0-8)^2} = \sqrt{233} \approx 15,26433$
+		\item $EF = \sqrt{(21-0)^2 + (0-13)^2} = \sqrt{610} \approx 24,69817$
+	\end{itemize}
+
+	D'une part, $EC + CF \approx 9,43398 + 15,26433 = 24,698\mathbf{3}1$.
+
+	D'autre part, $EF \approx 24,698\mathbf{1}7$.
+
+	On observe que $EC + CF \neq EF$.
+
+	Les points $E$, $C$ et $F$ ne sont donc pas alignés.
+\end{ex}

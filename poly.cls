@@ -34,6 +34,8 @@
 \newtheorem*{definition}{\faBook\, Définition}
 \newtheorem*{methode}{\faLightbulb\, Méthode}
 \newtheorem*{exercice}{\faPenSquare\, Exercice}
+\newtheorem{exo}{\faPenSquare\, Exercice}[chapter]
+\renewcommand{\theexo}{\arabic{exo}}
 \theoremstyle{remark}
 \newtheorem*{demonstration}{\faSearch\, Démonstration}
 \newtheorem*{exemple}{Exemple}
@@ -52,7 +54,6 @@
 \newenvironment{defn}{\begin{definition}}{\end{definition}}
 \newenvironment{defin}{\begin{definition}}{\end{definition}}
 \newenvironment{meth}{\begin{methode}}{\end{methode}}
-\newenvironment{exo}{\begin{exercice}}{\end{exercice}}
 \newenvironment{demo}{\begin{demonstration}}{\end{demonstration}}
 \newenvironment{ex}{\begin{exemple}}{\end{exemple}}
 \newenvironment{exmpl}{\begin{exemple}}{\end{exemple}}
